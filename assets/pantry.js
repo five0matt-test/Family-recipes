@@ -43,9 +43,25 @@ else {
  function rowValue(el){return {name:el.querySelector('.r-name').value.trim(),quantity:Number(el.querySelector('.r-qty').value),unit:el.querySelector('.r-unit').value,location:el.querySelector('.r-loc').value,expires:el.dataset.expires||'',notes:el.dataset.notes||''};}
  $('voiceTab').onclick=()=>{$('voicePane').hidden=false;$('barcodePane').hidden=true;$('voiceTab').classList.add('selected');$('barcodeTab').classList.remove('selected');};
  $('barcodeTab').onclick=()=>{$('voicePane').hidden=true;$('barcodePane').hidden=false;$('barcodeTab').classList.add('selected');$('voiceTab').classList.remove('selected');};$('voiceTab').click();
- function splitGroceryEntries(text){
-   return text.replace(/\r/g,'').replace(/(?:,|;)\s*(?=(?:(?:add|put)\s+)?(?:\d+(?:\.\d+)?|a|an|one|two|three|four|five|six|seven|eight|nine|ten)\b)/gi,'\n').replace(/\s+and\s+(?=(?:(?:add|put)\s+)?(?:\d+(?:\.\d+)?|a|an|one|two|three|four|five|six|seven|eight|nine|ten)\b)/gi,'\n').split(/\n|;/).map(x=>x.trim().replace(/^(?:and|add|put)\s+/i,'')).filter(Boolean);
- }
+ 
+function splitGroceryEntries(text) {
+  const quantity = String.raw`(?:\d+(?:\.\d+)?|a|an|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)`;
+  const unit = String.raw`(?:lbs?|pounds?|oz|ounces?|gallons?|quarts?|pints?|cups?|cans?|jars?|bottles?|boxes?|bags?|packs?|packages?|pieces?|each)`;
+
+  // A new item starts with a quantity followed by a unit.
+  const newItem = new RegExp(
+    String.raw`\s*(?:,|;|\band\b)\s*(?=(?:(?:add|put)\s+)?${quantity}\s+${unit}\b)`,
+    'gi'
+  );
+
+  return text
+    .replace(/\r/g, '')
+    .replace(newItem, '\n')
+    .split(/\n|;/)
+    .map(x => x.trim().replace(/^(?:and|add|put)\s+/i, ''))
+    .filter(Boolean);
+}
+
  $('reviewBulk').onclick=()=>{const lines=splitGroceryEntries($('bulkText').value);if(!lines.length){$('voiceStatus').textContent='Enter at least one grocery item.';return;}reviewRows(lines.map(parseEntry));};
  $('cancelBulk').onclick=()=>{$('bulkReview').hidden=true;};
  $('saveBulk').onclick=async()=>{const rows=[...$('reviewRows').children].map(rowValue);if(!rows.length)return;for(const r of rows)if(!r.name||!Number.isFinite(r.quantity)||r.quantity<=0){alert('Check item names and quantities before saving.');return;}$('saveBulk').disabled=true;let done=0;try{for(const r of rows){await saveWithMerge(r);done++;} $('bulkReview').hidden=true;$('bulkText').value='';$('voiceStatus').textContent='Saved '+done+' item(s) to the shared pantry.';}catch(e){$('voiceStatus').textContent='Saved '+done+' items, then stopped: '+e.message+'. Review inventory before retrying to avoid duplicates.';}finally{$('saveBulk').disabled=false;}};
