@@ -9,27 +9,13 @@ else {
  const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
  const pantry=collection(db,'households','family','pantry');let user=null,items=[],unsubscribe=null,editing=null;
  $('signIn').onclick=async()=>{
-  $('authStatus').textContent='Starting Google sign-in...';
+  $('authStatus').textContent='Opening Google sign-in popup...';
   try{
-    sessionStorage.setItem('pantryAuthAttempt',String(Date.now()));
-    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if(isMobile){await signInWithRedirect(auth,provider)}
-    else{await signInWithPopup(auth,provider)}
+    await signInWithPopup(auth,provider);
   }catch(e){
-    sessionStorage.removeItem('pantryAuthAttempt');
     $('authStatus').textContent='Sign-in failed: '+(e.code||'unknown')+' — '+e.message;
   }
  };
- getRedirectResult(auth).then(result=>{
-   if(result){sessionStorage.removeItem('pantryAuthAttempt');}
-   else if(sessionStorage.getItem('pantryAuthAttempt')){
-     sessionStorage.removeItem('pantryAuthAttempt');
-     if(!auth.currentUser)$('authStatus').textContent='Google sign-in returned without a session. Safari may be blocking Firebase cross-domain redirect storage.';
-   }
- }).catch(e=>{
-   sessionStorage.removeItem('pantryAuthAttempt');
-   $('authStatus').textContent='Redirect failed: '+(e.code||'unknown')+' — '+e.message;
- });
  $('signOut').onclick=()=>signOut(auth);
  onAuthStateChanged(auth,u=>{user=u;if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
  const fields=['name','quantity','unit','location','expires','notes'];
