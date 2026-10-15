@@ -8,7 +8,19 @@ if(!ready){$('authStatus').textContent='Setup needed: add your Firebase web conf
 else {
  const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
  const pantry=collection(db,'households','family','pantry');let user=null,items=[],unsubscribe=null,editing=null;
- $('signIn').onclick=async()=>{try{await signInWithPopup(auth,provider)}catch(e){if(e.code==='auth/popup-blocked'){await signInWithRedirect(auth,provider)}else $('authStatus').textContent='Sign-in failed: '+e.message}};
+ $('signIn').onclick=async()=>{
+  $('authStatus').textContent='Starting Google sign-in...';
+  try{
+    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if(isMobile){
+      await signInWithRedirect(auth,provider);
+    }else{
+      await signInWithPopup(auth,provider);
+    }
+  }catch(e){
+    $('authStatus').textContent='Sign-in failed: '+(e.code||'')+' '+e.message;
+  }
+};
  getRedirectResult(auth).catch(e=>$('authStatus').textContent='Sign-in failed: '+e.message);
  $('signOut').onclick=()=>signOut(auth);
  onAuthStateChanged(auth,u=>{user=u;if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):'Sign in to see your shared household pantry.';if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
