@@ -11,19 +11,27 @@ else {
  $('signIn').onclick=async()=>{
   $('authStatus').textContent='Starting Google sign-in...';
   try{
+    sessionStorage.setItem('pantryAuthAttempt',String(Date.now()));
     const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if(isMobile){
-      await signInWithRedirect(auth,provider);
-    }else{
-      await signInWithPopup(auth,provider);
-    }
+    if(isMobile){await signInWithRedirect(auth,provider)}
+    else{await signInWithPopup(auth,provider)}
   }catch(e){
-    $('authStatus').textContent='Sign-in failed: '+(e.code||'')+' '+e.message;
+    sessionStorage.removeItem('pantryAuthAttempt');
+    $('authStatus').textContent='Sign-in failed: '+(e.code||'unknown')+' — '+e.message;
   }
-};
- getRedirectResult(auth).catch(e=>$('authStatus').textContent='Sign-in failed: '+e.message);
+ };
+ getRedirectResult(auth).then(result=>{
+   if(result){sessionStorage.removeItem('pantryAuthAttempt');}
+   else if(sessionStorage.getItem('pantryAuthAttempt')){
+     sessionStorage.removeItem('pantryAuthAttempt');
+     if(!auth.currentUser)$('authStatus').textContent='Google sign-in returned without a session. Safari may be blocking Firebase cross-domain redirect storage.';
+   }
+ }).catch(e=>{
+   sessionStorage.removeItem('pantryAuthAttempt');
+   $('authStatus').textContent='Redirect failed: '+(e.code||'unknown')+' — '+e.message;
+ });
  $('signOut').onclick=()=>signOut(auth);
- onAuthStateChanged(auth,u=>{user=u;if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):'Sign in to see your shared household pantry.';if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
+ onAuthStateChanged(auth,u=>{user=u;if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
  const fields=['name','quantity','unit','location','expires','notes'];
  function values(){return {name:$('name').value.trim(),quantity:Number($('quantity').value),unit:$('unit').value,location:$('location').value,expires:$('expires').value,notes:$('notes').value.trim()};}
  function reset(){editing=null;$('itemForm').reset();$('quantity').value='1';$('formTitle').textContent='Add an item';$('save').textContent='Add to pantry';$('cancel').hidden=true;}
