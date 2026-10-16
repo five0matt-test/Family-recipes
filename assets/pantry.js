@@ -79,9 +79,60 @@ function splitGroceryEntries(text) {
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition;
  if(!Speech){$('startVoice').textContent='Browser microphone unavailable';$('startVoice').disabled=true;$('voiceStatus').textContent='Use the microphone on your iPhone keyboard to dictate into the text box, then tap Review entries.';}
  else{$('startVoice').onclick=()=>{try{recognition=new Speech();recognition.lang='en-US';recognition.interimResults=false;recognition.continuous=false;recognition.onresult=e=>{const spoken=[...e.results].map(r=>r[0].transcript).join(' ');$('bulkText').value+=($('bulkText').value.trim()?'\n':'')+spoken;$('voiceStatus').textContent='Captured speech. Review and correct the text, then tap Review entries.';};recognition.onerror=e=>$('voiceStatus').textContent='Microphone: '+e.error+'. You can use keyboard dictation instead.';recognition.onend=()=>{$('startVoice').hidden=false;$('stopVoice').hidden=true;};recognition.start();$('startVoice').hidden=true;$('stopVoice').hidden=false;$('voiceStatus').textContent='Listening…';}catch(e){$('voiceStatus').textContent='Could not start microphone: '+e.message;}};$('stopVoice').onclick=()=>recognition?.stop();}
- let scanner=null,lastProduct=null;
- $('startScan').onclick=async()=>{try{$('barcodeStatus').textContent='Opening camera…';$('scanRegion').hidden=false;const scriptUrl='https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js';if(!window.Html5Qrcode){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=scriptUrl;s.onload=resolve;s.onerror=()=>reject(Error('Scanner library could not load. Enter barcode manually.'));document.head.append(s);});}scanner=new window.Html5Qrcode('scanRegion');await scanner.start({facingMode:'environment'},{fps:20,qrbox:{width:Math.min(320,Math.max(220,window.innerWidth-64)),height:160},aspectRatio:1.777778,disableFlip:true,formatsToSupport:[window.Html5QrcodeSupportedFormats.EAN_13,window.Html5QrcodeSupportedFormats.EAN_8,window.Html5QrcodeSupportedFormats.UPC_A,window.Html5QrcodeSupportedFormats.UPC_E]},async code=>{await stopScanner();$('barcodeNumber').value=code;$('barcodeStatus').textContent='Scanned '+code+'. Looking up product…';await lookup();},()=>{});$('startScan').hidden=true;$('stopScan').hidden=false;$('barcodeStatus').textContent='Hold a barcode steady inside the camera view.';}catch(e){$('barcodeStatus').textContent='Camera scanner unavailable: '+e.message+'. Enter barcode manually.';await stopScanner();}};
- async function stopScanner(){if(scanner){try{await scanner.stop();}catch{}try{scanner.clear();}catch{}scanner=null;}$('startScan').hidden=false;$('stopScan').hidden=true;$('scanRegion').hidden=true;}
+ let scanner=null,zxingReader=null,lastProduct=null,scanStarted=0,scanFound=false;
+ const loadScannerScript=(url,globalName)=>new Promise((resolve,reject)=>{
+  if(window[globalName])return resolve();
+  const script=document.createElement('script');script.src=url;script.onload=resolve;
+  script.onerror=()=>reject(Error('Scanner library failed to load'));
+  document.head.append(script);
+ });
+ async function barcodeDetected(code){
+  if(scanFound)return;
+  scanFound=true;
+  const seconds=((performance.now()-scanStarted)/1000).toFixed(1);
+  $('scanTiming').textContent='Barcode recognized in '+seconds+' seconds using '+($('scannerEngine').value==='zxing'?'ZXing':'html5-qrcode')+'.';
+  $('barcodeNumber').value=code;
+  $('barcodeStatus').textContent='Scanned '+code+'. Looking up product…';
+  await stopScanner();
+  await lookup();
+ }
+ $('startScan').onclick=async()=>{
+  try{
+   scanFound=false;
+   $('scanTiming').textContent='';
+   $('barcodeStatus').textContent='Opening camera…';
+   const alternative=$('scannerEngine').value==='zxing';
+   if(alternative){
+    await loadScannerScript('https://unpkg.com/@zxing/library@0.21.3/umd/index.min.js','ZXing');
+    const video=$('zxingVideo');video.hidden=false;
+    zxingReader=new window.ZXing.BrowserMultiFormatReader();
+    scanStarted=performance.now();
+    $('startScan').hidden=true;$('stopScan').hidden=false;
+    $('barcodeStatus').textContent='Point at the barcode and hold steady (ZXing).';
+    zxingReader.decodeFromVideoDevice(null,video,(result,error)=>{
+     if(result&&!scanFound)barcodeDetected(result.getText());
+    }).catch(e=>{if(!scanFound){$('barcodeStatus').textContent='ZXing scanner error: '+e.message;stopScanner();}});
+   }else{
+    $('scanRegion').hidden=false;
+    await loadScannerScript('https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js','Html5Qrcode');
+    scanner=new window.Html5Qrcode('scanRegion',{formatsToSupport:[
+     window.Html5QrcodeSupportedFormats.EAN_13,window.Html5QrcodeSupportedFormats.EAN_8,
+     window.Html5QrcodeSupportedFormats.UPC_A,window.Html5QrcodeSupportedFormats.UPC_E]});
+    await scanner.start({facingMode:'environment'},{fps:20,qrbox:{width:Math.min(320,Math.max(220,window.innerWidth-64)),height:160},aspectRatio:1.777778,disableFlip:true},barcodeDetected,()=>{});
+    scanStarted=performance.now();
+    $('startScan').hidden=true;$('stopScan').hidden=false;
+    $('barcodeStatus').textContent='Point at the barcode and hold steady (html5-qrcode).';
+   }
+  }catch(e){$('barcodeStatus').textContent='Camera scanner unavailable: '+e.message+'. Enter barcode manually.';await stopScanner();}
+ };
+ async function stopScanner(){
+  if(scanner){try{await scanner.stop()}catch{}try{scanner.clear()}catch{}scanner=null}
+  if(zxingReader){try{zxingReader.reset()}catch{}zxingReader=null}
+  const video=$('zxingVideo');
+  if(video.srcObject){for(const track of video.srcObject.getTracks())track.stop();video.srcObject=null}
+  video.hidden=true;$('scanRegion').hidden=true;
+  $('startScan').hidden=false;$('stopScan').hidden=true;
+ }
  $('stopScan').onclick=stopScanner;
  async function lookup(){const code=$('barcodeNumber').value.replace(/\D/g,'');$('barcodeResult').hidden=true;if(!/^\d{8,14}$/.test(code)){$('barcodeStatus').textContent='Enter a valid 8–14 digit barcode.';return;}$('lookupBarcode').disabled=true;try{const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=product_name,product_name_en,brands,quantity,code';const res=await fetch(url);if(!res.ok)throw Error('Lookup service returned '+res.status);const data=await res.json();if(data.status!==1||!data.product){$('barcodeStatus').textContent='Product not found. You can still enter it manually.';return;}const pr=data.product;lastProduct={name:(pr.product_name_en||pr.product_name||'').trim(),quantity:1,unit:'each',location:'Pantry',expires:'',notes:'Barcode '+code+(pr.quantity?' · Package '+pr.quantity:'')};if(!lastProduct.name){$('barcodeStatus').textContent='Product found but no name is available. Enter it manually.';return;}$('barcodeStatus').textContent='Product found. Check the name and package details before saving.';$('productSummary').textContent=lastProduct.name+(pr.brands?' · '+pr.brands:'')+(pr.quantity?' · '+pr.quantity:'');$('barcodeResult').hidden=false;}catch(e){$('barcodeStatus').textContent='Lookup failed: '+e.message+'. You can enter the item manually.';}finally{$('lookupBarcode').disabled=false;}}
  $('lookupBarcode').onclick=lookup;
