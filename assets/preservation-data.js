@@ -1,6 +1,6 @@
 // Original recipes are distinct from externally tested canning procedures.
 window.PRESERVATION_CATALOG={
-  "version": 9,
+  "version": 10,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -317,7 +317,7 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p12",
-      "title": "Refrigerator pickled jalapeños",
+      "title": "Refrigerator Pickled Jalapeños",
       "crops": [
         "Jalapeño",
         "Serrano",
@@ -330,8 +330,16 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mexican",
-      "notes": "Tangy taco topping; keep refrigerated, not shelf-stable.",
-      "amount": null
+      "notes": "An original taco topping, not a canning formula. Banana peppers or pepperoncini may replace jalapeños for a milder refrigerated version; serranos are hotter. Do not reduce vinegar strength. This three-day household limit is conservative, not a validated pickle shelf life.",
+      "amount": null,
+      "page": "recipes/refrigerator-pickled-jalapenos.html",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Jalapeño",
+        "grams": 453.59237,
+        "label": "1 lb jalapeños"
+      }
     },
     {
       "id": "p13",
@@ -358,21 +366,22 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p14",
-      "title": "Fermented chili mash for hot sauce",
+      "title": "Fermented hot sauce — Extension resources",
       "crops": [
         "Jalapeño",
         "Serrano",
-        "Other hot peppers",
-        "Garlic"
+        "Other hot peppers"
       ],
       "method": "Fermentation",
       "storage": "Refrigerated",
       "minutes": 40,
-      "source": "Family Recipes",
-      "url": "",
+      "source": "Oregon State University / University of Minnesota Extension",
+      "url": "https://foodsci.oregonstate.edu/curtin-lab/fermented-recipes",
       "flavor": "Mexican",
-      "notes": "Project guide only: validate salt concentration, acidity, and handling before publishing a complete process. Refrigerate finished product.",
-      "amount": null
+      "notes": "Open Oregon State’s complete fruit-pepper hot-sauce recipe and the Extension fermentation safety guide. These are external procedures, not validation of the previous chili-mash idea. Do not add garlic, tomatillos or other substitutions unless the chosen source permits them; use its full ingredient list, salt, equipment, temperature, acidity checks and storage directions. No local formula or shelf-stable process is supplied.",
+      "amount": null,
+      "referenceUrl": "https://extension.umn.edu/som/node/172346",
+      "reviewStatus": "External fermentation recipe and safety guide"
     },
     {
       "id": "p15",
@@ -416,7 +425,7 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p17",
-      "title": "Korean-inspired refrigerator kimchi",
+      "title": "Fresh Korean-Style Cabbage (Refrigerated)",
       "crops": [
         "Chinese / Napa cabbage",
         "Daikon radish",
@@ -425,12 +434,20 @@ window.PRESERVATION_CATALOG={
       ],
       "method": "Refrigerator pickling",
       "storage": "Refrigerated",
-      "minutes": 50,
+      "minutes": 20,
       "source": "Family Recipes",
       "url": "",
       "flavor": "Korean",
-      "notes": "Refrigerated seasoned cabbage; not a validated shelf-stable process or room-temperature fermentation.",
-      "amount": null
+      "notes": "A fresh geotjeori-inspired side, not fermented kimchi or a long-storage preserve. Vinegar here is seasoning, not proof of a safe acidification process. Eat within 3 days as a conservative household practice; no validated storage life is claimed.",
+      "amount": null,
+      "page": "recipes/refrigerator-kimchi-style-cabbage.html",
+      "referenceUrl": "https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Chinese / Napa cabbage",
+        "grams": 453.59237,
+        "label": "1 lb Napa cabbage"
+      }
     },
     {
       "id": "p18",
@@ -503,14 +520,12 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p21",
-      "title": "Dried herb seasoning blends",
+      "title": "Dried Mediterranean Herb Seasoning",
       "crops": [
         "Greek oregano",
         "Thyme",
         "Rosemary",
-        "Sage",
-        "Mint",
-        "Dill"
+        "Sage"
       ],
       "method": "Dehydrating",
       "storage": "Dried",
@@ -518,12 +533,15 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mediterranean",
-      "notes": "Dry herbs thoroughly with suitable food dehydration guidance; combine for Greek and Italian blends.",
-      "amount": null
+      "notes": "Drying yield varies widely. Keep leftover dried herbs separate. Crush just before use; start with 1 tsp blend per pound of vegetables or meat. Discard moldy herbs. If condensation appears after packing, remove herbs and finish drying; discard anything spoiled.",
+      "amount": null,
+      "page": "recipes/dried-herb-seasoning-blends.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/dry/drying-general/herbs/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p22",
-      "title": "Cilantro and parsley freezer portions",
+      "title": "Cilantro and Parsley Freezer Portions",
       "crops": [
         "Cilantro",
         "Flat-leaf parsley",
@@ -535,8 +553,16 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Versatile",
-      "notes": "Freeze small chopped portions for soups, rice and marinades.",
-      "amount": null
+      "notes": "Garlic chives can be used as a separate culinary herb portion. The water-cube variation is an original convenience method; the reference supports freezing fresh herbs generally. Freeze promptly after preparation.",
+      "amount": null,
+      "page": "recipes/cilantro-parsley-freezer-portions.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Cilantro",
+        "grams": 56.69904625,
+        "label": "2 oz cilantro"
+      }
     },
     {
       "id": "p23",
@@ -560,7 +586,7 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p24",
-      "title": "Freezer corn and pepper fajita mix",
+      "title": "Freezer Corn and Pepper Skillet Mix",
       "crops": [
         "Sweet corn",
         "Bell peppers",
@@ -572,12 +598,20 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mexican",
-      "notes": "Prepare each crop appropriately; freeze separately before mixing for skillet meals.",
-      "amount": null
+      "notes": "The reference batch reserves only the 1 lb peppers; corn is a secondary ingredient and is not deducted by the planner. Yield depends on ear size. Do not apply these blanching times to other vegetables.",
+      "amount": null,
+      "page": "recipes/freezer-corn-pepper-fajita-mix.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-corn/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Bell peppers",
+        "grams": 453.59237,
+        "label": "1 lb bell peppers"
+      }
     },
     {
       "id": "p25",
-      "title": "Freezer-ready okra",
+      "title": "Freezer-Ready Okra",
       "crops": [
         "Okra"
       ],
@@ -587,12 +621,20 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Cajun",
-      "notes": "Use validated freezing preparation before portioning for gumbo.",
-      "amount": null
+      "notes": "This is plain frozen okra, not a canning recipe. Avoid tough, overgrown pods. The reference also offers a separate breaded method; this page does not include that variation.",
+      "amount": null,
+      "page": "recipes/freezer-ready-okra.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-okra/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Okra",
+        "grams": 453.59237,
+        "label": "1 lb okra"
+      }
     },
     {
       "id": "p26",
-      "title": "Refrigerator dill cucumber pickles",
+      "title": "Refrigerator Dill Cucumber Pickles",
       "crops": [
         "Pickling cucumbers",
         "Slicing cucumbers",
@@ -605,8 +647,16 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "American",
-      "notes": "Crisp refrigerator pickles; do not store at room temperature.",
-      "amount": null
+      "notes": "Refrigerated only: no water-bath process is provided. Use within 3 days as a conservative household limit, not a source-validated shelf life. The reference describes general refrigerator-pickle preparation, not this exact batch.",
+      "amount": null,
+      "page": "recipes/refrigerator-dill-cucumber-pickles.html",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Pickling cucumbers",
+        "grams": 453.59237,
+        "label": "1 lb pickling cucumbers"
+      }
     },
     {
       "id": "p27",
@@ -634,7 +684,7 @@ window.PRESERVATION_CATALOG={
     },
     {
       "id": "p28",
-      "title": "Pickled carrot and daikon",
+      "title": "Refrigerator Carrot and Daikon Pickle",
       "crops": [
         "Carrots",
         "Daikon radish"
@@ -645,12 +695,20 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Vietnamese",
-      "notes": "Tangy banh mi and rice-bowl topping.",
-      "amount": null
+      "notes": "A Vietnamese-inspired refrigerator pickle, not a fermented or canned product. Use within 3 days as a conservative household practice. The planner reserves carrots only; the required 8 oz daikon is a separate ingredient.",
+      "amount": null,
+      "page": "recipes/pickled-carrot-daikon.html",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Carrots",
+        "grams": 226.796185,
+        "label": "8 oz carrots"
+      }
     },
     {
       "id": "p29",
-      "title": "Freeze shredded zucchini",
+      "title": "Zucchini and Summer Squash Freezer Prep",
       "crops": [
         "Zucchini",
         "Pattypan squash"
@@ -661,28 +719,44 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Versatile",
-      "notes": "Portion for fritters, bread and savory bakes; account for moisture after thawing.",
-      "amount": null
+      "notes": "Freezing softens squash. The zucchini batch reference is raw weight; measured grated volume varies. The source distinguishes steam-blanched grated zucchini from water-blanched sliced summer squash.",
+      "amount": null,
+      "page": "recipes/zucchini-summer-squash-freezer-prep.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-summer-squash/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Zucchini",
+        "grams": 453.59237,
+        "label": "1 lb zucchini"
+      }
     },
     {
       "id": "p30",
-      "title": "Frozen pumpkin purée",
+      "title": "Frozen Pumpkin or Winter Squash Purée",
       "crops": [
         "Seminole pumpkin",
         "Butternut squash"
       ],
       "method": "Freezing",
       "storage": "Frozen",
-      "minutes": 70,
+      "minutes": 15,
       "source": "Family Recipes",
       "url": "",
       "flavor": "Versatile",
-      "notes": "Cook, purée, cool promptly and freeze; never home-can pumpkin purée.",
-      "amount": null
+      "notes": "The 70-minute estimate is preparation/cooking only and depends on squash thickness. Raw weight does not predict finished purée volume; weigh or measure after cooking. Freeze promptly after cooling.",
+      "amount": null,
+      "page": "recipes/frozen-pumpkin-puree.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-pumpkin/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Seminole pumpkin",
+        "grams": 907.18474,
+        "label": "2 lb whole pumpkin"
+      }
     },
     {
       "id": "p31",
-      "title": "Frozen citrus zest and juice",
+      "title": "Frozen Citrus Zest and Juice",
       "crops": [
         "Meyer lemons",
         "Satsumas / mandarins"
@@ -693,12 +767,15 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Bright",
-      "notes": "Freeze zest and juice separately for marinades, dressings and baking.",
-      "amount": null
+      "notes": "Unsweetened juice; no canning. Yield varies with fruit size and ripeness. Use only glass specifically rated for freezing, never narrow-neck bottles filled to the top. This is not a validated substitution for bottled lemon juice in canning.",
+      "amount": null,
+      "page": "recipes/frozen-citrus-zest-juice.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/fruits/freezing-citrus-fruits/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p32",
-      "title": "Frozen figs",
+      "title": "Unsweetened Frozen Figs",
       "crops": [
         "Figs"
       ],
@@ -708,28 +785,39 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mediterranean",
-      "notes": "Freeze in small portions for compotes, sauces and desserts.",
-      "amount": null
+      "notes": "This is an unsweetened tray pack. Pale varieties may darken; the source provides an optional ascorbic-acid treatment if color retention matters. No extra fruit acid is needed for this freezer preparation.",
+      "amount": null,
+      "page": "recipes/frozen-figs.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/fruits/freezing-figs/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Figs",
+        "grams": 453.59237,
+        "label": "1 lb figs"
+      }
     },
     {
       "id": "p33",
-      "title": "Dried mint and chamomile tea",
+      "title": "Dried Mint and Chamomile Tea Blend",
       "crops": [
         "Mint",
         "Chamomile"
       ],
       "method": "Dehydrating",
       "storage": "Dried",
-      "minutes": 30,
+      "minutes": 15,
       "source": "Family Recipes",
       "url": "",
       "flavor": "Tea",
-      "notes": "Use correctly identified food-grade plants and complete drying guidance.",
-      "amount": null
+      "notes": "Drying time is variable; 6 hours is an estimate, not a guaranteed endpoint. Store dry herbs in a cool, dark cupboard; discard moldy material. Chamomile may cause reactions in people sensitive to ragweed-related plants. This is a culinary beverage, not a medical treatment.",
+      "amount": null,
+      "page": "recipes/dried-mint-chamomile-tea.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/dry/drying-general/herbs/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p34",
-      "title": "Freezer chopped onion and leek mix",
+      "title": "Chopped Onion and Leek Freezer Mix",
       "crops": [
         "Yellow onions",
         "Sweet onions",
@@ -743,12 +831,20 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Weeknight",
-      "notes": "Freeze in cooking portions for soups, braises and stir-fries.",
-      "amount": null
+      "notes": "NCHFP supports diced onion freezing without blanching; UNH includes cut leeks among no-blanch exceptions. MSU advises that frozen leeks can become mushy and bitter. Try a small batch before committing a large harvest. Green onions may be frozen separately, but are not weighed in this batch.",
+      "amount": null,
+      "page": "recipes/onion-leek-freezer-mix.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-onions/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Yellow onions",
+        "grams": 453.59237,
+        "label": "1 lb yellow onions"
+      }
     },
     {
       "id": "p35",
-      "title": "Garlic and herb freezer portions",
+      "title": "Garlic and Herb Freezer Portions (No Oil)",
       "crops": [
         "Garlic",
         "Garlic chives",
@@ -760,28 +856,43 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mediterranean",
-      "notes": "Keep garlic-in-oil preparations frozen, never at room temperature.",
-      "amount": null
+      "notes": "Original water-based culinary blend; the garlic reference discusses garlic-in-oil hazards, not validation of this exact paste. A tablespoon is a convenience portion, not a guaranteed garlic-clove equivalent. Freeze immediately after mixing.",
+      "amount": null,
+      "page": "recipes/garlic-herb-freezer-portions.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Garlic",
+        "grams": 113.3980925,
+        "label": "4 oz peeled garlic"
+      }
     },
     {
       "id": "p36",
-      "title": "Sweet potato freezer prep",
+      "title": "Cooked Sweet Potato Freezer Portions",
       "crops": [
-        "Sweet potatoes",
-        "Potatoes"
+        "Sweet potatoes"
       ],
       "method": "Freezing",
       "storage": "Frozen",
-      "minutes": 60,
+      "minutes": 15,
       "source": "Family Recipes",
       "url": "",
       "flavor": "Southern",
-      "notes": "Use validated vegetable-specific cooking and freezing instructions; texture changes after thawing.",
-      "amount": null
+      "notes": "Sweet potatoes only: white/Irish potatoes need a different freezing procedure and are no longer matched to this recipe. Finished volume varies. No canning directions are provided; do not can mashed sweet potatoes.",
+      "amount": null,
+      "page": "recipes/sweet-potato-freezer-prep.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-sweet-potatoes/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Sweet potatoes",
+        "grams": 907.18474,
+        "label": "2 lb sweet potatoes"
+      }
     },
     {
       "id": "p37",
-      "title": "Frozen roasted tomato base",
+      "title": "Frozen Roasted Tomato Sauce Starter",
       "crops": [
         "Cherry tomatoes",
         "Roma / paste tomatoes",
@@ -790,16 +901,24 @@ window.PRESERVATION_CATALOG={
       ],
       "method": "Freezing",
       "storage": "Frozen",
-      "minutes": 65,
+      "minutes": 20,
       "source": "Family Recipes",
       "url": "",
       "flavor": "Italian",
-      "notes": "Roast tomatoes with garlic and herbs; freeze as sauce starter.",
-      "amount": null
+      "notes": "An original cooked freezer base. Yield depends on tomato water content. Added garlic and oil mean this must not be treated as a tested plain-tomato canning recipe; no acidity or process has been validated. The source supports freezing cooked tomato products generally.",
+      "amount": null,
+      "page": "recipes/frozen-roasted-tomato-base.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-tomatoes/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Roma / paste tomatoes",
+        "grams": 907.18474,
+        "label": "2 lb tomatoes"
+      }
     },
     {
       "id": "p38",
-      "title": "Herb-forward Greek marinade starter",
+      "title": "Greek Lemon-Herb Freezer Starter",
       "crops": [
         "Meyer lemons",
         "Greek oregano",
@@ -813,12 +932,15 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mediterranean",
-      "notes": "Freeze citrus-herb marinade base without raw meat.",
-      "amount": null
+      "notes": "A culinary freezer blend, not a shelf-stable preserve. Add oil only when using a thawed portion. Yield is approximate because herbs change volume. The planner does not estimate whole-lemon weights from juice volume.",
+      "amount": null,
+      "page": "recipes/greek-marinade-freezer-starter.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/fruits/freezing-citrus-fruits/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p39",
-      "title": "Cilantro-lime salsa starter",
+      "title": "Cilantro-Citrus Salsa Starter",
       "crops": [
         "Cilantro",
         "Jalapeño",
@@ -831,8 +953,16 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mexican",
-      "notes": "Freeze for later finishing; citrus flavor may change after thawing.",
-      "amount": null
+      "notes": "Use lime for a sharper flavor or Meyer lemon for a gentler citrus note. Frozen cilantro loses fresh texture, so finish with fresh leaves if available. No room-temperature fermentation or canning.",
+      "amount": null,
+      "page": "recipes/cilantro-citrus-salsa-starter.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/",
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "batch": {
+        "crop": "Cilantro",
+        "grams": 56.69904625,
+        "label": "2 oz cilantro"
+      }
     }
   ]
 };

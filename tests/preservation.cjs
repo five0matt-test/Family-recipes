@@ -9,6 +9,7 @@ const catalogContext={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/preservation-data.js'),'utf8'),catalogContext);
 const catalog=catalogContext.window.PRESERVATION_CATALOG;
 const entries=catalog.entries.filter(e=>e.photo);
+const completeEntries=catalog.entries.filter(e=>e.page);
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/';
 (async()=>{
 assert.equal(entries.length,11);
@@ -50,9 +51,9 @@ for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
   for(const method of new Set(catalog.entries.map(e=>e.method))){await page.locator('#method').selectOption(method);await checkCards(catalog.entries.filter(e=>e.method===method))}
   await page.locator('#method').selectOption('');
   for(const flavor of new Set(catalog.entries.map(e=>e.flavor))){await page.locator('#flavor').selectOption(flavor);await checkCards(catalog.entries.filter(e=>e.flavor===flavor))}
-  await page.locator('#flavor').selectOption('');await page.locator('#completeOnly').check();await checkCards(entries);
+  await page.locator('#flavor').selectOption('');await page.locator('#completeOnly').check();await checkCards(completeEntries);
   if(width===390){const style=await page.addStyleTag({content:'html{font-size:200%}'});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'200% library text overflow');await style.evaluate(e=>e.remove())}
-  await page.locator('#q').fill('  PESTO  ');await checkCards(entries.filter(e=>[e.title,e.notes,e.flavor,...e.crops].join(' ').toLowerCase().includes('pesto')));
+  await page.locator('#q').fill('  PESTO  ');await checkCards(completeEntries.filter(e=>[e.title,e.notes,e.flavor,...e.crops].join(' ').toLowerCase().includes('pesto')));
   await page.locator('#crop').selectOption('Genovese / sweet basil');await page.locator('#method').selectOption('Freezing');await page.locator('#flavor').selectOption('Italian');await checkCards(entries.filter(e=>e.id==='p20'));
   await page.locator('#q').fill('nothing-matches-xyz');await checkCards([]);assert.ok((await page.locator('#cards').innerText()).includes('No matching'));
   await visit('preservation/index.html');await page.locator('.pres-actions a[href="harvest.html"]').click();assert.ok(page.url().endsWith('/preservation/harvest.html'));

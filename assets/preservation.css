@@ -18,3 +18,7 @@ body{max-width:1000px;margin:28px auto;padding:0 17px}.pres-grid{display:grid;gr
 .pres-recipe h1,.pres-plan-list{overflow-wrap:anywhere}.pres-controls button,.pres-actions button,.pres-plan button,.site-nav a{min-height:44px}.pres-storage{border-top:1px solid var(--line);margin-top:24px;padding-top:8px}.pres-toggle label{min-height:44px}
 
 .pres-equipment{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:4px 10px}.pres-equipment label{display:flex;align-items:center;gap:8px;min-height:44px}.pres-equipment input{width:18px;height:18px;flex:none}@media(max-width:560px){.pres-controls .pres-wide{grid-column:1/-1}}
+.pres-recipe a{overflow-wrap:anywhere}
+.pres-recipe{overflow-wrap:anywhere}
+.pres-card{min-width:0;overflow-wrap:anywhere}
+.pres-alert{overflow-wrap:anywhere}.pres-toggle label>span{min-width:0}.pres-toggle input{flex:none}
