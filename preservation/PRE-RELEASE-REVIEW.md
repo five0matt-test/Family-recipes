@@ -116,3 +116,30 @@ This follow-up reruns checks rather than treating the earlier report as a fresh 
 ### Still required before release
 
 Physical iPhone/iPad Safari (keyboard, download/share, wake lock); actual AnyList imports of both recipes; physical print output; screen-reader/full accessibility review; signed-in pantry and shared preferences; kitchen/taste/storage review of original recipes. No laboratory/pH/shelf-life validation, live deployment, merge or owner approval occurred. Earlier external-source audit is retained as historical evidence; all 15 URLs were not rechecked in this follow-up.
+
+## Print and accessibility continuation — October 28, 2026
+
+### Defects corrected
+
+- Printing while Cooking mode was active hid ingredients, directions, notes and the hero, while also hiding the cooking panel. Print CSS now restores the complete recipe, removes checked/completed styling and suppresses interactive controls. A smaller print hero reduces paper use without clipping it.
+- Assigning `checkbox`/`button` roles directly to list items broke native list semantics. Ingredient and direction list items now contain native toggle buttons with `aria-pressed`; directions retain their full accessible name. Scaling updates button text without destroying the control.
+- Cooking mode now focuses its Exit control on entry and returns focus to its trigger on exit. The displayed step announces changes politely. Serving +/- controls have descriptive accessible names. Completed-item text has darker screen contrast and prints as normal text.
+
+### Verification and limits
+
+- `tests/release-accessibility.cjs` passes in Chromium 141 and Linux WebKit 26.5 at 390 × 844: native list structure, Space/Enter toggle state, direction accessible names, entry/exit focus, complete print-media content while Cooking mode is active, hidden print controls and cleared completion styling.
+- axe-core 4.10.3 WCAG 2 A/AA and 2.1 AA scans report zero violations for the signed-out homepage, library, helper, pantry shell, both updated recipe pages and their cooking states in both engines. This is an automated scan of these states, not WCAG conformance certification or VoiceOver testing. Home shared preferences are stubbed; pantry inventory stays hidden and no authentication or inventory writes are performed.
+- Shared ingredient/direction controls (and serving reset where offered) were also checked across all 18 main recipe pages in both engines. The recipe regression suite passes again at all six widths in both engines, including 200% recipe text at 390px, scaling/reset, JSON-LD, keyboard ingredient activation and navigation. All 29 Recipe JSON-LD documents and 206 local recipe references still pass.
+- Chromium-generated US Letter print PDFs of both recipes were rendered and visually inspected. Each contains two pages, complete ingredient/direction/notes content and no cooking controls. Real printers, iOS print dialogs and physical pagination remain unverified.
+- All 11 preservation photographs were visually reviewed together. They depict the expected general food families; initial 688px source resolution remains a limit. Roasted poblano imagery shows whole roasted peppers rather than finished strips, pesto is shown in a bowl rather than frozen cubes, and Mediterranean herb portions do not clearly establish the water-based medium. Treat these as illustrative preparation images pending owner editorial acceptance or replacement; do not claim exact finished-form accuracy. No substitute photographs were introduced.
+
+Reproduce with Playwright installed and a local server:
+
+```sh
+node tests/recipe-release.cjs
+AXE_SCRIPT_PATH=/absolute/path/to/axe-core/axe.min.js node tests/release-accessibility.cjs
+```
+
+`TEST_BASE_URL`, `TEST_BROWSERS` and `CHROMIUM_EXECUTABLE_PATH` are supported. `PRINT_QA_DIR` optionally writes temporary Chromium print previews. With no `AXE_SCRIPT_PATH`, the suite explicitly reports the axe scan as skipped; functional keyboard/print checks still run.
+
+Remaining owner/device work: physical iPhone/iPad Safari, iOS download/share/wake-lock and printing; actual AnyList imports; VoiceOver/full manual accessibility review; signed-in pantry/shared preferences; kitchen testing and storage review; final imagery acceptance. No merge, main change, deployment or final owner approval is implied by this continuation.

@@ -51,3 +51,12 @@ Verify the eleven existing full recipes and develop ingredient reference batches
 - [x] Correct sourdough gram-unit scaling, soup ingredient import lines, slow-cooker handling/timing and enlarged-title wrapping.
 - [x] Confirm final recipe regression suite passes in WebKit/Chromium at all six widths, including enlarged text, 29 structured recipes and 206 local references.
 - [ ] Owner final release approval; keep draft PR #2 unmerged and do not deploy.
+
+## Print/accessibility continuation
+- [x] Fix printing from active Cooking mode; verify complete recipes in print media in WebKit and Chromium.
+- [x] Render and visually inspect two-page Chromium US Letter previews for sourdough and Caldo Verde.
+- [x] Preserve native recipe lists and test Space/Enter toggle state, meaningful direction names and cooking entry/exit focus.
+- [x] Run axe-core WCAG A/AA scans on signed-out home/library/helper/pantry and both recipe/cooking states in WebKit/Chromium (zero violations in tested states).
+- [x] Visually review all 11 preservation images and document preparation-stage/finished-form differences.
+- [ ] Owner acceptance or replacement of illustrative preservation photos, especially poblano strips, pesto cubes and herb-cube medium.
+- [ ] Physical iPhone/AnyList/print/VoiceOver checks and kitchen testing; automated passes do not close these items.

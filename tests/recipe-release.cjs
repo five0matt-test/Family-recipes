@@ -47,7 +47,7 @@ for(const name of (process.env.TEST_BROWSERS||'chromium,webkit').split(',')){
    await page.locator('.cook-toggle').click();assert.ok(await page.locator('.cook-panel').isVisible());
    await page.locator('.cook-next').click();assert.equal(await page.locator('.cook-count').innerText(),'Step 2 of '+d.recipeInstructions.length);
    await page.locator('.cook-close').click();
-   await page.locator('.ingredient-list li').first().focus();await page.keyboard.press('Space');assert.equal(await page.locator('.ingredient-list li').first().getAttribute('aria-checked'),'true');
+   await page.locator('.ingredient-toggle').first().focus();await page.keyboard.press('Space');assert.equal(await page.locator('.ingredient-toggle').first().getAttribute('aria-pressed'),'true');
    await page.locator('[data-back]').first().click();assert.ok(page.url().includes('index.html'));
   }
   assert.deepEqual(errors,[]);await page.close();console.log('PASS recipes',name,width,'cards, photos, JSON-LD, ingredients, tools, links, layout');
