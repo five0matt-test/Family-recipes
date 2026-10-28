@@ -1,6 +1,6 @@
-// Shared preservation catalog. Batch figures apply ONLY to specified original recipes, not tested canning formulas.
+// Shared catalog: only entries with page have detailed recipe pages; tested canning links require source verification.
 window.PRESERVATION_CATALOG={
-  "version": 3,
+  "version": 4,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -278,8 +278,14 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mexican",
-      "notes": "Roast and blend to taste; cool promptly and freeze. Not a shelf-stable canning recipe.",
-      "amount": null
+      "notes": "A smoky taco salsa for carne asada, pollo adobado and grilled meats. Use more serrano for Dad or Son and less for Mom. This is not a tested canning recipe.",
+      "amount": null,
+      "page": "recipes/smoky-salsa-tatemada-freezer.html",
+      "batch": {
+        "crop": "Roma / paste tomatoes",
+        "grams": 907.18474,
+        "label": "2 lb tomatoes"
+      }
     },
     {
       "id": "p11",
@@ -373,8 +379,9 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Thai",
-      "notes": "Freeze leaves or chopped herb portions for stir-fries and curry.",
-      "amount": null
+      "notes": "Convenient for Thai basil chicken, panang beef and coconut soups. Freeze in small portions for cooking; best flavor within 2–3 months.",
+      "amount": null,
+      "page": "recipes/thai-basil-freezer-portions.html"
     },
     {
       "id": "p16",
@@ -468,8 +475,9 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Italian",
-      "notes": "Freeze pesto portions for pasta, sandwiches and grilled chicken.",
-      "amount": null
+      "notes": "Use for pasta, grilled chicken, sandwiches and vegetable bowls. For best flavor use within 2–3 months. Do not can pesto or store homemade garlic-in-oil pesto unrefrigerated.",
+      "amount": null,
+      "page": "recipes/basil-pesto-freezer-cubes.html"
     },
     {
       "id": "p21",
@@ -521,11 +529,13 @@ window.PRESERVATION_CATALOG={
       "method": "Freezing",
       "storage": "Frozen",
       "minutes": 40,
-      "source": "Family Recipes",
+      "source": "National Center for Home Food Preservation",
       "url": "",
       "flavor": "Southern",
-      "notes": "Follow crop-specific blanching guidance, then portion for caldo verde, soups and braises.",
-      "amount": null
+      "notes": "Blanching varies by green. Check the authoritative crop-specific instructions before proceeding; this is a prep guide, not a substitute for those instructions.",
+      "amount": null,
+      "page": "recipes/freezer-collard-greens-packs.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/"
     },
     {
       "id": "p24",
@@ -590,8 +600,14 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mexican",
-      "notes": "Topping for tacos, picanha and rice bowls; refrigerate.",
-      "amount": null
+      "notes": "For tacos, bowls, picanha and sandwiches. No cucumbers. This is a refrigerator pickle, not a shelf-stable canning recipe.",
+      "amount": null,
+      "page": "recipes/quick-pickled-red-onions.html",
+      "batch": {
+        "crop": "Red onions",
+        "grams": 226.796185,
+        "label": "8 oz red onion"
+      }
     },
     {
       "id": "p28",
