@@ -1,4 +1,4 @@
-// Catalog photo paths are staged for upload; missing images have text-only fallbacks.
+// Recipe photos live in assets/preservation-images; missing images have text-only fallbacks.
 window.PRESERVATION_CATALOG={
   "version": 8,
   "crops": [

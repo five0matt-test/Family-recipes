@@ -12,11 +12,14 @@ function harvestById(id){return state.harvests.find(x=>x.id===id)}
 function allocated(id){return state.allocations.filter(x=>x.harvestId===id).reduce((n,x)=>n+x.grams,0)}
 function recipeFor(id){return catalog.entries.find(x=>x.id===id)}
 function render(){
+const selectedHarvest=$("planHarvestSelect").value,selectedRecipe=$("planRecipeSelect").value;
 $("planHarvests").innerHTML=state.harvests.map(h=>'<li><strong>'+esc(h.crop)+'</strong> — '+fmt(h.grams)+' total, '+fmt(Math.max(0,h.grams-allocated(h.id)))+' unallocated <button type="button" data-remove-harvest="'+h.id+'">Remove</button></li>').join("")||'<li>Add a crop to start your plan.</li>';
 $("planHarvestSelect").innerHTML=state.harvests.map(h=>'<option value="'+h.id+'">'+esc(h.crop)+' — '+fmt(Math.max(0,h.grams-allocated(h.id)))+' remaining</option>').join("");
+if(state.harvests.some(h=>String(h.id)===selectedHarvest))$("planHarvestSelect").value=selectedHarvest;
 const h=harvestById(Number($("planHarvestSelect").value))||state.harvests[0];
 const choices=h?catalog.entries.filter(e=>e.page&&e.batch&&e.batch.crop===h.crop&&e.batch.grams>0):[];
 $("planRecipeSelect").innerHTML=choices.map(e=>'<option value="'+esc(e.id)+'">'+esc(e.title)+' — '+esc(e.batch.label)+'/batch</option>').join("");
+if(choices.some(e=>e.id===selectedRecipe))$("planRecipeSelect").value=selectedRecipe;
 $("planAllocationHelp").textContent=h?(choices.length?"Select a recipe and number of complete reference batches. Each batch consumes the listed raw primary ingredient quantity.":"No verified ingredient reference batch is available for this crop yet. It can still be tracked, but not allocated automatically."):"Add a crop before assigning batches.";
 $("planAddAllocation").disabled=!choices.length;
 $("planAllocations").innerHTML=state.allocations.map((a,i)=>{const h=harvestById(a.harvestId),e=recipeFor(a.recipeId);return '<li><strong>'+esc(e.title)+'</strong> — '+a.batches+' batch(es), '+fmt(a.grams)+' of '+esc(h.crop)+' <a href="'+esc(e.page)+'">Recipe</a> <button type="button" data-remove-allocation="'+i+'">Remove</button></li>'}).join("")||'<li>No batches assigned yet.</li>';
