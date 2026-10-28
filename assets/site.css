@@ -18,3 +18,21 @@
 .plan-card[hidden]{display:none!important}
 @media(max-width:650px){.recipe-actions{gap:6px}.plan-filters label:first-child{width:100%}.plan-filters input{width:100%}}
 @media print{.recipe-actions,.plan-filters{display:none!important}}
+/* Long recipe titles must wrap when readers enlarge text on narrow screens. */
+main h1{overflow-wrap:anywhere}
+
+/* Native controls keep ingredient/direction lists meaningful to assistive tools. */
+.ingredient-toggle,.instruction-toggle{font:inherit;color:inherit;text-align:left;background:transparent;border:0;border-radius:4px;padding:4px 0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.ingredient-list li.checked,.instruction-list li.done-step{color:#52665a}
+.ingredient-list li.checked .ingredient-toggle,.instruction-list li.done-step .instruction-toggle{text-decoration:line-through}
+@media print{
+ .cooking-mode main>h2,.cooking-mode main>.ingredient-list,.cooking-mode main>.instruction-list,.cooking-mode main>aside,.cooking-mode main>img{display:block!important}
+ .cooking-mode main{font-size:1rem;max-width:none}
+ .ingredient-list li.checked,.instruction-list li.done-step{color:black!important;text-decoration:none!important}
+ .ingredient-toggle,.instruction-toggle{color:black!important;text-decoration:none!important;padding:0}
+ .instruction-list li,.cooking-mode .instruction-list li{background:none!important;border:0!important;padding:0!important;margin:9px 0!important}
+ h1,h2,h3{break-after:avoid}
+ main>img{max-height:220px!important;width:auto!important;max-width:100%!important;height:auto!important}
+}
+.ingredient-toggle,.instruction-toggle{vertical-align:top}
+@media print{.ingredient-toggle,.instruction-toggle{display:contents!important}}

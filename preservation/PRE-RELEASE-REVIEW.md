@@ -1,0 +1,145 @@
+# Preservation Library pre-release review
+
+Reviewed October 28, 2026, on `feature/preservation-library-harvest-helper` for draft PR #2. This report supersedes the earlier photography-only verification. No merge, hosting change or update to `main` is part of this review.
+
+## Browser and functional results
+
+Playwright checks cover Linux WebKit (build 2336) and Chromium Headless Shell 141.0.7390.37 at 1280, 844, 430, 390, 375 and 320 CSS pixels. The 844px viewport uses a 390px landscape height. Portrait widths below 500px use mobile/touch emulation and a 3x device scale. Tests run under a project-directory URL prefix to exercise GitHub Pages-style relative links. Additional 390px/320px checks cover the final mobile-control changes and enlarged text.
+
+| Area | Result |
+| --- | --- |
+| Photos | All 11 catalog photos and 11 recipe heroes decode, match their paths, fit the viewport, and use consistent cover cropping. Card thumbnail heights match. Original binary files are unchanged. |
+| Filters | All 70 crop selections, every method/flavor option, the 11-recipe toggle, case-insensitive trimmed text, a combined intersection, and the empty state match the catalog. |
+| Navigation | Library → helper; preservation → Recipes/meal plans/pantry → preservation; all 11 recipe-to-helper links with matching crop preselection. 120 local preservation file references resolve. |
+| Planner | Multi-crop tracking, duplicate-crop merging, lb/oz/g conversions, whole batches, multiple allocations, correct remaining crops, selection retention, allocation removal, cascading crop removal and disabled empty export. |
+| Invalid inputs | Blank/zero/negative/over-limit harvest weights; blank/zero/negative/fractional/over-limit batches; ordinary and sub-milligram over-allocation are rejected. |
+| Precision | Positive tiny remainders display in grams instead of disappearing as `0 lb`. Floating-point residue from an exactly consumed harvest displays as zero. |
+| Export | Actual text download is read and checked for filename, totals, batch counts, unallocated weights, project-relative recipe URLs and limitations. |
+| Single-crop helper | Equivalent lb/oz/g batch estimates; count/bunches do not get weight-based estimates; unavailable freezer warning; invalid quantity rejection. Equipment and time rank suggestions rather than strictly excluding them. |
+| Responsive/accessibility | No document overflow in tested library/recipe/helper layouts, including populated helper. 200% text tested at 390px on library, all recipe pages and helper. Equipment labels have 44px minimum tap height; mobile recipe selector uses a full row. |
+| Recipe imports | Visible directions agree with Recipe JSON-LD after instruction edits. This checks data consistency, not actual AnyList import behavior. |
+| Runtime | No page JavaScript errors or HTTP errors during preservation flows. Signed-in pantry/Firebase operations are outside this test. |
+
+## Issues found and corrected
+
+- The mixed-vegetable canning note incorrectly prohibited tomatoes and zucchini, although both are in the linked NCHFP base recipe. It now directs readers to that source's full method and expressly permitted variations/exclusions. No canning formula or processing table is reproduced or scaled by the site.
+- Smoky tomato salsa was matched to tomatillos, and red-onion pickles to Meyer lemons, although those ingredients are absent from the linked originals. Those matches were removed.
+- The greens page was represented as an NCHFP recipe and matched more greens than its actual ingredients. It is now attributed to Family Recipes, covers collards/kale, gives their separate blanching times, and links both the NCHFP greens page and general blanching method. Visible and importable instructions were updated together.
+- The herb-cube card mentioned oil although its recipe uses water. The description now matches the recipe.
+- Daikon pickles specified rice vinegar without acidity. The ingredient now explicitly calls for distilled white vinegar labeled 5% acidity. Refrigerator-pickle pages add brine, cold-storage and no-canning guidance. Their previous one-week suggestions were replaced with a conservative three-day household limit, explicitly not a tested shelf life.
+- Original recipes and project briefs were conflated in the overview. Cards and pages now distinguish original recipes from external tested canning procedures; related guidance does not imply validation of an original formula.
+- Recipe pages add numeric cold-storage temperatures, prompt cooling guidance, food-handling sources and consistent helper links. Pesto retains its NCHFP three-day refrigerator limit. Garlic paste remains a freezer preparation.
+- The planner rounded tiny positive remainders to zero and allowed up to 0.001g of over-allocation. It now shows small quantities in grams and uses a tolerance limited to floating-point precision.
+- Final mobile review found compressed equipment labels and a narrow recipe dropdown. Equipment labels now have larger tap areas, and the mobile recipe selector spans a full row.
+
+## Recipe-by-recipe editorial review
+
+These are original culinary recipes or adaptations, not laboratory-tested preservation formulas. The review checks instructions against general handling/method guidance; it does not establish pH, commercial sterility, sensory quality or shelf life.
+
+| Recipe | Review and remaining qualification |
+| --- | --- |
+| Roasted tomatillo salsa verde | Freezer-only; lime is for flavor, not a validated acidification process. Prompt shallow-container cooling, refrigerator thawing and headspace specified. Kitchen testing remains. |
+| Smoky salsa tatemada | Same freezer-only limitation; tomato-only crop match corrected. Kitchen testing remains. |
+| Roasted poblano strips | Roast/peel/freeze preparation; no shelf-stable claim. Cold handling clarified. Kitchen testing remains. |
+| Refrigerator escabeche | 5% vinegar, refrigerated handling, no canning. Original vegetable/brine formula and storage life are not source-validated. Kitchen/storage review remains. |
+| Quick Korean-style daikon | Unspecified rice vinegar replaced with 5% white vinegar; refrigerated only. Exact formula and storage life remain unvalidated. |
+| Quick-pickled red onions | No lemon substitution or room-temperature storage; refrigerated only. Exact formula and storage life remain unvalidated. |
+| Thai basil freezer portions | Consistent with NCHFP fresh-herb freezing for cooked uses; thawed leaves lose fresh texture. Water-mold variant is an original preparation. |
+| Lemongrass freezer paste | Raw garlic/aromatics go straight into frozen portions; no room-temperature garlic-in-oil storage. The source describes general garlic-in-oil handling, not this exact mixed paste. |
+| Mediterranean herb cubes | Water-based recipe and catalog now agree; source supports general herb freezing. This exact cube recipe is an original variation. |
+| Basil pesto cubes | General NCHFP guidance supports freezing and at most three refrigerated days. Original ingredient amounts and flavor are not kitchen-tested here. |
+| Freezer greens | Collards: 3-minute water blanch; kale: 2 minutes, counted after boiling resumes. Rapid cooling, draining and packaging align with linked NCHFP methods. Not a canning recipe. |
+
+## External source verification
+
+All 15 final URLs returned HTTP 200 with the expected page title during this review. Relevant content was read, not just link status. References support the described general method or external tested recipe; they do not certify original recipes.
+
+| Source | Applicability |
+| --- | --- |
+| [NCHFP paste-tomato salsa](https://nchfp.uga.edu/how/can/canning-salsa/tomato-salsa-with-paste-tomatoes/) | External tested salsa; preserve its vegetable/acid proportions and use the published process. |
+| [NCHFP tomato/green-chile salsa](https://nchfp.uga.edu/how/can/canning-salsa/tomato-and-green-chile-salsa/) | External tested salsa, with its own allowed modifications and altitude table. |
+| [NCHFP peppers](https://nchfp.uga.edu/how/can/canning-vegetables/peppers/) | Plain hot/sweet peppers require the linked pressure-canning process. |
+| [NCHFP pickled mixed vegetables](https://nchfp.uga.edu/how/can/pickled-and-fermented/pickled-mixed-vegetables/) | External mixed-pickle formula; catalog is a discovery link, not a substitution guide. |
+| [NCHFP mixed vegetables](https://nchfp.uga.edu/how/can/canning-vegetables-and-vegetable-products/mixed-vegetables/) | Base includes tomato/zucchini; only the source's expressly permitted variations apply. |
+| [NCHFP cubed pumpkin/winter squash](https://nchfp.uga.edu/how/can/canning-vegetables/pumpkins-and-winter-squash-cubed/) | Cubes, not purée. Suitability of a particular Seminole pumpkin harvest is not established by this review. |
+| [NCHFP salsa ingredients](https://nchfp.uga.edu/how/can/canning-salsa/ingredients-for-salsa-recipes/) | Acid/vegetable proportions and permitted ingredient changes; does not validate freezer salsa as canned salsa. |
+| [NCHFP blanching times](https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/) | General vegetable-discovery reference; use the crop/size-specific procedure. |
+| [NCHFP blanching method](https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-vegetables/) | Start timing after boiling resumes; chill promptly after blanching. |
+| [NCHFP greens](https://nchfp.uga.edu/how/freeze/vegetable/freezing-greens-including-spinach/) | Direct greens reference for the collards/kale preparation. |
+| [NCHFP fresh herbs](https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/) | Washing/drying/freezing herbs; frozen herbs suit cooking rather than fresh garnish. |
+| [NCHFP garlic-in-oil](https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/) | Botulism hazard at room temperature; cold storage/freezing guidance. Not a tested lemongrass-paste recipe. |
+| [NCHFP pesto](https://nchfp.uga.edu/how/freeze/vegetable/freezing-pesto/) | Freezing and short refrigerated storage; does not validate the site's exact ingredient formulation. |
+| [Maine Extension refrigerator pickles](https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/) | General 5%-vinegar refrigerator-pickle handling. Site originals differ; the source's storage period is not copied onto them. |
+| [FoodSafety.gov handling/chilling](https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety) | Produce hygiene, cold-storage temperatures and prompt refrigeration. |
+
+## Remaining limitations / not tested
+
+- Physical iPhone/iPad Safari, iOS share/download behavior and actual device keyboard interaction.
+- Current installed desktop Chrome/Safari/Firefox. Chromium 141 and Linux WebKit are automated engine checks, not a claim that every current browser/device was tested.
+- Cooking, tasting, pH measurements, laboratory validation or a controlled storage-life study. Original recipes require household kitchen review before release; none may be promoted to shelf-stable canning instructions on this evidence.
+- Actual AnyList import, printed output, screen-reader interaction and a full accessibility audit.
+- Live GitHub Pages deployment: deliberately not released. No signed-in pantry behavior was tested or changed.
+- Only five recipes have primary-crop reference weights. The multi-crop planner does not reserve secondary ingredients, calculate finished yields or enforce equipment/time capacity. It accepts whole batches only.
+- Plans are in memory and disappear on reload. Exported displayed weights are rounded.
+- Photos are the supplied 688px-wide initial images. All load, but higher-resolution, more accurate imagery may be desirable before release.
+
+## Reproduce
+
+With Playwright and its browsers installed, start `python -m http.server 8765` from the repository root, then:
+
+```sh
+TEST_BROWSERS=webkit,chromium node tests/preservation.cjs
+```
+
+Use `TEST_BASE_URL` for a project-prefix server, `TEST_WIDTHS=390,320` for focused mobile reruns, or `CHROMIUM_EXECUTABLE_PATH` for an installed Chromium executable. Tests exercise both visible recipe directions and JSON-LD consistency. Browser/dependency workarounds used for this review live outside the repository.
+
+## Final recipe/image follow-up — October 28, 2026
+
+This follow-up reruns checks rather than treating the earlier report as a fresh pass.
+
+### Changes
+
+- Located the exact supplied `caramelized-onion-feta-black-pepper-sourdough.jpg` (1448 × 1086, 503,840 bytes). Added its unchanged bytes to `images/`, the homepage card and the recipe hero/absolute Recipe JSON-LD image URL. Removed pending-photo text. Card uses existing 125 × 90 desktop / 112 × 82 mobile cover thumbnails; hero uses responsive full width and a 440px height cap. Visual review at 390px confirms the loaf/slices remain legible; AI imagery is illustrative, not evidence of a kitchen-tested result.
+- Preserved all nine agreed sourdough ingredient amounts. Added spaces before gram units so the existing serving scaler recognizes them; base import quantities stay unchanged. Clarified that Dutch oven preheating overlaps final proof. Five hours remains an approximate total; fermentation, cooling and oven behavior require kitchen testing.
+- Split Caldo Verde's paprika, seasoning, vinegar and bread into individual ingredient lines across visible HTML, homepage data and JSON-LD. Listed optional finishing oil. Quantities are otherwise preserved.
+- Clarified Instant Pot versus slow-cooker timing (about 65 minutes versus 4–9 hours). Made onion-mixture transfer explicit. Reserved sausage is refrigerated promptly, then reheated separately to 165°F before returning to the cooked soup; it is not left on the counter or reheated slowly in the cooker. Added a [USDA handling reference](https://ask.fsis.usda.gov/article/How-do-I-reheat-leftover-take-out-food); [USDA chilling guidance](https://ask.fsis.usda.gov/article/How-do-I-handle-leftovers-safely) supports shallow-container cooling and prompt refrigeration. These sources support handling, not this exact recipe's timing or flavor.
+- Corrected long recipe-heading wrapping after WebKit exposed horizontal overflow at 200% text/390px.
+- Added `tests/recipe-release.cjs` to cover recipe cards/photos, visible/importable ingredient and direction consistency, serving tools, cooking mode, ingredient keyboard interaction, back links, phone layouts and static recipe references. Firebase preferences are explicitly stubbed in this suite; no authenticated behavior is claimed.
+
+### Follow-up verification
+
+- Preservation suite: Linux WebKit 26.5 (build 2336) and Chromium Headless Shell 141.0.7390.37, all six widths (1280, 844, 430, 390, 375, 320), project-prefix URL. All 11 library and hero photographs, filtering/navigation, multi-crop calculation/precision/validation/removal, unit conversion, and actual downloaded text export passed.
+- Recipe suite: WebKit 26.5 and Chromium 141 passed all six widths, including 200% text at 390px on both recipes after the heading fix. It checks all 29 Recipe JSON-LD documents and 206 local recipe-page references; parser checks do not certify Google rich-result eligibility or AnyList behavior.
+- JPEG decoder verification and JavaScript syntax/whitespace checks passed. Phone screenshots of the home card and both recipes were visually inspected.
+- Browser installation required an older available Chromium headless build and extracted WebKit system libraries outside the repository. This is engine emulation, not installed iPhone Safari or current desktop browser certification.
+
+### Still required before release
+
+Physical iPhone/iPad Safari (keyboard, download/share, wake lock); actual AnyList imports of both recipes; physical print output; screen-reader/full accessibility review; signed-in pantry and shared preferences; kitchen/taste/storage review of original recipes. No laboratory/pH/shelf-life validation, live deployment, merge or owner approval occurred. Earlier external-source audit is retained as historical evidence; all 15 URLs were not rechecked in this follow-up.
+
+## Print and accessibility continuation — October 28, 2026
+
+### Defects corrected
+
+- Printing while Cooking mode was active hid ingredients, directions, notes and the hero, while also hiding the cooking panel. Print CSS now restores the complete recipe, removes checked/completed styling and suppresses interactive controls. A smaller print hero reduces paper use without clipping it.
+- Assigning `checkbox`/`button` roles directly to list items broke native list semantics. Ingredient and direction list items now contain native toggle buttons with `aria-pressed`; directions retain their full accessible name. Scaling updates button text without destroying the control.
+- Cooking mode now focuses its Exit control on entry and returns focus to its trigger on exit. The displayed step announces changes politely. Serving +/- controls have descriptive accessible names. Completed-item text has darker screen contrast and prints as normal text.
+
+### Verification and limits
+
+- `tests/release-accessibility.cjs` passes in Chromium 141 and Linux WebKit 26.5 at 390 × 844: native list structure, Space/Enter toggle state, direction accessible names, entry/exit focus, complete print-media content while Cooking mode is active, hidden print controls and cleared completion styling.
+- axe-core 4.10.3 WCAG 2 A/AA and 2.1 AA scans report zero violations for the signed-out homepage, library, helper, pantry shell, both updated recipe pages and their cooking states in both engines. This is an automated scan of these states, not WCAG conformance certification or VoiceOver testing. Home shared preferences are stubbed; pantry inventory stays hidden and no authentication or inventory writes are performed.
+- Shared ingredient/direction controls (and serving reset where offered) were also checked across all 18 main recipe pages in both engines. The recipe regression suite passes again at all six widths in both engines, including 200% recipe text at 390px, scaling/reset, JSON-LD, keyboard ingredient activation and navigation. All 29 Recipe JSON-LD documents and 206 local recipe references still pass.
+- Chromium-generated US Letter print PDFs of both recipes were rendered and visually inspected. Each contains two pages, complete ingredient/direction/notes content and no cooking controls. Real printers, iOS print dialogs and physical pagination remain unverified.
+- All 11 preservation photographs were visually reviewed together. They depict the expected general food families; initial 688px source resolution remains a limit. Roasted poblano imagery shows whole roasted peppers rather than finished strips, pesto is shown in a bowl rather than frozen cubes, and Mediterranean herb portions do not clearly establish the water-based medium. Treat these as illustrative preparation images pending owner editorial acceptance or replacement; do not claim exact finished-form accuracy. No substitute photographs were introduced.
+
+Reproduce with Playwright installed and a local server:
+
+```sh
+node tests/recipe-release.cjs
+AXE_SCRIPT_PATH=/absolute/path/to/axe-core/axe.min.js node tests/release-accessibility.cjs
+```
+
+`TEST_BASE_URL`, `TEST_BROWSERS` and `CHROMIUM_EXECUTABLE_PATH` are supported. `PRINT_QA_DIR` optionally writes temporary Chromium print previews. With no `AXE_SCRIPT_PATH`, the suite explicitly reports the axe scan as skipped; functional keyboard/print checks still run.
+
+Remaining owner/device work: physical iPhone/iPad Safari, iOS download/share/wake-lock and printing; actual AnyList imports; VoiceOver/full manual accessibility review; signed-in pantry/shared preferences; kitchen testing and storage review; final imagery acceptance. No merge, main change, deployment or final owner approval is implied by this continuation.
