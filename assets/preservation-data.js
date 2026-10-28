@@ -1,6 +1,6 @@
-// Preservation catalog: links verified for pesto, fresh herbs and garlic-in-oil freezing.
+// Catalog photo paths are staged for upload; missing images have text-only fallbacks.
 window.PRESERVATION_CATALOG={
-  "version": 7,
+  "version": 8,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -255,7 +255,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Poblano",
         "grams": 907.18474,
         "label": "2 lb poblano peppers"
-      }
+      },
+      "photo": "../assets/preservation-images/roasted-poblano-freezer-strips.jpg"
     },
     {
       "id": "p10",
@@ -281,7 +282,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Roma / paste tomatoes",
         "grams": 907.18474,
         "label": "2 lb tomatoes"
-      }
+      },
+      "photo": "../assets/preservation-images/smoky-salsa-tatemada-freezer.jpg"
     },
     {
       "id": "p11",
@@ -305,7 +307,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Tomatillos",
         "grams": 907.18474,
         "label": "2 lb tomatillos"
-      }
+      },
+      "photo": "../assets/preservation-images/roasted-tomatillo-salsa-verde.jpg"
     },
     {
       "id": "p12",
@@ -343,7 +346,8 @@ window.PRESERVATION_CATALOG={
       "flavor": "Mexican",
       "notes": "Mexican-style pickled vegetables for tacos and grilled meats.",
       "amount": null,
-      "page": "recipes/refrigerator-escabeche.html"
+      "page": "recipes/refrigerator-escabeche.html",
+      "photo": "../assets/preservation-images/refrigerator-escabeche.jpg"
     },
     {
       "id": "p14",
@@ -378,7 +382,8 @@ window.PRESERVATION_CATALOG={
       "notes": "Convenient for Thai basil chicken, panang beef and coconut soups. Freeze in small portions for cooking; best flavor within 2–3 months.",
       "amount": null,
       "page": "recipes/thai-basil-freezer-portions.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/",
+      "photo": "../assets/preservation-images/thai-basil-freezer-portions.jpg"
     },
     {
       "id": "p16",
@@ -397,7 +402,8 @@ window.PRESERVATION_CATALOG={
       "notes": "Freeze trimmed lemongrass and aromatics in small portions for curry, marinades and soup.",
       "amount": null,
       "page": "recipes/thai-lemongrass-freezer-paste.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/",
+      "photo": "../assets/preservation-images/thai-lemongrass-freezer-paste.jpg"
     },
     {
       "id": "p17",
@@ -437,7 +443,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Daikon radish",
         "grams": 453.59237,
         "label": "1 lb daikon radish"
-      }
+      },
+      "photo": "../assets/preservation-images/quick-korean-pickled-daikon.jpg"
     },
     {
       "id": "p19",
@@ -458,7 +465,8 @@ window.PRESERVATION_CATALOG={
       "flavor": "Mediterranean",
       "notes": "Portion chopped herbs in water or suitable oil for cooking; freeze promptly and keep frozen.",
       "amount": null,
-      "page": "recipes/mediterranean-herb-freezer-cubes.html"
+      "page": "recipes/mediterranean-herb-freezer-cubes.html",
+      "photo": "../assets/preservation-images/mediterranean-herb-freezer-cubes.jpg"
     },
     {
       "id": "p20",
@@ -476,7 +484,8 @@ window.PRESERVATION_CATALOG={
       "notes": "Use for pasta, grilled chicken, sandwiches and vegetable bowls. For best flavor use within 2–3 months. Do not can pesto or store homemade garlic-in-oil pesto unrefrigerated.",
       "amount": null,
       "page": "recipes/basil-pesto-freezer-cubes.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-pesto/"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-pesto/",
+      "photo": "../assets/preservation-images/basil-pesto-freezer-cubes.jpg"
     },
     {
       "id": "p21",
@@ -534,7 +543,8 @@ window.PRESERVATION_CATALOG={
       "notes": "Blanching varies by green. Check the authoritative crop-specific instructions before proceeding; this is a prep guide, not a substitute for those instructions.",
       "amount": null,
       "page": "recipes/freezer-collard-greens-packs.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/",
+      "photo": "../assets/preservation-images/freezer-collard-greens-packs.jpg"
     },
     {
       "id": "p24",
@@ -606,7 +616,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Red onions",
         "grams": 226.796185,
         "label": "8 oz red onion"
-      }
+      },
+      "photo": "../assets/preservation-images/quick-pickled-red-onions.jpg"
     },
     {
       "id": "p28",
