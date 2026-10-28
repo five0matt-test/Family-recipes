@@ -34,3 +34,14 @@ This feature is in a draft PR. Do not merge until links, recipes and mobile inte
 
 ## Next content priority
 Verify the eleven existing full recipes and develop ingredient reference batches for those without weight data. Avoid inventing shelf-stable or fermentation processes.
+
+## October 28 recipe additions (included in draft PR #2)
+- [x] Add Same-Day Caramelized Onion, Feta & Black Pepper Sourdough recipe page and homepage listing, including Recipe JSON-LD.
+- [x] Update Caldo Verde for smoked kielbasa, paprika, and red wine vinegar; synchronize homepage ingredients and title.
+- [x] Verify committed recipe files and homepage source can be fetched from the development branch.
+- [ ] Add a realistic, accurate finished-loaf photo to both the new sourdough recipe and its homepage card; current card is a labeled placeholder.
+- [ ] Verify the new recipe in physical iPhone Safari, including layout, recipe tools and print output.
+- [ ] Test actual AnyList import of both the new sourdough and updated Caldo Verde; inspect ingredients and directions.
+- [ ] Kitchen-test sourdough timing/texture and the kielbasa soup seasoning; timing is approximate and not independently validated.
+- [ ] Review the updated pages and home card in a browser, including any console errors; source inspection alone is not a runtime test.
+- [ ] Explicit owner approval to release; do not merge PR #2 or change main until then.
