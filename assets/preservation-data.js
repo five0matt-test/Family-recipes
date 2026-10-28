@@ -1,6 +1,6 @@
-// Shared catalog: only entries with page have detailed recipe pages; tested canning links require source verification.
+// Shared catalog. Source-linked canning methods require exact tested ingredients and procedures.
 window.PRESERVATION_CATALOG={
-  "version": 4,
+  "version": 5,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -91,7 +91,7 @@ window.PRESERVATION_CATALOG={
       "source": "National Center for Home Food Preservation",
       "url": "https://nchfp.uga.edu/how/can/canning-salsa/tomato-salsa-with-paste-tomatoes/",
       "flavor": "Mexican",
-      "notes": "Use the linked tested formula unchanged. Adjust herbs/spices only as allowed. Serve with tacos or grilled meats.",
+      "notes": "Follow the NCHFP tested recipe exactly. Listed peppers are possible ingredients, not permission to change proportions or substitute arbitrary varieties.",
       "amount": null
     },
     {
@@ -161,9 +161,7 @@ window.PRESERVATION_CATALOG={
       "crops": [
         "Carrots",
         "Sweet corn",
-        "Green beans",
-        "Zucchini",
-        "Roma / paste tomatoes"
+        "Green beans"
       ],
       "method": "Pressure canning",
       "storage": "Shelf-stable",
@@ -171,16 +169,14 @@ window.PRESERVATION_CATALOG={
       "source": "National Center for Home Food Preservation",
       "url": "https://nchfp.uga.edu/how/can/canning-vegetables-and-vegetable-products/mixed-vegetables/",
       "flavor": "Soup prep",
-      "notes": "Only permitted vegetables and proportions per tested guidance.",
+      "notes": "Use ONLY the vegetable types and proportions specified in the linked tested formula. Do not add zucchini or tomato to the tested mixture.",
       "amount": null
     },
     {
       "id": "p6",
       "title": "Cubed winter squash for canning",
       "crops": [
-        "Seminole pumpkin",
-        "Butternut squash",
-        "Spaghetti squash"
+        "Butternut squash"
       ],
       "method": "Pressure canning",
       "storage": "Shelf-stable",
@@ -188,7 +184,7 @@ window.PRESERVATION_CATALOG={
       "source": "National Center for Home Food Preservation",
       "url": "https://nchfp.uga.edu/how/can/canning-vegetables/pumpkins-and-winter-squash-cubed/",
       "flavor": "Versatile",
-      "notes": "Only suitable mature, firm-fleshed varieties; never can purée. Confirm variety suitability.",
+      "notes": "Follow the tested NCHFP procedure only for suitable mature firm-fleshed pumpkin or winter squash. Seminole pumpkin variety suitability must be confirmed separately; never can purée.",
       "amount": null
     },
     {
@@ -216,7 +212,7 @@ window.PRESERVATION_CATALOG={
       "source": "National Center for Home Food Preservation",
       "url": "https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/",
       "flavor": "Weeknight",
-      "notes": "Check crop-specific preparation and blanching times before freezing.",
+      "notes": "Use the linked crop-specific NCHFP freezing pages; blanching times and procedures vary by vegetable.",
       "amount": null
     },
     {
