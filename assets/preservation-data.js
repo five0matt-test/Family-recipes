@@ -1,6 +1,6 @@
-// Shared catalog. Recipe pages are distinct from project briefs; external source links require exact method checks.
+// Preservation catalog: links verified for pesto, fresh herbs and garlic-in-oil freezing.
 window.PRESERVATION_CATALOG={
-  "version": 6,
+  "version": 7,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -476,7 +476,7 @@ window.PRESERVATION_CATALOG={
       "notes": "Use for pasta, grilled chicken, sandwiches and vegetable bowls. For best flavor use within 2–3 months. Do not can pesto or store homemade garlic-in-oil pesto unrefrigerated.",
       "amount": null,
       "page": "recipes/basil-pesto-freezer-cubes.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetables/freezing-pesto/"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-pesto/"
     },
     {
       "id": "p21",
