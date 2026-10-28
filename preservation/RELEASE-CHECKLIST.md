@@ -39,9 +39,15 @@ Verify the eleven existing full recipes and develop ingredient reference batches
 - [x] Add Same-Day Caramelized Onion, Feta & Black Pepper Sourdough recipe page and homepage listing, including Recipe JSON-LD.
 - [x] Update Caldo Verde for smoked kielbasa, paprika, and red wine vinegar; synchronize homepage ingredients and title.
 - [x] Verify committed recipe files and homepage source can be fetched from the development branch.
-- [ ] Add a realistic, accurate finished-loaf photo to both the new sourdough recipe and its homepage card; current card is a labeled placeholder.
+- [x] Add the exact supplied sourdough JPEG to the recipe, homepage card and JSON-LD with existing responsive thumbnail sizing.
 - [ ] Verify the new recipe in physical iPhone Safari, including layout, recipe tools and print output.
 - [ ] Test actual AnyList import of both the new sourdough and updated Caldo Verde; inspect ingredients and directions.
 - [ ] Kitchen-test sourdough timing/texture and the kielbasa soup seasoning; timing is approximate and not independently validated.
-- [ ] Review the updated pages and home card in a browser, including any console errors; source inspection alone is not a runtime test.
+- [x] Review the updated pages and home card in automated browsers and inspect 390px screenshots; see final follow-up results in PRE-RELEASE-REVIEW.md.
 - [ ] Explicit owner approval to release; do not merge PR #2 or change main until then.
+
+## Final follow-up checks
+- [x] Rerun preservation tests in WebKit/Chromium at six desktop/phone widths, including real plan downloads.
+- [x] Correct sourdough gram-unit scaling, soup ingredient import lines, slow-cooker handling/timing and enlarged-title wrapping.
+- [x] Confirm final recipe regression suite passes in WebKit/Chromium at all six widths, including enlarged text, 29 structured recipes and 206 local references.
+- [ ] Owner final release approval; keep draft PR #2 unmerged and do not deploy.

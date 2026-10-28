@@ -18,3 +18,5 @@
 .plan-card[hidden]{display:none!important}
 @media(max-width:650px){.recipe-actions{gap:6px}.plan-filters label:first-child{width:100%}.plan-filters input{width:100%}}
 @media print{.recipe-actions,.plan-filters{display:none!important}}
+/* Long recipe titles must wrap when readers enlarge text on narrow screens. */
+main h1{overflow-wrap:anywhere}

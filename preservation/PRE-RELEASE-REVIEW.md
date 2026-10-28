@@ -92,3 +92,27 @@ TEST_BROWSERS=webkit,chromium node tests/preservation.cjs
 ```
 
 Use `TEST_BASE_URL` for a project-prefix server, `TEST_WIDTHS=390,320` for focused mobile reruns, or `CHROMIUM_EXECUTABLE_PATH` for an installed Chromium executable. Tests exercise both visible recipe directions and JSON-LD consistency. Browser/dependency workarounds used for this review live outside the repository.
+
+## Final recipe/image follow-up — October 28, 2026
+
+This follow-up reruns checks rather than treating the earlier report as a fresh pass.
+
+### Changes
+
+- Located the exact supplied `caramelized-onion-feta-black-pepper-sourdough.jpg` (1448 × 1086, 503,840 bytes). Added its unchanged bytes to `images/`, the homepage card and the recipe hero/absolute Recipe JSON-LD image URL. Removed pending-photo text. Card uses existing 125 × 90 desktop / 112 × 82 mobile cover thumbnails; hero uses responsive full width and a 440px height cap. Visual review at 390px confirms the loaf/slices remain legible; AI imagery is illustrative, not evidence of a kitchen-tested result.
+- Preserved all nine agreed sourdough ingredient amounts. Added spaces before gram units so the existing serving scaler recognizes them; base import quantities stay unchanged. Clarified that Dutch oven preheating overlaps final proof. Five hours remains an approximate total; fermentation, cooling and oven behavior require kitchen testing.
+- Split Caldo Verde's paprika, seasoning, vinegar and bread into individual ingredient lines across visible HTML, homepage data and JSON-LD. Listed optional finishing oil. Quantities are otherwise preserved.
+- Clarified Instant Pot versus slow-cooker timing (about 65 minutes versus 4–9 hours). Made onion-mixture transfer explicit. Reserved sausage is refrigerated promptly, then reheated separately to 165°F before returning to the cooked soup; it is not left on the counter or reheated slowly in the cooker. Added a [USDA handling reference](https://ask.fsis.usda.gov/article/How-do-I-reheat-leftover-take-out-food); [USDA chilling guidance](https://ask.fsis.usda.gov/article/How-do-I-handle-leftovers-safely) supports shallow-container cooling and prompt refrigeration. These sources support handling, not this exact recipe's timing or flavor.
+- Corrected long recipe-heading wrapping after WebKit exposed horizontal overflow at 200% text/390px.
+- Added `tests/recipe-release.cjs` to cover recipe cards/photos, visible/importable ingredient and direction consistency, serving tools, cooking mode, ingredient keyboard interaction, back links, phone layouts and static recipe references. Firebase preferences are explicitly stubbed in this suite; no authenticated behavior is claimed.
+
+### Follow-up verification
+
+- Preservation suite: Linux WebKit 26.5 (build 2336) and Chromium Headless Shell 141.0.7390.37, all six widths (1280, 844, 430, 390, 375, 320), project-prefix URL. All 11 library and hero photographs, filtering/navigation, multi-crop calculation/precision/validation/removal, unit conversion, and actual downloaded text export passed.
+- Recipe suite: WebKit 26.5 and Chromium 141 passed all six widths, including 200% text at 390px on both recipes after the heading fix. It checks all 29 Recipe JSON-LD documents and 206 local recipe-page references; parser checks do not certify Google rich-result eligibility or AnyList behavior.
+- JPEG decoder verification and JavaScript syntax/whitespace checks passed. Phone screenshots of the home card and both recipes were visually inspected.
+- Browser installation required an older available Chromium headless build and extracted WebKit system libraries outside the repository. This is engine emulation, not installed iPhone Safari or current desktop browser certification.
+
+### Still required before release
+
+Physical iPhone/iPad Safari (keyboard, download/share, wake lock); actual AnyList imports of both recipes; physical print output; screen-reader/full accessibility review; signed-in pantry and shared preferences; kitchen/taste/storage review of original recipes. No laboratory/pH/shelf-life validation, live deployment, merge or owner approval occurred. Earlier external-source audit is retained as historical evidence; all 15 URLs were not rechecked in this follow-up.
