@@ -1,4 +1,6 @@
-# Preservation photography and Harvest Helper verification
+# Initial preservation photography and Harvest Helper verification
+
+Historical first-pass report. See [the comprehensive pre-release review](PRE-RELEASE-REVIEW.md) for current results, fixes and limitations.
 
 Date: 2026-10-28. Scope: `feature/preservation-library-harvest-helper`, PR #2.
 

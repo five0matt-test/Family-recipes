@@ -1,6 +1,6 @@
-// Recipe photos live in assets/preservation-images; missing images have text-only fallbacks.
+// Original recipes are distinct from externally tested canning procedures.
 window.PRESERVATION_CATALOG={
-  "version": 8,
+  "version": 9,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -161,7 +161,10 @@ window.PRESERVATION_CATALOG={
       "crops": [
         "Carrots",
         "Sweet corn",
-        "Green beans"
+        "Green beans",
+        "Roma / paste tomatoes",
+        "Other slicing tomatoes",
+        "Zucchini"
       ],
       "method": "Pressure canning",
       "storage": "Shelf-stable",
@@ -169,7 +172,7 @@ window.PRESERVATION_CATALOG={
       "source": "National Center for Home Food Preservation",
       "url": "https://nchfp.uga.edu/how/can/canning-vegetables-and-vegetable-products/mixed-vegetables/",
       "flavor": "Soup prep",
-      "notes": "Use ONLY the vegetable types and proportions specified in the linked tested formula. Do not add zucchini or tomato to the tested mixture.",
+      "notes": "The NCHFP base recipe includes tomatoes and zucchini. Follow its full pressure-canning method, jar sizes, altitude tables and explicitly permitted variations; never add excluded vegetables such as leafy greens, winter squash or sweet potatoes.",
       "amount": null
     },
     {
@@ -256,7 +259,8 @@ window.PRESERVATION_CATALOG={
         "grams": 907.18474,
         "label": "2 lb poblano peppers"
       },
-      "photo": "../assets/preservation-images/roasted-poblano-freezer-strips.jpg"
+      "photo": "../assets/preservation-images/roasted-poblano-freezer-strips.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p10",
@@ -264,7 +268,6 @@ window.PRESERVATION_CATALOG={
       "crops": [
         "Roma / paste tomatoes",
         "Other slicing tomatoes",
-        "Tomatillos",
         "Jalapeño",
         "Serrano",
         "Garlic"
@@ -283,7 +286,8 @@ window.PRESERVATION_CATALOG={
         "grams": 907.18474,
         "label": "2 lb tomatoes"
       },
-      "photo": "../assets/preservation-images/smoky-salsa-tatemada-freezer.jpg"
+      "photo": "../assets/preservation-images/smoky-salsa-tatemada-freezer.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p11",
@@ -308,7 +312,8 @@ window.PRESERVATION_CATALOG={
         "grams": 907.18474,
         "label": "2 lb tomatillos"
       },
-      "photo": "../assets/preservation-images/roasted-tomatillo-salsa-verde.jpg"
+      "photo": "../assets/preservation-images/roasted-tomatillo-salsa-verde.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p12",
@@ -347,7 +352,9 @@ window.PRESERVATION_CATALOG={
       "notes": "Mexican-style pickled vegetables for tacos and grilled meats.",
       "amount": null,
       "page": "recipes/refrigerator-escabeche.html",
-      "photo": "../assets/preservation-images/refrigerator-escabeche.jpg"
+      "photo": "../assets/preservation-images/refrigerator-escabeche.jpg",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p14",
@@ -383,7 +390,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/thai-basil-freezer-portions.html",
       "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/",
-      "photo": "../assets/preservation-images/thai-basil-freezer-portions.jpg"
+      "photo": "../assets/preservation-images/thai-basil-freezer-portions.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p16",
@@ -403,7 +411,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/thai-lemongrass-freezer-paste.html",
       "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/",
-      "photo": "../assets/preservation-images/thai-lemongrass-freezer-paste.jpg"
+      "photo": "../assets/preservation-images/thai-lemongrass-freezer-paste.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p17",
@@ -444,7 +453,9 @@ window.PRESERVATION_CATALOG={
         "grams": 453.59237,
         "label": "1 lb daikon radish"
       },
-      "photo": "../assets/preservation-images/quick-korean-pickled-daikon.jpg"
+      "photo": "../assets/preservation-images/quick-korean-pickled-daikon.jpg",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p19",
@@ -463,10 +474,12 @@ window.PRESERVATION_CATALOG={
       "source": "Family Recipes",
       "url": "",
       "flavor": "Mediterranean",
-      "notes": "Portion chopped herbs in water or suitable oil for cooking; freeze promptly and keep frozen.",
+      "notes": "Portion chopped herbs in water for cooking; freeze promptly and keep frozen. This recipe does not use oil.",
       "amount": null,
       "page": "recipes/mediterranean-herb-freezer-cubes.html",
-      "photo": "../assets/preservation-images/mediterranean-herb-freezer-cubes.jpg"
+      "photo": "../assets/preservation-images/mediterranean-herb-freezer-cubes.jpg",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p20",
@@ -485,7 +498,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/basil-pesto-freezer-cubes.html",
       "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-pesto/",
-      "photo": "../assets/preservation-images/basil-pesto-freezer-cubes.jpg"
+      "photo": "../assets/preservation-images/basil-pesto-freezer-cubes.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p21",
@@ -529,22 +543,20 @@ window.PRESERVATION_CATALOG={
       "title": "Frozen soup greens packs",
       "crops": [
         "Collard greens",
-        "Kale",
-        "Mustard greens",
-        "Rapini",
-        "Spinach"
+        "Kale"
       ],
       "method": "Freezing",
       "storage": "Frozen",
-      "minutes": 40,
-      "source": "National Center for Home Food Preservation",
+      "minutes": 45,
+      "source": "Family Recipes",
       "url": "",
       "flavor": "Southern",
-      "notes": "Blanching varies by green. Check the authoritative crop-specific instructions before proceeding; this is a prep guide, not a substitute for those instructions.",
+      "notes": "Original prep guide for collards or kale, with NCHFP blanching guidance. Water-blanch collards for 3 minutes or kale for 2 minutes, then cool, drain and freeze.",
       "amount": null,
       "page": "recipes/freezer-collard-greens-packs.html",
-      "referenceUrl": "https://nchfp.uga.edu/how/freeze/freeze-general-information/blanching-times/",
-      "photo": "../assets/preservation-images/freezer-collard-greens-packs.jpg"
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-greens-including-spinach/",
+      "photo": "../assets/preservation-images/freezer-collard-greens-packs.jpg",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p24",
@@ -600,8 +612,7 @@ window.PRESERVATION_CATALOG={
       "id": "p27",
       "title": "Quick-pickled red onions",
       "crops": [
-        "Red onions",
-        "Meyer lemons"
+        "Red onions"
       ],
       "method": "Refrigerator pickling",
       "storage": "Refrigerated",
@@ -617,7 +628,9 @@ window.PRESERVATION_CATALOG={
         "grams": 226.796185,
         "label": "8 oz red onion"
       },
-      "photo": "../assets/preservation-images/quick-pickled-red-onions.jpg"
+      "photo": "../assets/preservation-images/quick-pickled-red-onions.jpg",
+      "referenceUrl": "https://extension.umaine.edu/food-health/recipes/refrigerator-pickles/",
+      "reviewStatus": "Original recipe — not laboratory validated"
     },
     {
       "id": "p28",

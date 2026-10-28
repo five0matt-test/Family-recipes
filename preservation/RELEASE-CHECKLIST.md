@@ -19,16 +19,18 @@ This feature is in a draft PR. Do not merge until links, recipes and mobile inte
 
 ## Manual checks before merging
 - [ ] Test crop/method/flavor filters on iPhone Safari and desktop.
-- [ ] Test Harvest Helper invalid, fractional and large quantities; lb, oz, g, count and bunches.
-- [ ] Verify all eleven full recipe links open from both interfaces.
-- [ ] Verify each NCHFP link resolves and the crop/recipe description matches.
-- [ ] Confirm every recipe's ingredient amounts, safety instructions and storage guidance with authoritative sources.
-- [ ] Check navigation across recipes, meal plans, pantry and preservation.
+- [x] Test Harvest Helper invalid, fractional and large quantities; lb, oz, g, count and bunches in automated WebKit/Chromium.
+- [x] Verify all eleven recipe pages, images and recipe-to-helper links in automated browsers.
+- [x] Verify final preservation reference URLs resolve and review their applicability; see PRE-RELEASE-REVIEW.md.
+- [x] Review all 11 recipes against authoritative general handling guidance and correct identified content issues.
+- [ ] Kitchen-test original recipes and verify their storage recommendations before release; exact formulas are not laboratory validated.
+- [x] Check navigation across recipes, meal plans, pantry and preservation (signed-out navigation only).
 - [ ] Check printer output and AnyList recipe import.
 - [x] Add the 11 supplied JPEGs with consistent thumbnail sizing.
 - [ ] Editorially review AI-generated imagery and replace inaccurate or low-resolution photographs.
-- [ ] Review accessibility, keyboard navigation and mobile viewport.
-- [ ] Confirm main branch is untouched until approval.
+- [x] Test mobile viewports, enlarged text, labels and image layout in WebKit/Chromium.
+- [ ] Complete physical-device keyboard/screen-reader and accessibility review.
+- [x] Keep all development changes on the feature branch; leave main and draft status unchanged.
 
 ## Next content priority
 Verify the eleven existing full recipes and develop ingredient reference batches for those without weight data. Avoid inventing shelf-stable or fermentation processes.
