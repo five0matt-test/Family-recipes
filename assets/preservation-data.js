@@ -1,7 +1,6 @@
-// Shared catalog for Preservation Library and Harvest Helper.
-// Original entries are project briefs, NOT validated shelf-stable processing recipes.
+// Shared catalog. Full original recipes are linked explicitly; unlinked original entries remain project briefs.
 window.PRESERVATION_CATALOG={
-  "version": 1,
+  "version": 2,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -254,7 +253,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Mexican",
       "notes": "Roast, peel, portion and freeze for tacos, fajitas and bowls.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/roasted-poblano-freezer-strips.html"
     },
     {
       "id": "p10",
@@ -292,7 +292,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Mexican",
       "notes": "Roast tomatillos and chilies; blend and freeze in meal-sized portions.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/roasted-tomatillo-salsa-verde.html"
     },
     {
       "id": "p12",
@@ -329,7 +330,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Mexican",
       "notes": "Mexican-style pickled vegetables for tacos and grilled meats.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/refrigerator-escabeche.html"
     },
     {
       "id": "p14",
@@ -379,7 +381,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Thai",
       "notes": "Freeze trimmed lemongrass and aromatics in small portions for curry, marinades and soup.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/thai-lemongrass-freezer-paste.html"
     },
     {
       "id": "p17",
@@ -413,7 +416,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Korean",
       "notes": "Bright, crunchy accompaniment for bulgogi bowls.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/quick-korean-pickled-daikon.html"
     },
     {
       "id": "p19",
@@ -433,7 +437,8 @@ window.PRESERVATION_CATALOG={
       "url": "",
       "flavor": "Mediterranean",
       "notes": "Portion chopped herbs in water or suitable oil for cooking; freeze promptly and keep frozen.",
-      "amount": null
+      "amount": null,
+      "page": "recipes/mediterranean-herb-freezer-cubes.html"
     },
     {
       "id": "p20",
