@@ -1,6 +1,6 @@
-// Shared catalog. Full original recipes are linked explicitly; unlinked original entries remain project briefs.
+// Shared preservation catalog. Batch figures apply ONLY to specified original recipes, not tested canning formulas.
 window.PRESERVATION_CATALOG={
-  "version": 2,
+  "version": 3,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -254,7 +254,12 @@ window.PRESERVATION_CATALOG={
       "flavor": "Mexican",
       "notes": "Roast, peel, portion and freeze for tacos, fajitas and bowls.",
       "amount": null,
-      "page": "recipes/roasted-poblano-freezer-strips.html"
+      "page": "recipes/roasted-poblano-freezer-strips.html",
+      "batch": {
+        "crop": "Poblano",
+        "grams": 907.18474,
+        "label": "2 lb poblano peppers"
+      }
     },
     {
       "id": "p10",
@@ -293,7 +298,12 @@ window.PRESERVATION_CATALOG={
       "flavor": "Mexican",
       "notes": "Roast tomatillos and chilies; blend and freeze in meal-sized portions.",
       "amount": null,
-      "page": "recipes/roasted-tomatillo-salsa-verde.html"
+      "page": "recipes/roasted-tomatillo-salsa-verde.html",
+      "batch": {
+        "crop": "Tomatillos",
+        "grams": 907.18474,
+        "label": "2 lb tomatillos"
+      }
     },
     {
       "id": "p12",
@@ -417,7 +427,12 @@ window.PRESERVATION_CATALOG={
       "flavor": "Korean",
       "notes": "Bright, crunchy accompaniment for bulgogi bowls.",
       "amount": null,
-      "page": "recipes/quick-korean-pickled-daikon.html"
+      "page": "recipes/quick-korean-pickled-daikon.html",
+      "batch": {
+        "crop": "Daikon radish",
+        "grams": 453.59237,
+        "label": "1 lb daikon radish"
+      }
     },
     {
       "id": "p19",
