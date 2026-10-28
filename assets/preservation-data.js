@@ -1,6 +1,6 @@
-// Shared catalog. Source-linked canning methods require exact tested ingredients and procedures.
+// Shared catalog. Recipe pages are distinct from project briefs; external source links require exact method checks.
 window.PRESERVATION_CATALOG={
-  "version": 5,
+  "version": 6,
   "crops": [
     "Jalapeño",
     "Serrano",
@@ -377,7 +377,8 @@ window.PRESERVATION_CATALOG={
       "flavor": "Thai",
       "notes": "Convenient for Thai basil chicken, panang beef and coconut soups. Freeze in small portions for cooking; best flavor within 2–3 months.",
       "amount": null,
-      "page": "recipes/thai-basil-freezer-portions.html"
+      "page": "recipes/thai-basil-freezer-portions.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-fresh-herbs/"
     },
     {
       "id": "p16",
@@ -395,7 +396,8 @@ window.PRESERVATION_CATALOG={
       "flavor": "Thai",
       "notes": "Freeze trimmed lemongrass and aromatics in small portions for curry, marinades and soup.",
       "amount": null,
-      "page": "recipes/thai-lemongrass-freezer-paste.html"
+      "page": "recipes/thai-lemongrass-freezer-paste.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetable/freezing-garlic-in-oil/"
     },
     {
       "id": "p17",
@@ -473,7 +475,8 @@ window.PRESERVATION_CATALOG={
       "flavor": "Italian",
       "notes": "Use for pasta, grilled chicken, sandwiches and vegetable bowls. For best flavor use within 2–3 months. Do not can pesto or store homemade garlic-in-oil pesto unrefrigerated.",
       "amount": null,
-      "page": "recipes/basil-pesto-freezer-cubes.html"
+      "page": "recipes/basil-pesto-freezer-cubes.html",
+      "referenceUrl": "https://nchfp.uga.edu/how/freeze/vegetables/freezing-pesto/"
     },
     {
       "id": "p21",
