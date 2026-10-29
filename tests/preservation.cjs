@@ -9,9 +9,11 @@ const catalogContext={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/preservation-data.js'),'utf8'),catalogContext);
 const catalog=catalogContext.window.PRESERVATION_CATALOG;
 const entries=catalog.entries.filter(e=>e.photo);
+const completeEntries=catalog.entries.filter(e=>e.page);
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/';
 (async()=>{
-assert.equal(entries.length,11);
+assert.equal(entries.length,30);
+assert.equal(entries.length,completeEntries.length,'every local recipe has a photo');
 for(const e of entries){
  const image=path.resolve(__dirname,'../preservation',e.photo);
  assert.ok(fs.existsSync(image),e.photo);
@@ -21,9 +23,9 @@ for(const e of entries){
  const visibleSteps=[...html.match(/<ol>(.*?)<\/ol>/s)[1].matchAll(/<li>(.*?)<\/li>/gs)].map(m=>normalize(m[1]));
  assert.deepEqual(visibleSteps,structured.recipeInstructions.map(s=>s.text),e.page+' structured instructions');
  assert.ok(html.includes('Original recipe:'));
- assert.ok(html.includes('40°F'));
+ if(['Frozen','Refrigerated'].includes(e.storage))assert.ok(html.includes('40°F'));
  if(e.storage==='Frozen')assert.ok(html.includes('0°F'));
- assert.ok(html.includes('src="../../assets/preservation-images/'+path.basename(image)+'"'),e.page);
+ assert.ok(html.includes('src="../'+e.photo+'"'),e.page);
 }
 for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
  const type={chromium,webkit}[name];
@@ -34,7 +36,7 @@ for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
   page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
   const visit=async p=>{await page.goto(new URL(p,base).href);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),p+' horizontal overflow');};
   await visit('preservation/index.html');
-  assert.equal(await page.locator('.pres-photo').count(),11);
+  assert.equal(await page.locator('.pres-photo').count(),30);
   const heights=await page.locator(".pres-photo").evaluateAll(images=>images.map(i=>i.getBoundingClientRect().height));
   assert.equal(new Set(heights).size,1);
   for(const img of await page.locator('.pres-photo').all()){
@@ -50,9 +52,9 @@ for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
   for(const method of new Set(catalog.entries.map(e=>e.method))){await page.locator('#method').selectOption(method);await checkCards(catalog.entries.filter(e=>e.method===method))}
   await page.locator('#method').selectOption('');
   for(const flavor of new Set(catalog.entries.map(e=>e.flavor))){await page.locator('#flavor').selectOption(flavor);await checkCards(catalog.entries.filter(e=>e.flavor===flavor))}
-  await page.locator('#flavor').selectOption('');await page.locator('#completeOnly').check();await checkCards(entries);
+  await page.locator('#flavor').selectOption('');await page.locator('#completeOnly').check();await checkCards(completeEntries);
   if(width===390){const style=await page.addStyleTag({content:'html{font-size:200%}'});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'200% library text overflow');await style.evaluate(e=>e.remove())}
-  await page.locator('#q').fill('  PESTO  ');await checkCards(entries.filter(e=>[e.title,e.notes,e.flavor,...e.crops].join(' ').toLowerCase().includes('pesto')));
+  await page.locator('#q').fill('  PESTO  ');await checkCards(completeEntries.filter(e=>[e.title,e.notes,e.flavor,...e.crops].join(' ').toLowerCase().includes('pesto')));
   await page.locator('#crop').selectOption('Genovese / sweet basil');await page.locator('#method').selectOption('Freezing');await page.locator('#flavor').selectOption('Italian');await checkCards(entries.filter(e=>e.id==='p20'));
   await page.locator('#q').fill('nothing-matches-xyz');await checkCards([]);assert.ok((await page.locator('#cards').innerText()).includes('No matching'));
   await visit('preservation/index.html');await page.locator('.pres-actions a[href="harvest.html"]').click();assert.ok(page.url().endsWith('/preservation/harvest.html'));

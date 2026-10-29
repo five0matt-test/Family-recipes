@@ -1,3 +1,23 @@
+# Current preservation content expansion
+
+Branch: `feature/complete-preservation-recipes`. PR #2 was already merged/deployed with owner approval. This expansion is separate and awaits review/approval before publishing.
+
+- [x] Resolve all 20 former briefs: 19 new local recipes plus an attributed external fermentation recipe/guidance link.
+- [x] Catalog: 30 complete local recipes, 9 external references, 70 selectable crops and 20 primary-crop reference batches.
+- [x] Preserve all 11 original photographs; no new photography is claimed.
+- [x] Verify ingredients/directions against JSON-LD, helper navigation, reference-weight arithmetic and exported plans.
+- [x] Run automated layout, print-media and accessibility checks for new recipes.
+- [x] Confirm final full regression results in CONTENT-EXPANSION-REVIEW.md.
+- [ ] Kitchen-test recipes, measured yields and storage handling; no laboratory shelf-life validation is claimed.
+- [ ] Physical iPhone, AnyList, print and VoiceOver testing; check automation-blocked external sources in a normal browser.
+- [ ] Explicit approval to merge/deploy this expansion.
+
+Details: [CONTENT-EXPANSION-REVIEW.md](CONTENT-EXPANSION-REVIEW.md).
+
+---
+
+The following is the archived initial PR #2 release checklist; counts and pending-brief statements below describe that earlier release, not the expansion above.
+
 # Preservation Library — Release verification checklist
 
 This feature is in a draft PR. Do not merge until links, recipes and mobile interactions are reviewed.
