@@ -12,7 +12,8 @@ const entries=catalog.entries.filter(e=>e.photo);
 const completeEntries=catalog.entries.filter(e=>e.page);
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/';
 (async()=>{
-assert.equal(entries.length,11);
+assert.equal(entries.length,30);
+assert.equal(entries.length,completeEntries.length,'every local recipe has a photo');
 for(const e of entries){
  const image=path.resolve(__dirname,'../preservation',e.photo);
  assert.ok(fs.existsSync(image),e.photo);
@@ -22,9 +23,9 @@ for(const e of entries){
  const visibleSteps=[...html.match(/<ol>(.*?)<\/ol>/s)[1].matchAll(/<li>(.*?)<\/li>/gs)].map(m=>normalize(m[1]));
  assert.deepEqual(visibleSteps,structured.recipeInstructions.map(s=>s.text),e.page+' structured instructions');
  assert.ok(html.includes('Original recipe:'));
- assert.ok(html.includes('40°F'));
+ if(['Frozen','Refrigerated'].includes(e.storage))assert.ok(html.includes('40°F'));
  if(e.storage==='Frozen')assert.ok(html.includes('0°F'));
- assert.ok(html.includes('src="../../assets/preservation-images/'+path.basename(image)+'"'),e.page);
+ assert.ok(html.includes('src="../'+e.photo+'"'),e.page);
 }
 for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
  const type={chromium,webkit}[name];
@@ -35,7 +36,7 @@ for(const name of (process.env.TEST_BROWSERS||"chromium,webkit").split(",")){
   page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
   const visit=async p=>{await page.goto(new URL(p,base).href);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),p+' horizontal overflow');};
   await visit('preservation/index.html');
-  assert.equal(await page.locator('.pres-photo').count(),11);
+  assert.equal(await page.locator('.pres-photo').count(),30);
   const heights=await page.locator(".pres-photo").evaluateAll(images=>images.map(i=>i.getBoundingClientRect().height));
   assert.equal(new Set(heights).size,1);
   for(const img of await page.locator('.pres-photo').all()){

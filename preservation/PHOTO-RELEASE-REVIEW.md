@@ -9,8 +9,11 @@ All 19 recipe pages include the photograph with descriptive alt text and intrins
 - PASS: 19 distinct JPEGs decode at 1280 × 720; each catalog path, visible recipe image, and absolute Recipe image URL maps to the same existing file.
 - PASS: all 19 photographs visually inspected together for subject, preparation and consistent lighting/composition. These are illustrative generated images, not photographs of kitchen-tested batches.
 - PASS: JavaScript syntax and git whitespace checks.
-- Browser loading/layout tests: BLOCKED in this session. Playwright browser download failed; a separately downloaded Chrome 156 could not launch because socket creation was denied (`Operation not permitted`). No fresh rendered iPhone layout pass is claimed. Earlier PR validation predates these images.
-- Added `tests/preservation-photos.cjs` for actual image decoding on cards and pages, schema path agreement, fixed thumbnail heights and overflow at 1280/390/320px. Run with a local server on port 8765 and Playwright Chromium installed. Existing expansion test now selects the 19 additions by their new image directory instead of assuming additions have no photo.
+- PASS (follow-up, October 29, 2026): Chromium 156.0.8078.73 dedicated headless shell via Playwright. All 19 new images load and decode on library cards and recipe pages at 1280/390/320px. Matching JSON-LD paths, fixed card heights, cover cropping, no horizontal overflow, and no HTTP/page errors. The full Chrome startup socket problem was avoided by using the dedicated headless distribution.
+- PASS: full Preservation Library regression at 1280/844/430/390/375/320px, with mobile/touch emulation below 500px: all 30 recipe photos, all crop/method/flavor filters, search, navigation, multi-crop allocations, remaining quantities, invalid inputs, text downloads and single-crop unit conversions.
+- PASS: all 19 additions retain matching visible/schema ingredients and directions; 1280/390/320 layouts, 200% text at 390px, print visibility, helper preselection, and all 15 new reference-batch allocations/over-allocation rejection/download contents. Axe accessibility scan was not rerun.
+- PASS: visual inspection of 390px library screenshots and representative jalapeño, herb-portion and pumpkin recipe screenshots. No product layout or cropping fixes were needed.
+- Added `tests/preservation-photos.cjs` for actual image decoding on cards and pages, schema path agreement, fixed thumbnail heights and overflow at 1280/390/320px. Run from the repository root with a local server on port 8765 and Playwright Chromium installed. Set `CHROMIUM_EXECUTABLE_PATH` for a dedicated headless executable if needed; set `PHOTO_SCREENSHOT_DIR` to retain screenshots. Start the server and tests in the same execution environment. Existing expansion test selects the 19 additions by their new image directory. The broader preservation test now expects all 30 local photos, checks paths in either image directory, and applies cold-storage checks only to refrigerated/frozen projects.
 - Physical iPhone/Safari, AnyList image imports, and deployed Pages image URLs remain untested. Feature-branch image integration does not publish to the main-branch Pages site.
 
 PR #3 remains draft. No merge or main-branch change is authorized by this step.
@@ -20,7 +23,7 @@ PR #3 remains draft. No merge or main-branch change is authorized by this step.
 Common style prompt: Use case: photorealistic-natural. Generate ONE standalone realistic food photograph for the Family Recipes preservation website. Landscape 16:9. Warm natural window lighting, rustic neutral wood table, simple clean vessels, appetizing honest home food photography, three-quarter close view, crisp realistic food texture, subtle depth of field. Center subject with generous margins so a fixed-height object-fit cover thumbnail remains readable. No text, labels, watermark, collage, hands, unrelated ingredients, or sealed canning display. Subject:
 
 1. Refrigerator jalapeños: quarter-inch pepper rings in clear vinegar brine, halved garlic, dried Mexican oregano; open refrigerator jar and small bowl; same common style constraints.
-+
+
 2. Fresh Korean-style refrigerated cabbage: bite-size Napa cabbage tossed with orange-red gochugaru dressing, daikon matchsticks and sliced green onions, garlic ginger fish sauce. Crisp fresh salad, not fermented, small ceramic bowl.
 
 3. Dried Mediterranean herb seasoning: crumbly dried oregano and thyme leaves, crushed rosemary and sage, small ceramic bowl and open dry storage jar. No salt or paprika.
