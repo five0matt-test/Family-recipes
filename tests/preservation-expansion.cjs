@@ -1,7 +1,7 @@
 const {chromium,webkit}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),scope={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/preservation-data.js'),'utf8'),scope);
-const catalog=scope.window.PRESERVATION_CATALOG,recipes=catalog.entries.filter(e=>e.page),added=recipes.filter(e=>!e.photo),batches=catalog.entries.filter(e=>e.batch);
+const catalog=scope.window.PRESERVATION_CATALOG,recipes=catalog.entries.filter(e=>e.page),added=recipes.filter(e=>e.photo?.startsWith("../images/")),batches=catalog.entries.filter(e=>e.batch);
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/';
 (async()=>{
 assert.equal(recipes.length,30);assert.equal(added.length,19);assert.equal(batches.length,20);assert.equal(catalog.entries.length,39);

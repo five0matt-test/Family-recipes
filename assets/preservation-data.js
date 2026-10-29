@@ -339,7 +339,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Jalapeño",
         "grams": 453.59237,
         "label": "1 lb jalapeños"
-      }
+      },
+      "photo": "../images/refrigerator-pickled-jalapenos.jpg"
     },
     {
       "id": "p13",
@@ -447,7 +448,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Chinese / Napa cabbage",
         "grams": 453.59237,
         "label": "1 lb Napa cabbage"
-      }
+      },
+      "photo": "../images/refrigerator-kimchi-style-cabbage.jpg"
     },
     {
       "id": "p18",
@@ -537,7 +539,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/dried-herb-seasoning-blends.html",
       "referenceUrl": "https://nchfp.uga.edu/how/dry/drying-general/herbs/",
-      "reviewStatus": "Original recipe — not laboratory validated"
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "photo": "../images/dried-herb-seasoning-blends.jpg"
     },
     {
       "id": "p22",
@@ -562,7 +565,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Cilantro",
         "grams": 56.69904625,
         "label": "2 oz cilantro"
-      }
+      },
+      "photo": "../images/cilantro-parsley-freezer-portions.jpg"
     },
     {
       "id": "p23",
@@ -607,7 +611,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Bell peppers",
         "grams": 453.59237,
         "label": "1 lb bell peppers"
-      }
+      },
+      "photo": "../images/freezer-corn-pepper-fajita-mix.jpg"
     },
     {
       "id": "p25",
@@ -630,7 +635,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Okra",
         "grams": 453.59237,
         "label": "1 lb okra"
-      }
+      },
+      "photo": "../images/freezer-ready-okra.jpg"
     },
     {
       "id": "p26",
@@ -656,7 +662,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Pickling cucumbers",
         "grams": 453.59237,
         "label": "1 lb pickling cucumbers"
-      }
+      },
+      "photo": "../images/refrigerator-dill-cucumber-pickles.jpg"
     },
     {
       "id": "p27",
@@ -704,7 +711,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Carrots",
         "grams": 226.796185,
         "label": "8 oz carrots"
-      }
+      },
+      "photo": "../images/pickled-carrot-daikon.jpg"
     },
     {
       "id": "p29",
@@ -728,7 +736,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Zucchini",
         "grams": 453.59237,
         "label": "1 lb zucchini"
-      }
+      },
+      "photo": "../images/zucchini-summer-squash-freezer-prep.jpg"
     },
     {
       "id": "p30",
@@ -752,7 +761,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Seminole pumpkin",
         "grams": 907.18474,
         "label": "2 lb whole pumpkin"
-      }
+      },
+      "photo": "../images/frozen-pumpkin-puree.jpg"
     },
     {
       "id": "p31",
@@ -771,7 +781,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/frozen-citrus-zest-juice.html",
       "referenceUrl": "https://nchfp.uga.edu/how/freeze/fruits/freezing-citrus-fruits/",
-      "reviewStatus": "Original recipe — not laboratory validated"
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "photo": "../images/frozen-citrus-zest-juice.jpg"
     },
     {
       "id": "p32",
@@ -794,7 +805,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Figs",
         "grams": 453.59237,
         "label": "1 lb figs"
-      }
+      },
+      "photo": "../images/frozen-figs.jpg"
     },
     {
       "id": "p33",
@@ -813,7 +825,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/dried-mint-chamomile-tea.html",
       "referenceUrl": "https://nchfp.uga.edu/how/dry/drying-general/herbs/",
-      "reviewStatus": "Original recipe — not laboratory validated"
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "photo": "../images/dried-mint-chamomile-tea.jpg"
     },
     {
       "id": "p34",
@@ -840,7 +853,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Yellow onions",
         "grams": 453.59237,
         "label": "1 lb yellow onions"
-      }
+      },
+      "photo": "../images/onion-leek-freezer-mix.jpg"
     },
     {
       "id": "p35",
@@ -865,7 +879,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Garlic",
         "grams": 113.3980925,
         "label": "4 oz peeled garlic"
-      }
+      },
+      "photo": "../images/garlic-herb-freezer-portions.jpg"
     },
     {
       "id": "p36",
@@ -888,7 +903,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Sweet potatoes",
         "grams": 907.18474,
         "label": "2 lb sweet potatoes"
-      }
+      },
+      "photo": "../images/sweet-potato-freezer-prep.jpg"
     },
     {
       "id": "p37",
@@ -914,7 +930,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Roma / paste tomatoes",
         "grams": 907.18474,
         "label": "2 lb tomatoes"
-      }
+      },
+      "photo": "../images/frozen-roasted-tomato-base.jpg"
     },
     {
       "id": "p38",
@@ -936,7 +953,8 @@ window.PRESERVATION_CATALOG={
       "amount": null,
       "page": "recipes/greek-marinade-freezer-starter.html",
       "referenceUrl": "https://nchfp.uga.edu/how/freeze/fruits/freezing-citrus-fruits/",
-      "reviewStatus": "Original recipe — not laboratory validated"
+      "reviewStatus": "Original recipe — not laboratory validated",
+      "photo": "../images/greek-marinade-freezer-starter.jpg"
     },
     {
       "id": "p39",
@@ -962,7 +980,8 @@ window.PRESERVATION_CATALOG={
         "crop": "Cilantro",
         "grams": 56.69904625,
         "label": "2 oz cilantro"
-      }
+      },
+      "photo": "../images/cilantro-citrus-salsa-starter.jpg"
     }
   ]
 };
