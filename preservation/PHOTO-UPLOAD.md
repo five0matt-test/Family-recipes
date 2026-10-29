@@ -31,3 +31,5 @@ The new multi-crop planner supports adding multiple harvests, assigning whole re
 ## Record a finished batch in the shared pantry
 
 Use “I made this → Add to pantry” on a complete preservation recipe or a Harvest Helper allocation. Sign in on the pantry page, enter the actual amount made, choose units and the appropriate storage location, and review the preparation date before saving. Best by remains optional and is never calculated automatically. The batch keeps its recipe link and stays separate from other batches. Pantry exports retain batch dates and recipe links. Recording a batch does not deduct ingredients or change Harvest Helper allocations.
+
+External food-project cards also offer “I made this → Add to pantry,” including in Harvest Helper recommendations. Saved batches retain the original external source link. Enter the actual food and amount made; shelf-stable projects offer Pantry or Refrigerator, frozen projects offer Freezer or Garage freezer, and refrigerated projects use Refrigerator. Reference-only safety guides have no batch-entry action. Recording a batch does not certify the preservation method or calculate storage life.
