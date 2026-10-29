@@ -3,14 +3,16 @@ export function initPreservationBatch({catalog,getUser,saveBatch}){
  const $=id=>document.getElementById(id),panel=$('preservationBatch');
  const id=new URLSearchParams(location.search).get('preservation');
  if(!id)return {authChanged(){}};
- const recipe=catalog?.entries.find(e=>e.id===id&&e.page);
- if(!recipe){panel.hidden=false;$('batchStatus').textContent='This preservation recipe was not found. Open a recipe from the Preservation Library and try again.';return {authChanged(){}};}
+ const recipe=catalog?.entries.find(e=>e.id===id&&e.storage!=='Reference'&&(e.page||/^https:\/\//.test(e.url||'')));
+ if(!recipe){panel.hidden=false;$('batchStatus').textContent='This preservation recipe or food project was not found. Choose one from the Preservation Library. Reference-only safety guides do not create food batches.';return {authChanged(){}};}
  const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
- const recipeUrl=new URL(recipe.page,new URL('../preservation/',location.href)).href;
- const allowedLocations=recipe.storage==='Frozen'?['Freezer','Garage freezer']:recipe.storage==='Refrigerated'?['Refrigerator']:['Pantry'];
+ const external=!recipe.page;
+ const recipeUrl=external?new URL(recipe.url).href:new URL(recipe.page,new URL('../preservation/',location.href)).href;
+ const allowedLocations=recipe.storage==='Frozen'?['Freezer','Garage freezer']:recipe.storage==='Refrigerated'?['Refrigerator']:recipe.storage==='Shelf-stable'?['Pantry','Refrigerator']:['Pantry'];
  const allowedUnits=['jar','portion','each','cup','lb','oz','g','kg','fl oz','ml','L','package'];
  let token=crypto.randomUUID(),busy=false,saved=false;
  panel.hidden=false;$('batchRecipe').textContent=recipe.title;$('batchRecipeLink').href=recipeUrl;
+ if(external){$('batchRecipeLink').textContent='Read original source and storage guidance ↗';$('batchRecipeLink').target='_blank';$('batchRecipeLink').rel='noopener noreferrer';$('batchSourceHint').hidden=false;}
  for(const value of allowedLocations)$('batchLocation').add(new Option(value,value));
  for(const value of allowedUnits)$('batchUnit').add(new Option(value,value));
  function defaults(){
