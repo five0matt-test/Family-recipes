@@ -1,3 +1,4 @@
+import { initPreservationBatch } from './preservation-batch.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
 import { getFirestore, collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, runTransaction } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
@@ -8,6 +9,17 @@ if(!ready){$('authStatus').textContent='Setup needed: add your Firebase web conf
 else {
  const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
  const pantry=collection(db,'households','family','pantry');let user=null,items=[],unsubscribe=null,editing=null;
+ const batchEntry=initPreservationBatch({catalog:window.PRESERVATION_CATALOG,getUser:()=>user,saveBatch:async(token,values)=>{
+  if(!user)throw Error('Sign in before saving.');
+  const uid=user.uid,ref=doc(pantry,'preserved-'+token);
+  return runTransaction(db,async transaction=>{
+   const current=await transaction.get(ref);
+   if(current.exists())return {alreadySaved:true};
+   transaction.set(ref,{...values,createdAt:serverTimestamp(),updatedAt:serverTimestamp(),updatedBy:uid});
+   return {alreadySaved:false};
+  });
+ }});
+
  $('signIn').onclick=async()=>{
   $('authStatus').textContent='Opening Google sign-in popup...';
   try{
@@ -17,25 +29,25 @@ else {
   }
  };
  $('signOut').onclick=()=>signOut(auth);
- onAuthStateChanged(auth,u=>{user=u;if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
+ onAuthStateChanged(auth,u=>{user=u;batchEntry.authChanged();if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
  const fields=['name','quantity','unit','location','expires','notes'];
  function values(){return {name:$('name').value.trim(),quantity:Number($('quantity').value),unit:$('unit').value,location:$('location').value,expires:$('expires').value,notes:$('notes').value.trim()};}
  function reset(){editing=null;$('itemForm').reset();$('quantity').value='1';$('formTitle').textContent='Add an item';$('save').textContent='Add to pantry';$('cancel').hidden=true;}
  $('cancel').onclick=reset;
  $('itemForm').onsubmit=async e=>{e.preventDefault();if(!user)return;const v=values();if(!v.name||!Number.isFinite(v.quantity)||v.quantity<0)return; $('save').disabled=true;try{if(editing){await updateDoc(doc(pantry,editing),{...v,updatedAt:serverTimestamp(),updatedBy:user.uid});}else{await saveWithMerge(v);}reset();$('message').textContent='Pantry saved.';}catch(err){$('message').textContent='Save failed: '+err.message;}finally{$('save').disabled=false;}};
- function render(){const term=$('search').value.toLowerCase(),loc=$('locationFilter').value;const list=items.filter(x=>(x.name||'').toLowerCase().includes(term)&&(!loc||x.location===loc)).sort((a,b)=>(a.name||'').localeCompare(b.name||''));$('count').textContent='('+list.length+')';const host=$('items');host.replaceChildren();if(!list.length){const p=document.createElement('p');p.textContent='No items match. Add your first pantry item above.';host.append(p);return;}for(const x of list){const el=document.createElement('div');el.className='item';const info=document.createElement('div'),title=document.createElement('strong'),meta=document.createElement('div');title.textContent=x.name;meta.className='meta';meta.textContent=[x.quantity+' '+(x.unit||''),x.location,x.expires?'Best by '+x.expires:'',x.notes||''].filter(Boolean).join(' · ');info.append(title,meta);const actions=document.createElement('div');actions.className='controls';const edit=document.createElement('button');edit.textContent='Edit';edit.onclick=()=>{editing=x.id;for(const f of fields)$(f).value=x[f]??'';$('formTitle').textContent='Edit item';$('save').textContent='Save changes';$('cancel').hidden=false;window.scrollTo({top:0,behavior:'smooth'});};const del=document.createElement('button');del.textContent='Remove';del.onclick=async()=>{if(!confirm('Remove '+x.name+' from the pantry?'))return;try{await deleteDoc(doc(pantry,x.id));}catch(e){$('message').textContent='Remove failed: '+e.message;}};actions.append(edit,del);el.append(info,actions);host.append(el);}}
+ function render(){const term=$('search').value.toLowerCase(),loc=$('locationFilter').value;const list=items.filter(x=>(x.name||'').toLowerCase().includes(term)&&(!loc||x.location===loc)).sort((a,b)=>(a.name||'').localeCompare(b.name||''));$('count').textContent='('+list.length+')';const host=$('items');host.replaceChildren();if(!list.length){const p=document.createElement('p');p.textContent='No items match. Add your first pantry item above.';host.append(p);return;}for(const x of list){const el=document.createElement('div');el.className='item';const info=document.createElement('div'),title=document.createElement('strong'),meta=document.createElement('div');title.textContent=x.name;meta.className='meta';meta.textContent=[x.quantity+' '+(x.unit||''),x.location,x.expires?'Best by '+x.expires:'',x.preparedOn?'Prepared '+x.preparedOn:'',x.notes||''].filter(Boolean).join(' · ');info.append(title,meta);if(x.preservationBatch&&x.recipeUrl){try{const source=new URL(x.recipeUrl,location.href);if(source.origin===location.origin&&source.pathname.startsWith(new URL('../preservation/recipes/',location.href).pathname)){const link=document.createElement('a');link.href=source.href;link.textContent='Preservation recipe';info.append(link);}}catch{}}const actions=document.createElement('div');actions.className='controls';const edit=document.createElement('button');edit.textContent='Edit';edit.onclick=()=>{editing=x.id;for(const f of fields)$(f).value=x[f]??'';$('formTitle').textContent='Edit item';$('save').textContent='Save changes';$('cancel').hidden=false;window.scrollTo({top:0,behavior:'smooth'});};const del=document.createElement('button');del.textContent='Remove';del.onclick=async()=>{if(!confirm('Remove '+x.name+' from the pantry?'))return;try{await deleteDoc(doc(pantry,x.id));}catch(e){$('message').textContent='Remove failed: '+e.message;}};actions.append(edit,del);el.append(info,actions);host.append(el);}}
  $('search').oninput=render;$('locationFilter').onchange=render;
  function download(ext,content,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='family-pantry-'+new Date().toISOString().slice(0,10)+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- $('exportJson').onclick=()=>download('json',JSON.stringify(items.map(({id,name,quantity,unit,location,expires,notes})=>({name,quantity,unit,location,expires,notes})),null,2),'application/json');
- $('exportCsv').onclick=()=>{const columns=['name','quantity','unit','location','expires','notes'];const esc=v=>'"'+String(v??'').replaceAll('"','""')+'"';download('csv',[columns.join(','),...items.map(x=>columns.map(c=>esc(x[c])).join(','))].join('\r\n'),'text/csv');};
+ $('exportJson').onclick=()=>download('json',JSON.stringify(items.map(({id,name,quantity,unit,location,expires,notes,preservationBatch,preparedOn,recipeUrl})=>({name,quantity,unit,location,expires,notes,preservationBatch,preparedOn,recipeUrl})),null,2),'application/json');
+ $('exportCsv').onclick=()=>{const columns=['name','quantity','unit','location','expires','notes','preservationBatch','preparedOn','recipeUrl'];const esc=v=>'"'+String(v??'').replaceAll('"','""')+'"';download('csv',[columns.join(','),...items.map(x=>columns.map(c=>esc(x[c])).join(','))].join('\r\n'),'text/csv');};
 
  // Pantry quick-entry helpers. All writes use the same private household collection.
- const units=['each','lb','oz','g','kg','cup','fl oz','ml','L','gallon','can','package','bunch','jar'];
+ const units=['each','lb','oz','g','kg','cup','fl oz','ml','L','gallon','can','package','bunch','jar','portion'];
  const locations=['Pantry','Refrigerator','Freezer','Garage freezer','Garden harvest','Other'];
  const canonical=s=>String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
  const groups={lb:['mass',453.59237],oz:['mass',28.349523125],g:['mass',1],kg:['mass',1000], 'fl oz':['volume',29.5735295625],ml:['volume',1],L:['volume',1000]};
  function convert(q,from,to){if(from===to)return q;if(groups[from]&&groups[to]&&groups[from][0]===groups[to][0])return q*groups[from][1]/groups[to][1];return null;}
- function matches(v){return items.filter(x=>canonical(x.name)===canonical(v.name)&&x.location===v.location&&convert(v.quantity,v.unit,x.unit)!==null);}
+ function matches(v){return items.filter(x=>!x.preservationBatch&&canonical(x.name)===canonical(v.name)&&x.location===v.location&&convert(v.quantity,v.unit,x.unit)!==null);}
  async function saveWithMerge(v){const options=matches(v);if(options.length){const x=options[0];const added=convert(v.quantity,v.unit,x.unit);const yes=confirm('Already in '+x.location+': '+x.name+' ('+x.quantity+' '+x.unit+').\n\nAdd '+v.quantity+' '+v.unit+' to this existing item?\n\nOK = merge quantities; Cancel = create separate entry.');if(yes){await runTransaction(db,async t=>{const ref=doc(pantry,x.id),snap=await t.get(ref);if(!snap.exists())throw Error('Existing item was removed. Try again.');const cur=snap.data();const delta=convert(v.quantity,v.unit,cur.unit);if(delta===null)throw Error('Units are not compatible.');t.update(ref,{quantity:Math.round((Number(cur.quantity)+delta)*10000)/10000,updatedAt:serverTimestamp(),updatedBy:user.uid});});return 'merged';}}
  await addDoc(pantry,{...v,createdAt:serverTimestamp(),updatedAt:serverTimestamp(),updatedBy:user.uid});return 'added';}
  const defaultLocation='Pantry';

@@ -57,7 +57,7 @@ $("planRecipeSelect").innerHTML=choices.map(e=>'<option value="'+esc(e.id)+'">'+
 if(choices.some(e=>e.id===selectedRecipe))$("planRecipeSelect").value=selectedRecipe;
 $("planAllocationHelp").textContent=h?(choices.length?"Select a recipe and number of complete reference batches. Each batch consumes the listed raw primary ingredient quantity.":"No ingredient reference batch is available for this crop yet. It can still be tracked, but not allocated automatically."):"Add a crop before assigning batches.";
 $("planAddAllocation").disabled=!choices.length;
-$("planAllocations").innerHTML=state.allocations.map((a,i)=>{const h=harvestById(a.harvestId),e=recipeFor(a.recipeId);return '<li><strong>'+esc(e.title)+'</strong> — '+a.batches+' batch(es), '+fmt(a.grams)+' of '+esc(h.crop)+' <a href="'+esc(e.page)+'">Recipe</a> <button type="button" data-remove-allocation="'+i+'">Remove</button></li>'}).join("")||'<li>No batches assigned yet.</li>';
+$("planAllocations").innerHTML=state.allocations.map((a,i)=>{const h=harvestById(a.harvestId),e=recipeFor(a.recipeId);return '<li><strong>'+esc(e.title)+'</strong> — '+a.batches+' batch(es), '+fmt(a.grams)+' of '+esc(h.crop)+' <a href="'+esc(e.page)+'">Recipe</a> <a href="../pantry/index.html?preservation='+encodeURIComponent(e.id)+'">I made this → Add to pantry</a> <button type="button" data-remove-allocation="'+i+'">Remove</button></li>'}).join("")||'<li>No batches assigned yet.</li>';
 const remainingHtml=state.harvests.map(h=>'<li>'+esc(h.crop)+': '+fmt(remaining(h))+' unallocated</li>').join("");
 $("planRemaining").innerHTML=remainingHtml||'<li>No crops added.</li>';
 $("planExport").disabled=!state.harvests.length;

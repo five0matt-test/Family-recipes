@@ -27,3 +27,7 @@ The GitHub Git-data blob API supports base64 binary content. The supplied JPEGs 
 
 ## Harvest Helper
 The new multi-crop planner supports adding multiple harvests, assigning whole reference batches to complete recipes, tracking remaining weight, removing allocations, and downloading a plain-text plan. It currently supports only primary-ingredient batch weights in the catalog, not arbitrary recipes or finished yields. The plan saves automatically in this browser when browser storage is available. It can be restored after a reload or later visit, cleared with confirmation, or downloaded as a text backup. It does not sync across devices or household members.
+
+## Record a finished batch in the shared pantry
+
+Use “I made this → Add to pantry” on a complete preservation recipe or a Harvest Helper allocation. Sign in on the pantry page, enter the actual amount made, choose units and the appropriate storage location, and review the preparation date before saving. Best by remains optional and is never calculated automatically. The batch keeps its recipe link and stays separate from other batches. Pantry exports retain batch dates and recipe links. Recording a batch does not deduct ingredients or change Harvest Helper allocations.
