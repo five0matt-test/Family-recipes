@@ -16,7 +16,8 @@ const base=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/';
  // Reload keeps account-scoped pending intent, retry sends it once.
  await a.reload();await a.locator('#signIn').click();await a.waitForFunction(()=>document.getElementById('shoppingSaveStatus').textContent.includes('Not synced'));hub.offline=false;await a.locator('#shoppingRetry').click();await b.waitForFunction(()=>document.getElementById('shoppingManualItems').textContent.includes('Offline bread'));
  for(const p of [a,b]){assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.equal(await p.evaluate(()=>window.__pantryMock.writes),0);}
- a.once('dialog',d=>d.dismiss());await a.locator('#shoppingClear').click();assert.equal(await a.locator('#shoppingSelected a').count(),1);
+ await a.waitForFunction(()=>!document.getElementById('shoppingWeekFields').disabled);await a.locator('#shoppingAddWeek').click();await b.waitForFunction(()=>document.querySelectorAll('#shoppingSelected a').length===3);
+ a.once('dialog',d=>d.dismiss());await a.locator('#shoppingClear').click();assert.equal(await a.locator('#shoppingSelected a').count(),3);
  a.once('dialog',d=>{assert.match(d.message(),/whole household/);d.accept()});await a.locator('#shoppingClear').click();await b.waitForFunction(()=>document.querySelectorAll('#shoppingSelected a').length===0&&document.querySelectorAll('#shoppingManualItems input').length===0);
  await a.locator('#signOut').click();assert.ok(await a.locator('#app').isHidden());assert.ok(await a.locator('#shoppingUseShared').isDisabled());
  // A denied shared collection does not block the existing browser-only list.

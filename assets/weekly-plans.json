@@ -1,0 +1,96 @@
+[
+  {
+    "id": "2026-10-30",
+    "title": "October 30–November 5, 2026",
+    "selected": [
+      {
+        "id": "gochujang-chicken-bowls",
+        "amount": 4
+      },
+      {
+        "id": "beef-birria-tacos",
+        "amount": 4
+      },
+      {
+        "id": "greek-chicken-souvlaki",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "id": "2026-10-16",
+    "title": "October 16–22, 2026",
+    "selected": [
+      {
+        "id": "chicken-flautas",
+        "amount": 4
+      },
+      {
+        "id": "esquites",
+        "amount": 4
+      },
+      {
+        "id": "greek-beef-souvlaki",
+        "amount": 4
+      },
+      {
+        "id": "panang-beef",
+        "amount": 4
+      },
+      {
+        "id": "caldo-verde-collards",
+        "amount": 6
+      },
+      {
+        "id": "honey-dijon-chicken-bowls",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "2026-10-09",
+    "title": "October 9–15, 2026",
+    "selected": [
+      {
+        "id": "thai-basil-chicken-rice-bowls",
+        "amount": 4
+      },
+      {
+        "id": "italian-sausage-pepper-rigatoni",
+        "amount": 4
+      },
+      {
+        "id": "garlic-herb-lettuce-salad",
+        "amount": 4
+      },
+      {
+        "id": "carne-asada-tacos",
+        "amount": 4
+      },
+      {
+        "id": "purple-radish-herb-salsa",
+        "amount": 4
+      },
+      {
+        "id": "thick-beef-chili",
+        "amount": 4
+      },
+      {
+        "id": "skillet-cornbread",
+        "amount": 8
+      },
+      {
+        "id": "lemongrass-chicken-rice-bowls",
+        "amount": 2
+      },
+      {
+        "id": "garlic-herb-steak-provolone-wraps",
+        "amount": 2
+      },
+      {
+        "id": "quick-pickled-carrots-radishes",
+        "amount": 1
+      }
+    ]
+  }
+]
