@@ -1,23 +1,42 @@
+import {aisles,shoppingAisle} from './shopping-aisles.js';
 import {buildShoppingList,formatAmount,planScope,validatePlan} from './shopping-model.js';
 import {createShoppingSync} from './shopping-sync.js';
 export function initShoppingList({transport}={}){
  const $=id=>document.getElementById(id),key='familyRecipes.shoppingList.v1';
+ let weeks=[];
+ let hideChecked=false;try{hideChecked=localStorage.getItem('familyRecipes.shoppingHideChecked.v1')==='true';}catch{}
  let uid=null,sync=null,mode='local',receiving=false;
  let recipes=[],state=null,pantry=[],ready=false,pantryError=false,rows=[],active=[],covered=[],scope='',entered=false;
  const el=(tag,text,className)=>{const node=document.createElement(tag);if(text!=null)node.textContent=text;if(className)node.className=className;return node};
  const statusText=(id,text)=>{if($(id).textContent!==text)$(id).textContent=text};
  const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
- function save(derived=false){$('shoppingCopyFallback').hidden=true;if(mode==='shared'){if(!derived&&!receiving)sync?.update(state);return;}try{if(!state.selected.length&&!state.manual.length)localStorage.removeItem(key);else localStorage.setItem(key,JSON.stringify(state));statusText('shoppingSaveStatus','Selections and checkmarks save in this browser. The pantry is unchanged.');}catch{statusText('shoppingSaveStatus','Browser saving is unavailable. Download a copy before leaving. An older saved list may return after refresh.');}}
+ function save(derived=false){updateView();$('shoppingCopyFallback').hidden=true;if(mode==='shared'){if(!derived&&!receiving)sync?.update(state);return;}try{if(!state.selected.length&&!state.manual.length)localStorage.removeItem(key);else localStorage.setItem(key,JSON.stringify(state));statusText('shoppingSaveStatus','Selections and checkmarks save in this browser. The pantry is unchanged.');}catch{statusText('shoppingSaveStatus','Browser saving is unavailable. Download a copy before leaving. An older saved list may return after refresh.');}}
  function changed(){render();save();}
  function revealTarget(){if(!entered&&location.hash==='#shoppingSection'&&!$('app').hidden){entered=true;requestAnimationFrame(()=>$('shoppingSection').scrollIntoView({block:'start'}));}}
  function recipeControls(){const r=recipes.find(r=>r.id===$('shoppingRecipe').value);if(r){$('shoppingAmountLabel').textContent=r.mode==='batches'?'Whole batches':'Servings';$('shoppingAmount').value=r.baseAmount;}}
  function override(row){return ready?(state.overrides[row.id]||{}):{};}
  function checkKey(row){return row.id+'|'+JSON.stringify([row.needed,row.missing,override(row).buyText||'']);}
  function label(row){const edit=override(row).buyText;if(edit)return edit+' '+row.name;if(row.missing==null){const ratio=row.sources[0]?.ratio||1;return row.baseLabel+(ratio!==1?' (base ingredient; recipe ×'+Number(ratio.toFixed(3))+': confirm amount)':'');}return formatAmount(row.missing/row.factor,row.unit)+' '+row.name;}
+ function updateView(){
+  $('shoppingHideChecked').checked=hideChecked;
+  for(const li of document.querySelectorAll('#shoppingRows>.shopping-item,#shoppingManualItems>.shopping-item'))li.hidden=hideChecked&&li.classList.contains('shopping-checked');
+  for(const heading of document.querySelectorAll('#shoppingRows>.shopping-aisle'))heading.hidden=![...document.querySelectorAll('#shoppingRows>.shopping-item')].some(li=>li.dataset.aisle===heading.dataset.aisle&&!li.hidden);
+ }
+ $('shoppingHideChecked').onchange=()=>{hideChecked=$('shoppingHideChecked').checked;try{localStorage.setItem('familyRecipes.shoppingHideChecked.v1',String(hideChecked));}catch{}updateView();};
+ function weekPreview(){const w=weeks.find(w=>w.id===$('shoppingWeek').value);$('shoppingWeekPreview').textContent=w?w.selected.length+' recipes, including linked sides and lunches. Review individual servings after adding.':'';}
+ $('shoppingWeek').onchange=weekPreview;
+ $('shoppingAddWeek').onclick=()=>{
+  if(!state)return;const w=weeks.find(w=>w.id===$('shoppingWeek').value),multiple=Number($('shoppingWeekMultiplier').value);
+  if(!w||!Number.isInteger(multiple)||multiple<1||multiple>10){$('shoppingWeekStatus').textContent='Choose a week and a whole multiplier from 1 to 10.';return;}
+  const selections=w.selected.map(x=>({...x,amount:x.amount*multiple}));
+  if(selections.some(x=>x.amount>1000)){ $('shoppingWeekStatus').textContent='A recipe exceeds the serving limit. Choose a smaller multiplier.';return; }
+  for(const item of selections){const old=state.selected.find(x=>x.id===item.id);if(old)old.amount=item.amount;else state.selected.push(item);}
+  changed();$('shoppingWeekStatus').textContent='Added / updated '+selections.length+' recipes from '+w.title+'. Other recipes and extra items were kept.';
+ };
  function render(){
   if(!state)return;
   const editable=mode==='local'||!!sync?.isReady();
-  $('shoppingFields').disabled=!editable;
+  $('shoppingFields').disabled=!editable;$('shoppingWeekFields').disabled=!editable||!weeks.length;
   for(const id of ['shoppingManualText','shoppingAddManual','shoppingClear'])$(id).disabled=!editable;
   $('shoppingImportLocal').hidden=mode!=='shared';
   $('shoppingUseLocal').hidden=mode!=='shared';
@@ -27,15 +46,17 @@ export function initShoppingList({transport}={}){
   statusText('shoppingPantryStatus',ready?'Comparing with the pantry inventory loaded on this page. Review sizes, substitutions and prepared amounts.':pantryError?'Pantry could not be checked. Full recipe quantities are shown; verify inventory before buying.':'Waiting for the shared pantry. Quantities below have not been checked against inventory.');
   if(ready){scope=planScope(state.selected,state.includeOptional,pantry,today());if(scope!==state.scope){state.scope=scope;state.overrides={};save(true);}}
   rows=buildShoppingList({recipes,selected:state.selected,pantry,includeOptional:state.includeOptional,ready,today:today()});
-  active=rows.filter(r=>!r.covered&&!override(r).haveEnough);covered=rows.filter(r=>r.covered||override(r).haveEnough);
+  active=rows.filter(r=>!r.covered&&!override(r).haveEnough).sort((a,b)=>aisles.indexOf(shoppingAisle(a.name))-aisles.indexOf(shoppingAisle(b.name))||a.name.localeCompare(b.name));covered=rows.filter(r=>r.covered||override(r).haveEnough);
   if(ready){const keys=new Set(active.map(checkKey));const checked=state.checked.filter(k=>keys.has(k));if(checked.length!==state.checked.length){state.checked=checked;save(true);}}
   $('shoppingOptional').checked=state.includeOptional;
   const selected=$('shoppingSelected');selected.replaceChildren();
   for(const s of state.selected){const r=recipes.find(r=>r.id===s.id);const li=el('li');const link=el('a',r.name);link.href=r.href;li.append(link,el('span',s.amount+' '+r.mode));const remove=el('button','Remove');remove.type='button';remove.disabled=!editable;remove.setAttribute('aria-label','Remove '+r.name+' from shopping plan');remove.onclick=()=>{state.selected=state.selected.filter(x=>x.id!==s.id);changed();$('shoppingRecipe').focus()};li.append(remove);selected.append(li);}
   if(!state.selected.length)selected.append(el('li','Choose recipes to build your list.'));
   const host=$('shoppingRows');host.replaceChildren();
+  let lastAisle=null;
   for(const row of active){
-   const li=el('li',null,'shopping-item'),checkLabel=el('label',null,'shopping-check'),check=el('input');check.type='checkbox';check.checked=ready&&state.checked.includes(checkKey(row));check.disabled=!ready||!editable;const title=el('span',label(row),'shopping-label');title.id='shopping-title-'+active.indexOf(row);checkLabel.append(check,title);li.append(checkLabel);li.classList.toggle('shopping-checked',check.checked);
+   const aisle=shoppingAisle(row.name);if(aisle!==lastAisle){const heading=el('li',null,'shopping-aisle');heading.dataset.aisle=aisle;heading.append(el('h4',aisle));host.append(heading);lastAisle=aisle;}
+   const li=el('li',null,'shopping-item'),checkLabel=el('label',null,'shopping-check'),check=el('input');li.dataset.aisle=aisle;check.type='checkbox';check.checked=ready&&state.checked.includes(checkKey(row));check.disabled=!ready||!editable;const title=el('span',label(row),'shopping-label');title.id='shopping-title-'+active.indexOf(row);checkLabel.append(check,title);li.append(checkLabel);li.classList.toggle('shopping-checked',check.checked);
    check.onchange=()=>{state.checked=state.checked.filter(x=>x!==checkKey(row));if(check.checked)state.checked.push(checkKey(row));li.classList.toggle('shopping-checked',check.checked);save()};
    if(row.review)li.append(el('p','Review: '+row.review,'shopping-review'));
    else if(row.needed!=null)li.append(el('p','Needed '+formatAmount(row.needed/row.factor,row.unit)+'; pantry '+formatAmount(row.available/row.factor,row.unit)+'; buy '+formatAmount(row.missing/row.factor,row.unit)+'.','shopping-context'));
@@ -55,6 +76,7 @@ export function initShoppingList({transport}={}){
   for(const item of state.manual){const li=el('li',null,'shopping-item'),label=el('label',null,'shopping-check'),check=el('input');check.type='checkbox';check.checked=item.checked;check.disabled=!editable;label.append(check,el('span',item.text,'shopping-label'));li.append(label);li.classList.toggle('shopping-checked',item.checked);check.onchange=()=>{item.checked=check.checked;li.classList.toggle('shopping-checked',check.checked);save()};const remove=el('button','Remove');remove.type='button';remove.disabled=!editable;remove.setAttribute('aria-label','Remove extra item '+item.text);remove.onclick=()=>{state.manual=state.manual.filter(x=>x.id!==item.id);changed();$('shoppingManualText').focus()};li.append(remove);manual.append(li)}
   if(!state.manual.length)manual.append(el('li','No extra items.'));
   const empty=!state.selected.length&&!state.manual.length;for(const id of ['shoppingCopy','shoppingDownload','shoppingClear'])$(id).disabled=empty||(id==='shoppingClear'&&!editable);
+  updateView();
  }
  function exportText(){
   render();
@@ -91,6 +113,11 @@ export function initShoppingList({transport}={}){
  fetch(new URL('./shopping-recipes.json',import.meta.url)).then(r=>{if(!r.ok)throw Error('Recipe catalog did not load.');return r.json()}).then(data=>{
   if(!Array.isArray(data)||!data.length||data.some(r=>!r.id||!r.href||!Number.isFinite(r.baseAmount)||r.baseAmount<=0||!Array.isArray(r.ingredients)))throw Error('Recipe catalog is invalid.');recipes=data;
   const select=$('shoppingRecipe');select.replaceChildren();for(const group of [...new Set(recipes.map(r=>r.group))]){const options=el('optgroup');options.label=group;for(const r of recipes.filter(r=>r.group===group))options.append(new Option(r.name,r.id));select.append(options)}
+  fetch(new URL('./weekly-plans.json',import.meta.url)).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json()}).then(data=>{
+   if(!Array.isArray(data)||data.some(w=>typeof w.id!=='string'||typeof w.title!=='string'||!Array.isArray(w.selected)||w.selected.some(x=>!recipes.some(r=>r.id===x.id)||!Number.isInteger(x.amount)||x.amount<1||x.amount>1000)))throw Error('Invalid weekly plans');
+   weeks=data;const select=$('shoppingWeek');select.replaceChildren();for(const w of weeks)select.append(new Option(w.title,w.id));
+   const requested=new URLSearchParams(location.search).get('plan');if(weeks.some(w=>w.id===requested))select.value=requested;weekPreview();render();
+  }).catch(()=>{$('shoppingWeekStatus').textContent='Weekly plans could not load. You can still add individual recipes.';});
   let stored=null;try{const raw=localStorage.getItem(key);if(raw&&raw.length<=500000)stored=JSON.parse(raw);}catch{$('shoppingSaveStatus').textContent='No saved shopping plan could be read. You can start a new list.';}
   state=validatePlan(stored,recipes);$('shoppingFields').disabled=false;recipeControls();render();revealTarget();if(uid){try{if(localStorage.getItem('familyRecipes.shoppingMode.'+uid)==='shared')useShared();}catch{}}
  }).catch(error=>{$('shoppingStatus').textContent='Shopping recipes could not be loaded. '+error.message;});

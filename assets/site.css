@@ -36,3 +36,10 @@ main h1{overflow-wrap:anywhere}
 }
 .ingredient-toggle,.instruction-toggle{vertical-align:top}
 @media print{.ingredient-toggle,.instruction-toggle{display:contents!important}}
+
+/* Recipe heroes use the same responsive landscape frame, including new dinners. */
+main>img.hero{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px}
+.cook-title{margin:6px 0 0;line-height:1.4;font-size:1.05rem;color:#315944;overflow-wrap:anywhere}.cook-head{position:static;background:#f2f6f0;padding:10px 0}.cook-nav{position:sticky;bottom:0;background:#f2f6f0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));z-index:2}.cook-step-card{min-height:0}.cook-step-text{font-size:clamp(1.15rem,3.8vw,1.65rem);line-height:1.65}.cook-panel button{min-height:44px}.cook-jump{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}.cook-jump select{font:inherit;max-width:100%;padding:8px;border:1px solid #bdd1c2;border-radius:8px}.cook-options{margin:12px 0}.cook-options summary{cursor:pointer;font-weight:650}.cooking-mode .recipe-tools{display:none}.cook-complete{padding:14px;border-radius:10px;background:#dcefe2;font-weight:700}.cook-panel:focus-visible{outline:3px solid #348d62}@media(prefers-reduced-motion:reduce){.cook-fill{transition:none}}@media print{.cook-options,.cook-jump{display:none!important}}
+
+.cook-restart{border:1px solid #bdd1c2;background:white;color:#195d4d;border-radius:12px;padding:10px 14px;font-weight:700}.cooking-mode main>h1,.cooking-mode main>p:not(.cook-complete){display:none}@media print{.cooking-mode main>h1,.cooking-mode main>p:not(.cook-complete){display:block!important}}
+.cook-head>div{min-width:0;flex:1}.cook-close{flex-shrink:0;white-space:nowrap}
