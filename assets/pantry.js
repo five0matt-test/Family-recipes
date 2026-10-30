@@ -1,5 +1,3 @@
-import {applyShoppingPatch} from './shopping-sync.js';
-import { initShoppingList } from './shopping-list.js';
 import { initPreservationBatch } from './preservation-batch.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
@@ -11,26 +9,6 @@ if(!ready){$('authStatus').textContent='Setup needed: add your Firebase web conf
 else {
  const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
  const pantry=collection(db,'households','family','pantry');let user=null,items=[],unsubscribe=null,editing=null;
- const shoppingDoc=doc(collection(db,'households','family','shopping'),'current');
- const shopping=initShoppingList({transport:{
-  watch(uid,next,error){return onSnapshot(shoppingDoc,{includeMetadataChanges:true},snapshot=>{
-   if(user?.uid!==uid||snapshot.metadata?.fromCache)return;
-   next(snapshot.exists()?snapshot.data():{revision:0,plan:JSON.stringify({version:1}),applied:[]});
-  },error);},
-  async commit(uid,operation,empty,validate){
-   if(user?.uid!==uid)throw Error('Sign in again before saving.');
-   return runTransaction(db,async transaction=>{
-    if(user?.uid!==uid)throw Error('Account changed.');
-    const snapshot=await transaction.get(shoppingDoc),current=snapshot.exists()?snapshot.data():{revision:0,plan:JSON.stringify(empty()),applied:[]};
-    if(current.applied?.includes(operation.id))return current;
-    if(!Number.isSafeInteger(current.revision)||typeof current.plan!=='string')throw Error('Shared list data is invalid.');
-    const plan=validate(operation.clear?empty():applyShoppingPatch(validate(JSON.parse(current.plan)),operation.patch));
-    const serialized=JSON.stringify(plan);if(serialized.length>400000)throw Error('List is too large. Remove some items.');
-    const record={version:1,revision:current.revision+1,plan:serialized,applied:[...(Array.isArray(current.applied)?current.applied:[]).slice(-99),operation.id],updatedBy:uid,updatedAt:serverTimestamp()};
-    transaction.set(shoppingDoc,record);return record;
-   });
-  }
- }});
  const batchEntry=initPreservationBatch({catalog:window.PRESERVATION_CATALOG,getUser:()=>user,saveBatch:async(token,values)=>{
   if(!user)throw Error('Sign in before saving.');
   const uid=user.uid,ref=doc(pantry,'preserved-'+token);
@@ -51,7 +29,7 @@ else {
   }
  };
  $('signOut').onclick=()=>signOut(auth);
- onAuthStateChanged(auth,u=>{user=u;batchEntry.authChanged();shopping.authChanged(u);if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));shopping.setPantry(items,'ready');render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];shopping.setPantry(items,'error');render();});});
+ onAuthStateChanged(auth,u=>{user=u;batchEntry.authChanged();if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
  const fields=['name','quantity','unit','location','expires','notes'];
  function values(){return {name:$('name').value.trim(),quantity:Number($('quantity').value),unit:$('unit').value,location:$('location').value,expires:$('expires').value,notes:$('notes').value.trim()};}
  function reset(){editing=null;$('itemForm').reset();$('quantity').value='1';$('formTitle').textContent='Add an item';$('save').textContent='Add to pantry';$('cancel').hidden=true;}
