@@ -1,0 +1,922 @@
+[
+  {
+    "id": "beef-birria-tacos",
+    "name": "Beef Birria Tacos with Consommé",
+    "href": "../recipes/beef-birria-tacos.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb beef chuck roast, cut in 2-inch chunks",
+      "4 dried guajillo chiles, seeded",
+      "2 dried ancho chiles, seeded",
+      "1 medium white onion, quartered",
+      "5 garlic cloves",
+      "2 Roma tomatoes",
+      "2 cups beef broth",
+      "2 Tbsp apple cider vinegar",
+      "1 tsp Mexican oregano",
+      "1 tsp ground cumin",
+      "¼ tsp ground cloves",
+      "1 bay leaf",
+      "1½ tsp kosher salt, plus to taste",
+      "12 corn tortillas",
+      "8 oz Oaxaca cheese, shredded",
+      "½ cup diced white onion",
+      "½ cup chopped cilantro",
+      "Pickled red onions and lime wedges, to serve"
+    ]
+  },
+  {
+    "id": "carne-asada-tacos",
+    "name": "Carne Asada Tacos + Charred Peppers",
+    "href": "../recipes/carne-asada-tacos.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb Flank or skirt steak",
+      "12-16 Corn tortillas",
+      "2, sliced into wide strips Bell peppers",
+      "1/3 cup Orange juice",
+      "1/4 cup Lime juice",
+      "2 Tbsp Olive oil",
+      "4 cloves, minced Garlic",
+      "1 tsp Ground cumin",
+      "1 tsp Mexican oregano",
+      "2 tsp Kosher salt",
+      "1/2 tsp Black pepper",
+      "4 Green onions",
+      "2, sliced Avocados",
+      "2 x 15-oz cans, Black beans drained/rinsed",
+      "1/2 cup chopped Cilantro",
+      "for serving Lime wedges"
+    ]
+  },
+  {
+    "id": "chicken-tinga-tostadas",
+    "name": "Chicken Tinga Tostadas — Bone-In Thighs",
+    "href": "../recipes/chicken-tinga-tostadas.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "4 lb bone-in chicken thighs, skin removed",
+      "2 large yellow onions, thinly sliced",
+      "6 garlic cloves, minced",
+      "1 can (14–15 oz) crushed tomatoes",
+      "2 chipotle peppers in adobo",
+      "1 tbsp adobo sauce",
+      "2 tsp dried oregano",
+      "1 tsp ground cumin",
+      "3/4 cup chicken broth",
+      "1 1/2 tsp kosher salt, plus more to taste",
+      "2 tbsp neutral oil",
+      "12 tostada shells",
+      "2 avocados",
+      "2 cups finely shredded green cabbage",
+      "6 oz queso fresco",
+      "1/2 cup Mexican crema or sour cream",
+      "2 limes",
+      "1/3 cup cilantro",
+      "Fermented red onions, optional"
+    ]
+  },
+  {
+    "id": "chicken-flautas",
+    "name": "Crispy Chicken Flautas with Salsa Verde",
+    "href": "../recipes/chicken-flautas.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb boneless skinless chicken thighs",
+      "1 medium white onion, divided",
+      "4 garlic cloves, divided",
+      "1 bay leaf",
+      "1 tsp kosher salt, plus more to taste",
+      "12 small corn tortillas",
+      "8 oz Oaxaca cheese, shredded (optional)",
+      "Neutral oil for shallow frying",
+      "1 lb tomatillos, husked",
+      "1–2 serrano chiles",
+      "1/2 cup cilantro",
+      "1/2 cup Mexican crema",
+      "4 oz queso fresco",
+      "2 cups shredded lettuce",
+      "4 radishes, sliced"
+    ]
+  },
+  {
+    "id": "esquites",
+    "name": "Esquites-Style Charred Corn Salad",
+    "href": "../recipes/esquites.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "4 cups corn kernels",
+      "1 Tbsp neutral oil",
+      "1/4 cup mayonnaise",
+      "1/4 cup sour cream",
+      "1–2 tsp milk or water, to thin",
+      "1/3 cup cotija cheese",
+      "1/2 lime, juiced (add more to taste)",
+      "1/2 tsp chile powder or Tajín",
+      "2 Tbsp cilantro",
+      "Salt to taste"
+    ]
+  },
+  {
+    "id": "garlic-herb-lettuce-salad",
+    "name": "Garlic-Herb Lettuce Salad",
+    "href": "../recipes/garlic-herb-lettuce-salad.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "6 cups, washed and dried Leaf lettuce",
+      "1/4 cup torn Genovese basil",
+      "1/4 cup shaved or grated Parmesan",
+      "2 Tbsp Lemon juice",
+      "3 Tbsp Olive oil",
+      "1 small clove, finely grated Garlic",
+      "1 tsp Dijon mustard",
+      "1 tsp Honey",
+      "to taste Kosher salt & pepper"
+    ]
+  },
+  {
+    "id": "garlic-herb-steak-provolone-wraps",
+    "name": "Garlic-Herb Steak & Provolone Wraps",
+    "href": "../recipes/garlic-herb-steak-provolone-wraps.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 2,
+    "ingredients": [
+      "1 lb Sirloin or flank steak",
+      "4 Large flour tortillas",
+      "6 oz Provolone",
+      "1 large pepper, sliced Roasted bell pepper",
+      "2 cups Leaf lettuce",
+      "1/4 medium, very thinly Red onion sliced",
+      "1/2 cup Greek yogurt",
+      "1/4 cup Mayonnaise",
+      "2 Tbsp finely chopped Garlic chives",
+      "2 Tbsp finely chopped Genovese basil",
+      "1 Tbsp Lemon juice",
+      "1 tsp Dijon mustard",
+      "1 tsp Honey",
+      "1 small clove, grated Garlic",
+      "1 tsp Olive oil",
+      "to taste Kosher salt & black pepper"
+    ]
+  },
+  {
+    "id": "greek-beef-souvlaki",
+    "name": "Greek Beef Souvlaki with Lemon Potatoes and Village Salad",
+    "href": "../recipes/greek-beef-souvlaki.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb beef sirloin, cut into 1¼-inch cubes",
+      "1/4 cup olive oil, for beef",
+      "2 lemons, juiced, for beef",
+      "4 garlic cloves, minced",
+      "2 tsp dried Greek oregano",
+      "1 tsp kosher salt",
+      "1/2 tsp black pepper",
+      "2 lb Yukon Gold potatoes, wedged",
+      "1/4 cup olive oil, for potatoes",
+      "1 lemon, juiced, for potatoes",
+      "3/4 cup chicken broth",
+      "2 garlic cloves, minced, for potatoes",
+      "1 tsp Greek oregano, for potatoes",
+      "3 tomatoes, cut into wedges",
+      "1 bell pepper, sliced",
+      "1/2 red onion, sliced",
+      "4 oz feta cheese",
+      "2 Tbsp olive oil, for salad",
+      "1 tsp red wine vinegar",
+      "1/2 tsp dried oregano, for salad"
+    ]
+  },
+  {
+    "id": "greek-chicken-souvlaki",
+    "name": "Greek Chicken Souvlaki with Lemon Potatoes",
+    "href": "../recipes/greek-chicken-souvlaki.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "1¾ lb boneless skinless chicken thighs, cut into chunks",
+      "2 lb Yukon Gold potatoes, cut into wedges",
+      "¼ cup olive oil, divided",
+      "2 lemons, juiced, divided",
+      "5 garlic cloves, minced, divided",
+      "2 tsp dried Greek oregano, divided",
+      "1 tsp kosher salt, plus to taste",
+      "½ tsp black pepper",
+      "¾ cup chicken broth",
+      "4 pita breads",
+      "¾ cup plain Greek yogurt",
+      "1 Tbsp chopped fresh dill",
+      "1 tomato, chopped",
+      "1 bell pepper, sliced",
+      "¼ red onion, sliced",
+      "2 oz feta, optional"
+    ]
+  },
+  {
+    "id": "honey-dijon-chicken-bowls",
+    "name": "Honey-Dijon Chicken, Roasted Potato and Green Bean Bowls",
+    "href": "../recipes/honey-dijon-chicken-bowls.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 2,
+    "ingredients": [
+      "1 lb boneless skinless chicken thighs",
+      "1 lb baby potatoes, halved",
+      "10 oz green beans, trimmed",
+      "1/2 yellow onion, sliced",
+      "2 Tbsp olive oil",
+      "1 tsp dried thyme",
+      "1/2 tsp garlic powder",
+      "3/4 tsp kosher salt",
+      "Black pepper",
+      "2 Tbsp Dijon mustard",
+      "1 Tbsp honey",
+      "2 Tbsp plain Greek yogurt",
+      "1 Tbsp lemon juice",
+      "1 Tbsp water"
+    ]
+  },
+  {
+    "id": "italian-sausage-pepper-rigatoni",
+    "name": "Italian Sausage & Pepper Baked Rigatoni",
+    "href": "../recipes/italian-sausage-pepper-rigatoni.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "12 oz Rigatoni",
+      "1 lb Italian sausage",
+      "3 cups Homemade spaghetti sauce",
+      "2, sliced Bell peppers",
+      "1 medium, sliced Yellow onion",
+      "3 cloves, minced Garlic",
+      "1/3 cup torn, plus garnish Genovese basil",
+      "8 oz, shredded Mozzarella",
+      "1/2 cup finely grated Parmesan",
+      "1 Tbsp Olive oil",
+      "to taste Kosher salt & pepper"
+    ]
+  },
+  {
+    "id": "caldo-verde-collards",
+    "name": "Portuguese-Style Caldo Verde with Collards and Smoked Kielbasa — Instant Pot",
+    "href": "../recipes/caldo-verde-collards.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 6,
+    "ingredients": [
+      "1 lb smoked kielbasa, sliced (or Portuguese chouriço/linguiça)",
+      "2 lb Yukon Gold potatoes, peeled and diced",
+      "1 large yellow onion, diced",
+      "4 garlic cloves, minced",
+      "2 Tbsp extra-virgin olive oil",
+      "6 cups chicken broth or water",
+      "1 lb collard greens, stems removed, leaves very finely shredded",
+      "1–1½ tsp sweet paprika",
+      "¼ tsp smoked paprika (optional)",
+      "Salt and black pepper, to taste",
+      "1–2 tsp red wine vinegar, to taste",
+      "Extra-virgin olive oil, to finish (optional)",
+      "Crusty bread, to serve"
+    ]
+  },
+  {
+    "id": "purple-radish-herb-salsa",
+    "name": "Purple Radish-Herb Salsa",
+    "href": "../recipes/purple-radish-herb-salsa.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "5, finely diced Purple plum radishes",
+      "1/4 medium, finely diced Red onion",
+      "1/3 cup chopped Cilantro",
+      "from taco recipe, thinly Green onion tops sliced",
+      "2 Tbsp Lime juice",
+      "1/2-1, minced; optional Jalapeno",
+      "1/3 tsp, then to taste Kosher salt"
+    ]
+  },
+  {
+    "id": "gochujang-chicken-bowls",
+    "name": "Quick Korean Gochujang Chicken Bowls",
+    "href": "../recipes/gochujang-chicken-bowls.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "1½ lb boneless skinless chicken thighs, thinly sliced",
+      "4 cups cooked rice, refrigerated promptly after cooking",
+      "12 oz broccoli florets",
+      "2 medium carrots, thinly sliced",
+      "3 green onions, sliced",
+      "3 cloves garlic, minced",
+      "2 Tbsp soy sauce",
+      "1 Tbsp gochujang (adjust at table)",
+      "1 Tbsp honey",
+      "1 Tbsp rice vinegar",
+      "1 tsp toasted sesame oil",
+      "1 Tbsp neutral oil",
+      "1 Tbsp water",
+      "Sesame seeds, optional"
+    ]
+  },
+  {
+    "id": "quick-pickled-carrots-radishes",
+    "name": "Quick-Pickled Carrots & Purple Radishes",
+    "href": "../recipes/quick-pickled-carrots-radishes.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 medium, thin matchsticks Carrots or coins",
+      "3, thinly sliced Purple plum radishes",
+      "1/2 cup Rice vinegar",
+      "1/2 cup Warm water",
+      "1 1/2 Tbsp Sugar",
+      "1 1/2 tsp Kosher salt"
+    ]
+  },
+  {
+    "id": "caramelized-onion-feta-black-pepper-sourdough",
+    "name": "Same-Day Caramelized Onion, Feta & Black Pepper Sourdough",
+    "href": "../recipes/caramelized-onion-feta-black-pepper-sourdough.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 10,
+    "ingredients": [
+      "450 g bread flour",
+      "300 g water",
+      "100 g active sourdough starter (100% hydration)",
+      "3 g instant yeast",
+      "8 g fine salt",
+      "150 g yellow or sweet onion, thinly sliced",
+      "10 g olive oil",
+      "85 g crumbled feta",
+      "1.5 g coarsely cracked black pepper"
+    ]
+  },
+  {
+    "id": "skillet-cornbread",
+    "name": "Skillet Cornbread",
+    "href": "../recipes/skillet-cornbread.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 8,
+    "ingredients": [
+      "1 cup Yellow cornmeal",
+      "1 cup All-purpose flour",
+      "1 Tbsp Baking powder",
+      "1 tsp Kosher salt",
+      "1 cup Milk or buttermilk",
+      "1 Egg",
+      "4 Tbsp, melted Butter",
+      "1 Tbsp, optional Honey"
+    ]
+  },
+  {
+    "id": "thai-basil-chicken-rice-bowls",
+    "name": "Thai Basil Chicken Rice Bowls + Crispy Eggs",
+    "href": "../recipes/thai-basil-chicken-rice-bowls.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb Ground chicken",
+      "1 1/2 cups dry Jasmine rice",
+      "4 Eggs",
+      "1, thinly sliced Bell pepper",
+      "4, sliced; whites/greens Green onions separated",
+      "5 cloves, minced Garlic",
+      "1/3 cup, cut in 1-inch Garlic chives pieces",
+      "1 packed cup Thai basil leaves",
+      "2 Tbsp + more for eggs Neutral oil",
+      "3 Tbsp Oyster sauce",
+      "2 Tbsp Fish sauce",
+      "2 Tbsp Soy sauce",
+      "2 tsp Brown sugar",
+      "3 Tbsp Water",
+      "optional at table Thai chile/chile crisp"
+    ]
+  },
+  {
+    "id": "panang-beef",
+    "name": "Thai Panang Beef Curry (Phanaeng Nuea)",
+    "href": "../recipes/panang-beef.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "1¾ lb sirloin, thinly sliced across the grain",
+      "1 can (13.5–14 oz) full-fat coconut milk",
+      "2 Tbsp Maesri Panang curry paste (medium heat)",
+      "5–6 dried makrut lime leaves, lightly crushed (remove before serving)",
+      "1½ Tbsp fish sauce, to taste",
+      "1–2 tsp palm sugar",
+      "1/4 cup Thai basil leaves, optional",
+      "2 cups dry jasmine rice",
+      "12 oz green beans",
+      "2 tsp neutral oil",
+      "1 garlic clove, sliced",
+      "1 red bell pepper, thinly sliced, optional garnish"
+    ]
+  },
+  {
+    "id": "thick-beef-chili",
+    "name": "Thick Beef Chili",
+    "href": "../recipes/thick-beef-chili.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb Ground beef",
+      "2 medium, diced Yellow onions",
+      "4 cloves, minced Garlic",
+      "2 x 14.5-oz cans Diced tomatoes",
+      "2 x 15-oz cans, Black beans drained/rinsed",
+      "1 x 15-oz can, Kidney beans drained/rinsed",
+      "3 Tbsp Tomato paste",
+      "2 cups Beef broth",
+      "2 Tbsp Chili powder",
+      "2 tsp Ground cumin",
+      "1 tsp Smoked paprika",
+      "1 tsp Mexican oregano",
+      "1 1/2 tsp, then to taste Kosher salt",
+      "1/2 tsp Black pepper",
+      "1 Tbsp if needed Neutral oil"
+    ]
+  },
+  {
+    "id": "lemongrass-chicken-rice-bowls",
+    "name": "Vietnamese-Style Lemongrass Chicken Rice Bowls",
+    "href": "../recipes/lemongrass-chicken-rice-bowls.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 2,
+    "ingredients": [
+      "1 lb Boneless skinless chicken thighs",
+      "1 1/2 cups dry Jasmine rice",
+      "2 stalks, tender inner part Lemongrass finely minced",
+      "2 cloves, minced Garlic",
+      "2 Tbsp Fish sauce",
+      "2 Tbsp Brown sugar",
+      "1 Tbsp Soy sauce",
+      "1 Tbsp Neutral oil",
+      "2 Tbsp Lime juice",
+      "2, sliced Cucumbers",
+      "1, julienned Carrot",
+      "2, thinly sliced Purple plum radishes",
+      "2 cups shredded Leaf lettuce",
+      "2, sliced Green onions",
+      "1/3 cup Cilantro"
+    ]
+  },
+  {
+    "id": "preservation-p20",
+    "name": "Basil pesto freezer cubes",
+    "href": "../preservation/recipes/basil-pesto-freezer-cubes.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 packed cups Genovese basil leaves, washed and thoroughly dried",
+      "⅓ cup toasted pine nuts or walnuts",
+      "2 garlic cloves",
+      "½ cup grated Parmesan",
+      "½ cup extra-virgin olive oil, plus a little if needed",
+      "½ tsp kosher salt, to taste",
+      "1 tbsp lemon juice, optional"
+    ]
+  },
+  {
+    "id": "preservation-p34",
+    "name": "Chopped Onion and Leek Freezer Mix",
+    "href": "../preservation/recipes/onion-leek-freezer-mix.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb yellow, sweet or red onions, weighed before trimming",
+      "8 oz leeks, white and pale green parts"
+    ]
+  },
+  {
+    "id": "preservation-p22",
+    "name": "Cilantro and Parsley Freezer Portions",
+    "href": "../preservation/recipes/cilantro-parsley-freezer-portions.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 oz fresh cilantro, flat-leaf parsley or garlic chives",
+      "Water, only if using the optional cube method"
+    ]
+  },
+  {
+    "id": "preservation-p39",
+    "name": "Cilantro-Citrus Salsa Starter",
+    "href": "../preservation/recipes/cilantro-citrus-salsa-starter.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 oz fresh cilantro leaves and tender stems",
+      "1 jalapeño, stemmed and roughly chopped",
+      "2 garlic cloves, peeled",
+      "¼ cup fresh lime juice or Meyer lemon juice",
+      "¼ cup cold water"
+    ]
+  },
+  {
+    "id": "preservation-p36",
+    "name": "Cooked Sweet Potato Freezer Portions",
+    "href": "../preservation/recipes/sweet-potato-freezer-prep.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb cured sweet potatoes, similar in size"
+    ]
+  },
+  {
+    "id": "preservation-p21",
+    "name": "Dried Mediterranean Herb Seasoning",
+    "href": "../preservation/recipes/dried-herb-seasoning-blends.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 loosely packed cup fresh oregano sprigs",
+      "1 loosely packed cup fresh thyme sprigs",
+      "½ loosely packed cup fresh rosemary sprigs",
+      "½ loosely packed cup fresh sage leaves"
+    ]
+  },
+  {
+    "id": "preservation-p33",
+    "name": "Dried Mint and Chamomile Tea Blend",
+    "href": "../preservation/recipes/dried-mint-chamomile-tea.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 loosely packed cup fresh culinary mint leaves",
+      "1 loosely packed cup correctly identified food-grade chamomile flower heads"
+    ]
+  },
+  {
+    "id": "preservation-p24",
+    "name": "Freezer Corn and Pepper Skillet Mix",
+    "href": "../preservation/recipes/freezer-corn-pepper-fajita-mix.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "4 ears fresh sweet corn, husked and washed",
+      "1 lb bell peppers or sweet Italian peppers, washed",
+      "Ice and cold water, for cooling"
+    ]
+  },
+  {
+    "id": "preservation-p25",
+    "name": "Freezer-Ready Okra",
+    "href": "../preservation/recipes/freezer-ready-okra.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb fresh tender okra pods",
+      "Ice and cold water, for cooling"
+    ]
+  },
+  {
+    "id": "preservation-p17",
+    "name": "Fresh Korean-Style Cabbage (Refrigerated)",
+    "href": "../preservation/recipes/refrigerator-kimchi-style-cabbage.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb Napa cabbage, cored and cut into bite-size pieces",
+      "4 oz daikon radish, peeled and cut into thin matchsticks",
+      "2 green onions, sliced",
+      "2 garlic cloves, finely grated",
+      "1 tsp grated fresh ginger",
+      "1 tbsp gochugaru, plus more at serving if desired",
+      "1 tbsp fish sauce (or soy sauce for a vegetarian version)",
+      "2 tsp sugar",
+      "1 tsp kosher salt",
+      "1 tbsp rice vinegar labeled 5% acidity"
+    ]
+  },
+  {
+    "id": "preservation-p31",
+    "name": "Frozen Citrus Zest and Juice",
+    "href": "../preservation/recipes/frozen-citrus-zest-juice.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "4 Meyer lemons or 6 satsumas/mandarins, sound and ripe"
+    ]
+  },
+  {
+    "id": "preservation-p30",
+    "name": "Frozen Pumpkin or Winter Squash Purée",
+    "href": "../preservation/recipes/frozen-pumpkin-puree.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb mature pumpkin or butternut squash, weighed before trimming"
+    ]
+  },
+  {
+    "id": "preservation-p37",
+    "name": "Frozen Roasted Tomato Sauce Starter",
+    "href": "../preservation/recipes/frozen-roasted-tomato-base.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb ripe tomatoes, washed and cored",
+      "4 garlic cloves, peeled",
+      "1 tbsp olive oil",
+      "1 tsp dried oregano",
+      "½ tsp kosher salt, optional"
+    ]
+  },
+  {
+    "id": "preservation-p23",
+    "name": "Frozen soup greens packs",
+    "href": "../preservation/recipes/freezer-collard-greens-packs.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb fresh collard greens or kale",
+      "Large pot of boiling water",
+      "Large bowl of ice water"
+    ]
+  },
+  {
+    "id": "preservation-p35",
+    "name": "Garlic and Herb Freezer Portions (No Oil)",
+    "href": "../preservation/recipes/garlic-herb-freezer-portions.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "4 oz peeled garlic cloves",
+      "½ cup chopped flat-leaf parsley or garlic chives",
+      "¼ cup cold water, plus a little more only if needed to blend"
+    ]
+  },
+  {
+    "id": "preservation-p38",
+    "name": "Greek Lemon-Herb Freezer Starter",
+    "href": "../preservation/recipes/greek-marinade-freezer-starter.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "½ cup fresh Meyer lemon juice",
+      "1 tbsp finely grated Meyer lemon zest",
+      "¼ cup chopped fresh Greek oregano",
+      "1 tbsp chopped fresh thyme",
+      "1 tsp finely chopped fresh rosemary",
+      "4 garlic cloves, minced"
+    ]
+  },
+  {
+    "id": "preservation-p16",
+    "name": "Lemongrass freezer paste",
+    "href": "../preservation/recipes/thai-lemongrass-freezer-paste.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "6 lemongrass stalks, tender lower 4–6 inches only",
+      "6 garlic cloves",
+      "2 tbsp finely chopped ginger",
+      "½ cup loosely packed Thai basil leaves",
+      "2 tbsp neutral oil or water, as needed for blending"
+    ]
+  },
+  {
+    "id": "preservation-p19",
+    "name": "Mediterranean herb freezer cubes",
+    "href": "../preservation/recipes/mediterranean-herb-freezer-cubes.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 cup washed, thoroughly dried mixed herb leaves (parsley, oregano, thyme and rosemary work well)",
+      "¼–½ cup water, as needed",
+      "Optional: 1 tsp finely grated Meyer lemon zest"
+    ]
+  },
+  {
+    "id": "preservation-p18",
+    "name": "Quick Korean pickled radish",
+    "href": "../preservation/recipes/quick-korean-pickled-daikon.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb daikon radish, peeled and cut into ½-inch cubes",
+      "½ cup distilled white vinegar (5% acidity)",
+      "½ cup water",
+      "3 tbsp granulated sugar",
+      "1½ tsp kosher salt",
+      "Optional: thinly sliced fresh ginger or a pinch of gochugaru"
+    ]
+  },
+  {
+    "id": "preservation-p27",
+    "name": "Quick-pickled red onions",
+    "href": "../preservation/recipes/quick-pickled-red-onions.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 large red onion (about 8 oz), thinly sliced",
+      "½ cup distilled white vinegar, 5% acidity",
+      "½ cup water",
+      "1 tbsp granulated sugar",
+      "1½ tsp kosher salt",
+      "Optional: ½ tsp Mexican oregano or 2 black peppercorns"
+    ]
+  },
+  {
+    "id": "preservation-p28",
+    "name": "Refrigerator Carrot and Daikon Pickle",
+    "href": "../preservation/recipes/pickled-carrot-daikon.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "8 oz carrots, peeled and cut into thin matchsticks",
+      "8 oz daikon radish, peeled and cut into thin matchsticks",
+      "1½ cups distilled white vinegar labeled 5% acidity",
+      "1½ cups water",
+      "¼ cup sugar",
+      "2 tsp canning or pickling salt"
+    ]
+  },
+  {
+    "id": "preservation-p26",
+    "name": "Refrigerator Dill Cucumber Pickles",
+    "href": "../preservation/recipes/refrigerator-dill-cucumber-pickles.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb firm pickling cucumbers, washed",
+      "1½ cups distilled white vinegar labeled 5% acidity",
+      "1½ cups water",
+      "1 tbsp canning or pickling salt",
+      "2 tsp sugar",
+      "4 sprigs fresh dill, rinsed",
+      "2 garlic cloves, peeled and halved",
+      "1 tsp black peppercorns"
+    ]
+  },
+  {
+    "id": "preservation-p13",
+    "name": "Refrigerator escabeche",
+    "href": "../preservation/recipes/refrigerator-escabeche.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "6 jalapeños, sliced into thick rings",
+      "2 medium carrots, peeled and sliced thin",
+      "1 small red onion, thinly sliced",
+      "1 cup small cauliflower florets",
+      "3 garlic cloves, lightly crushed",
+      "1 cup distilled white vinegar (5% acidity)",
+      "1 cup water",
+      "1 tbsp kosher salt",
+      "1 tsp sugar",
+      "1 tsp dried Mexican oregano",
+      "2 bay leaves",
+      "½ tsp black peppercorns"
+    ]
+  },
+  {
+    "id": "preservation-p12",
+    "name": "Refrigerator Pickled Jalapeños",
+    "href": "../preservation/recipes/refrigerator-pickled-jalapenos.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb jalapeños, washed and sliced into ¼-inch rings",
+      "1½ cups distilled white vinegar labeled 5% acidity",
+      "1½ cups water",
+      "1 tbsp canning or pickling salt",
+      "2 tbsp sugar",
+      "2 garlic cloves, peeled and halved",
+      "1 tsp dried Mexican oregano"
+    ]
+  },
+  {
+    "id": "preservation-p9",
+    "name": "Roasted poblano strips for fajitas",
+    "href": "../preservation/recipes/roasted-poblano-freezer-strips.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb poblano peppers (or other sweet peppers)",
+      "Optional: ½ tsp kosher salt per pound, added after thawing"
+    ]
+  },
+  {
+    "id": "preservation-p11",
+    "name": "Roasted tomatillo salsa verde",
+    "href": "../preservation/recipes/roasted-tomatillo-salsa-verde.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb tomatillos, husked and rinsed",
+      "1–2 jalapeños or serranos, stemmed (to taste)",
+      "1 medium white or yellow onion, quartered",
+      "4 garlic cloves, peeled",
+      "½ cup chopped cilantro",
+      "1–2 tbsp fresh lime juice, to taste",
+      "1 tsp kosher salt, plus more to taste"
+    ]
+  },
+  {
+    "id": "preservation-p10",
+    "name": "Smoky salsa tatemada freezer packs",
+    "href": "../preservation/recipes/smoky-salsa-tatemada-freezer.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 lb Roma or slicing tomatoes, halved",
+      "2 medium jalapeños or serranos, stemmed",
+      "1 medium yellow onion, quartered",
+      "4 garlic cloves, unpeeled",
+      "1 tsp kosher salt, to taste",
+      "1 tbsp lime juice, to taste",
+      "¼ cup chopped cilantro, optional"
+    ]
+  },
+  {
+    "id": "preservation-p15",
+    "name": "Thai basil freezer portions",
+    "href": "../preservation/recipes/thai-basil-freezer-portions.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "2 packed cups fresh Thai basil leaves",
+      "Cold water for rinsing",
+      "Optional: 2–4 tbsp water for chopped portions"
+    ]
+  },
+  {
+    "id": "preservation-p32",
+    "name": "Unsweetened Frozen Figs",
+    "href": "../preservation/recipes/frozen-figs.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb fully ripe, sound figs"
+    ]
+  },
+  {
+    "id": "preservation-p29",
+    "name": "Zucchini and Summer Squash Freezer Prep",
+    "href": "../preservation/recipes/zucchini-summer-squash-freezer-prep.html",
+    "group": "Preservation batches",
+    "mode": "batches",
+    "baseAmount": 1,
+    "ingredients": [
+      "1 lb young tender zucchini (or pattypan squash for the sliced method)",
+      "Ice and cold water, for cooling"
+    ]
+  }
+]

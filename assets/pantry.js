@@ -1,3 +1,4 @@
+import { initShoppingList } from './shopping-list.js';
 import { initPreservationBatch } from './preservation-batch.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
@@ -9,6 +10,7 @@ if(!ready){$('authStatus').textContent='Setup needed: add your Firebase web conf
 else {
  const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
  const pantry=collection(db,'households','family','pantry');let user=null,items=[],unsubscribe=null,editing=null;
+ const shopping=initShoppingList();
  const batchEntry=initPreservationBatch({catalog:window.PRESERVATION_CATALOG,getUser:()=>user,saveBatch:async(token,values)=>{
   if(!user)throw Error('Sign in before saving.');
   const uid=user.uid,ref=doc(pantry,'preserved-'+token);
@@ -29,7 +31,7 @@ else {
   }
  };
  $('signOut').onclick=()=>signOut(auth);
- onAuthStateChanged(auth,u=>{user=u;batchEntry.authChanged();if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];render();});});
+ onAuthStateChanged(auth,u=>{user=u;batchEntry.authChanged();shopping.authChanged();if(unsubscribe){unsubscribe();unsubscribe=null;}$('app').hidden=!u;$('signIn').hidden=!!u;$('signOut').hidden=!u;$('authStatus').textContent=u?'Signed in as '+(u.email||'Google user'):($('authStatus').textContent.startsWith('Google sign-in returned')||$('authStatus').textContent.startsWith('Redirect failed:')?'': 'Sign in to see your shared household pantry.');if(u)unsubscribe=onSnapshot(pantry,s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));shopping.setPantry(items,'ready');render();$('message').textContent='';},e=>{$('message').textContent='Unable to load pantry: '+e.message+'. Check your Firestore rules and authorized email addresses.';items=[];shopping.setPantry(items,'error');render();});});
  const fields=['name','quantity','unit','location','expires','notes'];
  function values(){return {name:$('name').value.trim(),quantity:Number($('quantity').value),unit:$('unit').value,location:$('location').value,expires:$('expires').value,notes:$('notes').value.trim()};}
  function reset(){editing=null;$('itemForm').reset();$('quantity').value='1';$('formTitle').textContent='Add an item';$('save').textContent='Add to pantry';$('cancel').hidden=true;}
