@@ -204,28 +204,40 @@
   },
   {
     "id": "greek-chicken-souvlaki",
-    "name": "Greek Chicken Souvlaki with Lemon Potatoes",
+    "name": "Greek Chicken Souvlaki with Lemon-Herb Pearl Couscous",
     "href": "../recipes/greek-chicken-souvlaki.html",
     "group": "Meals and sides",
     "mode": "servings",
     "baseAmount": 4,
     "ingredients": [
       "1¾ lb boneless skinless chicken thighs, cut into chunks",
-      "2 lb Yukon Gold potatoes, cut into wedges",
-      "¼ cup olive oil, divided",
-      "2 lemons, juiced, divided",
-      "5 garlic cloves, minced, divided",
-      "2 tsp dried Greek oregano, divided",
+      "1 Tbsp olive oil, for chicken",
+      "½ lemon, juiced, for chicken",
+      "2 garlic cloves, minced, for chicken",
+      "1 tsp dried Greek oregano, for chicken",
       "1 tsp kosher salt, plus to taste",
       "½ tsp black pepper",
-      "¾ cup chicken broth",
       "4 pita breads",
       "¾ cup plain Greek yogurt",
-      "1 Tbsp chopped fresh dill",
+      "1 Tbsp chopped fresh dill, for sauce",
+      "1 garlic clove, minced, for sauce",
+      "½ lemon, juiced, for sauce",
       "1 tomato, chopped",
       "1 bell pepper, sliced",
       "¼ red onion, sliced",
-      "2 oz feta, optional"
+      "1 Tbsp olive oil, for salad",
+      "2 oz feta, optional, for salad",
+      "1½ cups dry pearl couscous",
+      "2 cups chicken broth",
+      "1 tbsp olive oil",
+      "2 cloves garlic, minced",
+      "Zest of 1 lemon",
+      "2 tbsp fresh lemon juice",
+      "2 tbsp chopped fresh parsley",
+      "1 tbsp chopped fresh dill (optional)",
+      "½ tsp dried oregano",
+      "Salt and black pepper to taste",
+      "2 tbsp crumbled feta (optional)"
     ]
   },
   {
@@ -271,6 +283,27 @@
       "1/2 cup finely grated Parmesan",
       "1 Tbsp Olive oil",
       "to taste Kosher salt & pepper"
+    ]
+  },
+  {
+    "id": "lemon-herb-pearl-couscous",
+    "name": "Mediterranean Lemon-Herb Pearl Couscous",
+    "href": "../recipes/lemon-herb-pearl-couscous.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "1½ cups dry pearl couscous",
+      "2 cups chicken broth",
+      "1 tbsp olive oil",
+      "2 cloves garlic, minced",
+      "Zest of 1 lemon",
+      "2 tbsp fresh lemon juice",
+      "2 tbsp chopped fresh parsley",
+      "1 tbsp chopped fresh dill (optional)",
+      "½ tsp dried oregano",
+      "Salt and black pepper to taste",
+      "2 tbsp crumbled feta (optional)"
     ]
   },
   {
