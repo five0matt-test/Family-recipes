@@ -54,6 +54,34 @@
     ]
   },
   {
+    "id": "chicken-katsu",
+    "name": "Chicken Katsu with Rice and Sesame Slaw",
+    "href": "../recipes/chicken-katsu.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 3,
+    "ingredients": [
+      "1½ lb boneless skinless chicken breasts, sliced into 3–4 thin cutlets",
+      "1 tsp kosher salt, divided, plus to taste",
+      "½ tsp black pepper",
+      "½ cup all-purpose flour",
+      "2 eggs, beaten",
+      "1½ cups panko breadcrumbs",
+      "½ cup neutral oil, for shallow frying, plus more as needed",
+      "1 cup dry white rice",
+      "Water, according to rice package",
+      "3 cups shredded green cabbage",
+      "1 large carrot, shredded",
+      "2 Tbsp rice vinegar",
+      "2 tsp toasted sesame oil",
+      "2 tsp sugar, divided",
+      "1 tsp sesame seeds",
+      "3 Tbsp ketchup",
+      "1½ Tbsp Worcestershire sauce",
+      "2 tsp soy sauce"
+    ]
+  },
+  {
     "id": "chicken-tinga-tostadas",
     "name": "Chicken Tinga Tostadas — Bone-In Thighs",
     "href": "../recipes/chicken-tinga-tostadas.html",
@@ -80,6 +108,29 @@
       "2 limes",
       "1/3 cup cilantro",
       "Fermented red onions, optional"
+    ]
+  },
+  {
+    "id": "dijon-pork-chops-apples",
+    "name": "Creamy Dijon Pork Chops with Apples, Green Beans and Egg Noodles",
+    "href": "../recipes/dijon-pork-chops-apples.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 3,
+    "ingredients": [
+      "3 boneless pork chops, about 6 oz each and ¾ inch thick",
+      "1 tsp kosher salt, plus to taste",
+      "½ tsp black pepper",
+      "1 Tbsp olive oil",
+      "2 firm apples, cored and sliced",
+      "2 Tbsp butter, divided",
+      "2 garlic cloves, minced",
+      "¾ cup chicken broth",
+      "2 Tbsp Dijon mustard",
+      "⅓ cup heavy cream",
+      "½ tsp dried thyme",
+      "8 oz dry egg noodles",
+      "12 oz green beans, trimmed"
     ]
   },
   {
@@ -286,6 +337,29 @@
     ]
   },
   {
+    "id": "sausage-broccoli-white-bean-skillet",
+    "name": "Italian Sausage, Broccoli and White Bean Skillet with Garlic Bread",
+    "href": "../recipes/sausage-broccoli-white-bean-skillet.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 3,
+    "ingredients": [
+      "1 lb mild Italian pork sausage, casings removed",
+      "12 oz broccoli, cut into small florets",
+      "2 cans (15 oz each) white beans, drained and rinsed",
+      "4 garlic cloves, minced, divided",
+      "½ cup chicken broth, plus more as needed",
+      "1 Tbsp olive oil",
+      "½ tsp dried oregano",
+      "1 lemon, zested and juiced",
+      "⅓ cup grated Parmesan",
+      "Salt and black pepper, to taste",
+      "½ large baguette, split lengthwise",
+      "2 Tbsp softened butter",
+      "Red pepper flakes, optional at the table"
+    ]
+  },
+  {
     "id": "lemon-herb-pearl-couscous",
     "name": "Mediterranean Lemon-Herb Pearl Couscous",
     "href": "../recipes/lemon-herb-pearl-couscous.html",
@@ -421,6 +495,30 @@
       "1 Egg",
       "4 Tbsp, melted Butter",
       "1 Tbsp, optional Honey"
+    ]
+  },
+  {
+    "id": "smoky-seminole-pumpkin-white-bean-soup",
+    "name": "Smoky Seminole Pumpkin–White Bean Soup",
+    "href": "../recipes/smoky-seminole-pumpkin-white-bean-soup.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 12,
+    "ingredients": [
+      "6 cups cooked Seminole pumpkin flesh (roast enough whole pumpkins to yield this amount; size and yield vary)",
+      "2 cans (15 oz each) white beans, drained and rinsed",
+      "4 cups chicken broth, plus up to 2 cups more as needed",
+      "1 large onion, diced",
+      "4 garlic cloves, chopped",
+      "2 Tbsp olive oil",
+      "2 tsp smoked paprika",
+      "1 tsp ground cumin",
+      "1 tsp dried thyme",
+      "½ tsp black pepper",
+      "1–2 Tbsp lemon juice, to taste",
+      "Salt, to taste",
+      "Crusty bread, for serving",
+      "Cooked bacon crumbles or hot sauce, optional for serving"
     ]
   },
   {

@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-11-06",
+    "title": "November 6–12, 2026",
+    "selected": [
+      {
+        "id": "chicken-katsu",
+        "amount": 3
+      },
+      {
+        "id": "dijon-pork-chops-apples",
+        "amount": 3
+      },
+      {
+        "id": "sausage-broccoli-white-bean-skillet",
+        "amount": 3
+      },
+      {
+        "id": "smoky-seminole-pumpkin-white-bean-soup",
+        "amount": 12
+      }
+    ]
+  },
+  {
     "id": "2026-10-30",
     "title": "October 30–November 5, 2026",
     "selected": [
