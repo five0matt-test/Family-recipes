@@ -111,6 +111,27 @@
     ]
   },
   {
+    "id": "cranberry-goat-cheese-rosemary-sourdough-focaccia",
+    "name": "Cranberry, Goat Cheese and Rosemary Sourdough Focaccia",
+    "href": "../recipes/cranberry-goat-cheese-rosemary-sourdough-focaccia.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 12,
+    "ingredients": [
+      "500 g all-purpose flour (bread flour also works)",
+      "390 g water, room temperature",
+      "100 g active sourdough starter (100% hydration; equal flour and water by weight)",
+      "10 g fine salt",
+      "20 g olive oil, for dough",
+      "30 g olive oil, for the pan",
+      "15 g olive oil, for topping",
+      "90 g thick cranberry sauce, chilled",
+      "100 g plain soft goat cheese, crumbled and chilled",
+      "3 g fresh rosemary, finely chopped (up to 4 g for a stronger flavor)",
+      "Flaky salt, optional, a light sprinkle"
+    ]
+  },
+  {
     "id": "dijon-pork-chops-apples",
     "name": "Creamy Dijon Pork Chops with Apples, Green Beans and Egg Noodles",
     "href": "../recipes/dijon-pork-chops-apples.html",
@@ -517,7 +538,6 @@
       "½ tsp black pepper",
       "1–2 Tbsp lemon juice, to taste",
       "Salt, to taste",
-      "Crusty bread, for serving",
       "Cooked bacon crumbles or hot sauce, optional for serving"
     ]
   },
