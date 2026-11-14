@@ -215,29 +215,6 @@
     ]
   },
   {
-    "id": "garden-radish-sumac-salad",
-    "name": "Garden Lettuce & Radish Salad with Sumac Vinaigrette",
-    "href": "../recipes/garden-radish-sumac-salad.html",
-    "group": "Meals and sides",
-    "mode": "servings",
-    "baseAmount": 2,
-    "ingredients": [
-      "3 cups garden leaf lettuce, washed, dried and chopped",
-      "3–4 radishes, thinly sliced",
-      "⅛ small red onion, very thinly sliced",
-      "1 tsp chopped parsley",
-      "3 tbsp crumbled feta",
-      "¼ cup pita chips, roughly broken",
-      "1½ tbsp extra-virgin olive oil",
-      "2¼ tsp red-wine vinegar",
-      "½ tsp sumac",
-      "¼ tsp honey",
-      "¼ tsp Dijon mustard",
-      "½ small garlic clove, finely grated",
-      "⅛ tsp salt, plus black pepper to taste"
-    ]
-  },
-  {
     "id": "garlic-herb-lettuce-salad",
     "name": "Garlic-Herb Lettuce Salad",
     "href": "../recipes/garlic-herb-lettuce-salad.html",
@@ -416,6 +393,30 @@
       "⅔ large baguette, split lengthwise",
       "2 Tbsp plus 2 tsp softened butter",
       "Red pepper flakes, optional at the table"
+    ]
+  },
+  {
+    "id": "garden-radish-sumac-salad",
+    "name": "Lettuce, Arugula & Sorrel Salad with Sumac Vinaigrette",
+    "href": "../recipes/garden-radish-sumac-salad.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 2,
+    "ingredients": [
+      "1½ cups garden leaf lettuce, washed, dried and chopped",
+      "1 cup young arugula, washed and dried",
+      "¼ cup sorrel leaves, stems removed and leaves thinly sliced",
+      "3–4 radishes, thinly sliced",
+      "1 tbsp very thinly sliced red onion",
+      "3 tbsp crumbled feta",
+      "¼ cup pita chips, roughly broken",
+      "1½ tbsp extra-virgin olive oil",
+      "1½ tsp red-wine vinegar, plus more to taste",
+      "½ tsp sumac",
+      "¼ tsp honey",
+      "¼ tsp Dijon mustard",
+      "½ small garlic clove, finely grated",
+      "⅛ tsp salt, plus black pepper to taste"
     ]
   },
   {
