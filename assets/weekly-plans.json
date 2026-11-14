@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-11-13",
+    "title": "November 13–19, 2026",
+    "selected": [
+      {
+        "id": "dijon-pork-chops-apples",
+        "amount": 4
+      },
+      {
+        "id": "chicken-shawarma-garlic-yogurt",
+        "amount": 4
+      },
+      {
+        "id": "buttery-couscous",
+        "amount": 4
+      },
+      {
+        "id": "garden-radish-sumac-salad",
+        "amount": 2
+      }
+    ]
+  },
+  {
     "id": "2026-11-06",
     "title": "November 6–12, 2026",
     "selected": [

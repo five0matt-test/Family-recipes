@@ -28,6 +28,21 @@
     ]
   },
   {
+    "id": "buttery-couscous",
+    "name": "Buttery Couscous",
+    "href": "../recipes/buttery-couscous.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "1½ cups dry regular couscous (not pearl couscous)",
+      "1½ cups low-sodium chicken broth, or amount specified on couscous package",
+      "1½ tbsp butter",
+      "1 tbsp chopped parsley, optional",
+      "Salt and black pepper, to taste"
+    ]
+  },
+  {
     "id": "carne-asada-tacos",
     "name": "Carne Asada Tacos + Charred Peppers",
     "href": "../recipes/carne-asada-tacos.html",
@@ -197,6 +212,29 @@
       "1/2 tsp chile powder or Tajín",
       "2 Tbsp cilantro",
       "Salt to taste"
+    ]
+  },
+  {
+    "id": "garden-radish-sumac-salad",
+    "name": "Garden Lettuce & Radish Salad with Sumac Vinaigrette",
+    "href": "../recipes/garden-radish-sumac-salad.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 2,
+    "ingredients": [
+      "3 cups garden leaf lettuce, washed, dried and chopped",
+      "3–4 radishes, thinly sliced",
+      "⅛ small red onion, very thinly sliced",
+      "1 tsp chopped parsley",
+      "3 tbsp crumbled feta",
+      "¼ cup pita chips, roughly broken",
+      "1½ tbsp extra-virgin olive oil",
+      "2¼ tsp red-wine vinegar",
+      "½ tsp sumac",
+      "¼ tsp honey",
+      "¼ tsp Dijon mustard",
+      "½ small garlic clove, finely grated",
+      "⅛ tsp salt, plus black pepper to taste"
     ]
   },
   {
@@ -498,6 +536,29 @@
       "10 g olive oil",
       "85 g crumbled feta",
       "1.5 g coarsely cracked black pepper"
+    ]
+  },
+  {
+    "id": "chicken-shawarma-garlic-yogurt",
+    "name": "Skillet Chicken Shawarma with Garlic Yogurt",
+    "href": "../recipes/chicken-shawarma-garlic-yogurt.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 4,
+    "ingredients": [
+      "2 lb boneless skinless chicken thighs",
+      "2 tbsp olive oil",
+      "2 tsp ground cumin",
+      "2 tsp ground coriander",
+      "1½ tsp sweet paprika",
+      "½ tsp ground turmeric",
+      "¼ tsp ground cinnamon",
+      "1 tsp kosher salt, plus to taste",
+      "½ tsp black pepper",
+      "4 garlic cloves, finely grated, divided",
+      "¾ cup plain Greek yogurt",
+      "1 tbsp lemon juice",
+      "1–2 tbsp water, as needed"
     ]
   },
   {

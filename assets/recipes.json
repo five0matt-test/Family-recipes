@@ -33,7 +33,7 @@
   },
   {
     "id": "chicken-tinga-tostadas",
-    "name": "Chicken Tinga Tostadas \u2014 Bone-In Thighs",
+    "name": "Chicken Tinga Tostadas — Bone-In Thighs",
     "cuisine": "Mexican",
     "meal": "Main course",
     "minutes": 85,
@@ -46,7 +46,7 @@
       "4 lb bone-in chicken thighs, skin removed",
       "2 large yellow onions, thinly sliced",
       "6 garlic cloves, minced",
-      "1 can (14\u201315 oz) crushed tomatoes",
+      "1 can (14–15 oz) crushed tomatoes",
       "2 chipotle peppers in adobo",
       "1 tbsp adobo sauce",
       "2 tsp dried oregano",
@@ -321,5 +321,86 @@
     ],
     "image": "thick-beef-chili.jpg",
     "order": 10
+  },
+  {
+    "id": "chicken-shawarma-garlic-yogurt",
+    "name": "Skillet Chicken Shawarma with Garlic Yogurt",
+    "meal": "Dinner",
+    "minutes": 30,
+    "servings": 4,
+    "tags": [
+      "Chicken",
+      "30 Minutes or Less"
+    ],
+    "ingredients": [
+      "2 lb boneless skinless chicken thighs",
+      "2 tbsp olive oil",
+      "2 tsp ground cumin",
+      "2 tsp ground coriander",
+      "1½ tsp sweet paprika",
+      "½ tsp ground turmeric",
+      "¼ tsp ground cinnamon",
+      "1 tsp kosher salt, plus to taste",
+      "½ tsp black pepper",
+      "4 garlic cloves, finely grated, divided",
+      "¾ cup plain Greek yogurt",
+      "1 tbsp lemon juice",
+      "1–2 tbsp water, as needed"
+    ],
+    "image": "chicken-shawarma-garlic-yogurt.jpg",
+    "cuisine": "Middle Eastern-inspired",
+    "yieldText": "4",
+    "order": 11
+  },
+  {
+    "id": "buttery-couscous",
+    "name": "Buttery Couscous",
+    "meal": "Side",
+    "minutes": 10,
+    "servings": 4,
+    "tags": [
+      "30 Minutes or Less"
+    ],
+    "ingredients": [
+      "1½ cups dry regular couscous (not pearl couscous)",
+      "1½ cups low-sodium chicken broth, or amount specified on couscous package",
+      "1½ tbsp butter",
+      "1 tbsp chopped parsley, optional",
+      "Salt and black pepper, to taste"
+    ],
+    "image": "buttery-couscous.jpg",
+    "cuisine": "Middle Eastern-inspired",
+    "yieldText": "4",
+    "order": 12
+  },
+  {
+    "id": "garden-radish-sumac-salad",
+    "name": "Garden Lettuce & Radish Salad with Sumac Vinaigrette",
+    "meal": "Side",
+    "minutes": 15,
+    "servings": 2,
+    "tags": [
+      "Vegetarian",
+      "30 Minutes or Less"
+    ],
+    "ingredients": [
+      "3 cups garden leaf lettuce, washed, dried and chopped",
+      "3–4 radishes, thinly sliced",
+      "⅛ small red onion, very thinly sliced",
+      "1 tsp chopped parsley",
+      "3 tbsp crumbled feta",
+      "¼ cup pita chips, roughly broken",
+      "1½ tbsp extra-virgin olive oil",
+      "2¼ tsp red-wine vinegar",
+      "½ tsp sumac",
+      "¼ tsp honey",
+      "¼ tsp Dijon mustard",
+      "½ small garlic clove, finely grated",
+      "⅛ tsp salt, plus black pepper to taste"
+    ],
+    "image": "garden-radish-sumac-salad.jpg",
+    "cuisine": "Middle Eastern-inspired",
+    "yieldText": "2",
+    "order": 13
   }
 ]
