@@ -403,5 +403,143 @@
     "cuisine": "Middle Eastern-inspired",
     "yieldText": "2",
     "order": 13
+  },
+  {
+    "id": "lemongrass-braised-pork-blade-steak",
+    "name": "Lemongrass-Braised Pork Blade Steak with Pickled Daikon",
+    "cuisine": "Vietnamese-inspired",
+    "meal": "Dinner",
+    "minutes": 125,
+    "servings": 3,
+    "yieldText": "3",
+    "tags": [
+      "Pork"
+    ],
+    "ingredients": [
+      "1 1/2 lb bone-in pork blade steaks",
+      "1 Tbsp neutral oil",
+      "2 lemongrass stalks, trimmed and smashed",
+      "3 garlic cloves, smashed",
+      "1 cup low-sodium chicken broth, plus more as needed",
+      "1 Tbsp fish sauce",
+      "2 tsp brown sugar",
+      "1 cup jasmine rice",
+      "1 cup thinly sliced daikon",
+      "1/4 cup rice vinegar",
+      "1/4 cup water",
+      "1 Tbsp sugar",
+      "1/2 tsp kosher salt, plus more for the pork",
+      "1/4 cup Thai basil leaves"
+    ],
+    "image": "lemongrass-braised-pork-blade-steak.jpg",
+    "order": 14
+  },
+  {
+    "id": "salsa-verde-chicken-white-bean-chili",
+    "name": "Salsa Verde Chicken and Great Northern Bean Chili",
+    "cuisine": "Mexican-inspired",
+    "meal": "Dinner",
+    "minutes": 40,
+    "servings": 5,
+    "yieldText": "5",
+    "tags": [
+      "Chicken"
+    ],
+    "ingredients": [
+      "1 3/4 lb boneless skinless chicken breast",
+      "2 cans (15 oz each) Great Northern beans, drained and rinsed",
+      "1 1/2 cups frozen corn",
+      "3 cups chicken broth",
+      "1/2–1 cup salsa verde, depending on heat",
+      "1 medium onion, diced",
+      "3 garlic cloves, minced",
+      "2 tsp ground cumin",
+      "1 Tbsp olive oil",
+      "1/4 cup chopped cilantro",
+      "4 regular radishes, thinly sliced",
+      "1 lime, cut into wedges"
+    ],
+    "image": "salsa-verde-chicken-white-bean-chili.jpg",
+    "order": 15
+  },
+  {
+    "id": "ginger-soy-beef-rice-skillet",
+    "name": "Ginger-Soy Beef and Rice Skillet",
+    "cuisine": "Asian-inspired",
+    "meal": "Dinner",
+    "minutes": 30,
+    "servings": 3,
+    "yieldText": "3",
+    "tags": [
+      "Beef",
+      "30 Minutes or Less"
+    ],
+    "ingredients": [
+      "1 lb ground beef",
+      "2 garlic cloves, minced",
+      "1/2 tsp ground ginger",
+      "1 cup jasmine rice, rinsed and drained",
+      "1 1/4 cups water",
+      "2 Tbsp soy sauce",
+      "1 Tbsp brown sugar",
+      "1 cup frozen cut green beans",
+      "1 tsp toasted sesame oil",
+      "Chili crisp, optional for serving"
+    ],
+    "image": "ginger-soy-beef-rice-skillet.jpg",
+    "order": 16
+  },
+  {
+    "id": "pasilla-pan-sauce-steak",
+    "name": "Seared Steak with Pasilla Pan Sauce and Garden Greens",
+    "cuisine": "Mexican-inspired",
+    "meal": "Dinner",
+    "minutes": 40,
+    "servings": 3,
+    "yieldText": "3",
+    "tags": [
+      "Beef"
+    ],
+    "ingredients": [
+      "1 1/4 lb beef steaks",
+      "1 1/2 lb Yukon Gold potatoes, peeled if desired and chopped",
+      "3 Tbsp unsalted butter, divided",
+      "1/3 cup milk, warmed",
+      "2 Tbsp neutral oil, divided",
+      "1/3 cup salsa pasilla",
+      "1/4 cup low-sodium beef broth or water",
+      "2 garlic cloves, minced",
+      "1 bunch mustard greens, tough stems removed and leaves chopped",
+      "2 cups arugula",
+      "1/4 cup salsa tatemada, for serving",
+      "Kosher salt and black pepper, to taste"
+    ],
+    "image": "pasilla-pan-sauce-steak.jpg",
+    "order": 17
+  },
+  {
+    "id": "pesto-crusted-sablefish",
+    "name": "Pesto-Crusted Sablefish with Lemon and White Bean Orzo",
+    "cuisine": "Mediterranean-inspired",
+    "meal": "Dinner",
+    "minutes": 30,
+    "servings": 3,
+    "yieldText": "3",
+    "tags": [
+      "Seafood",
+      "30 Minutes or Less"
+    ],
+    "ingredients": [
+      "3 sablefish fillets (5–6 oz each), thawed",
+      "3 Tbsp Genovese basil pesto, thawed if frozen",
+      "1/3 cup panko breadcrumbs",
+      "1 cup dry orzo",
+      "1 can (15 oz) cannellini beans, drained and rinsed",
+      "2 Tbsp olive oil, divided",
+      "1 Tbsp bottled lemon juice, plus more to taste",
+      "Kosher salt and black pepper, to taste"
+    ],
+    "image": "pesto-crusted-sablefish.jpg",
+    "order": 18
   }
 ]

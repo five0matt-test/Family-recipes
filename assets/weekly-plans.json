@@ -1,5 +1,31 @@
 [
   {
+    "id": "2026-11-20",
+    "title": "November 20–26, 2026",
+    "selected": [
+      {
+        "id": "lemongrass-braised-pork-blade-steak",
+        "amount": 3
+      },
+      {
+        "id": "salsa-verde-chicken-white-bean-chili",
+        "amount": 5
+      },
+      {
+        "id": "ginger-soy-beef-rice-skillet",
+        "amount": 3
+      },
+      {
+        "id": "pasilla-pan-sauce-steak",
+        "amount": 3
+      },
+      {
+        "id": "pesto-crusted-sablefish",
+        "amount": 3
+      }
+    ]
+  },
+  {
     "id": "2026-11-13",
     "title": "November 13–19, 2026",
     "selected": [
