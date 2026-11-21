@@ -8,6 +8,12 @@
   <style>body{font:17px/1.6 system-ui,-apple-system,sans-serif;background:#faf9f6;color:#252d2b;margin:0}main{max-width:760px;margin:30px auto;padding:25px;background:white;border-radius:18px}h1{line-height:1.15}h2{margin-top:32px}li{margin:9px 0}a{color:#226858}.tag{color:#587066}aside{padding:15px;background:#f1f5f1;border-radius:12px}
 .back-link{display:inline-block;padding:9px 13px;background:#eaf3ee;border-radius:9px;text-decoration:none;font-weight:600}.back-link:hover,.back-link:focus{background:#d7e8df;text-decoration:underline}.bottom-nav{margin-top:34px;padding-top:20px;border-top:1px solid #e2e7e2}@media(max-width:650px){main{margin:0 auto;padding:20px 17px;border-radius:0}}</style>
   <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    .method-selector{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
+    .method-link{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:2px solid #276749;background:white;color:#276749;border-radius:10px;font-weight:700;text-decoration:none}
+    .method-link[aria-current="page"]{background:#276749;color:white}
+    @media print{.method-selector{display:none}}
+  </style>
   <script defer src="../assets/recipe.js"></script>
 </head>
 <body>
@@ -16,6 +22,10 @@
   <a class="plan-link" href="../plans/index.html#plan-2026-11-20">Weekly meal plans</a>
   <p class="tag">Mexican-inspired · Dinner · Serves 5 · About 40 minutes</p>
   <h1>Salsa Verde Chicken and Great Northern Bean Chili</h1>
+  <nav class="method-selector" aria-label="Cooking method">
+    <a class="method-link" data-method-link="stovetop" href="salsa-verde-chicken-white-bean-chili.html" aria-current="page">Stovetop</a>
+    <a class="method-link" data-method-link="instant" href="salsa-verde-chicken-white-bean-chili-instant-pot.html">Instant Pot</a>
+  </nav>
   <img alt="Photographic illustration of Salsa Verde Chicken and Great Northern Bean Chili" src="../images/salsa-verde-chicken-white-bean-chili.jpg" style="display:block;width:100%;max-height:440px;object-fit:cover;border-radius:14px;margin:18px 0 24px">
   <section aria-label="Recipe tools" class="recipe-tools" data-base-servings="5" data-recipe-id="salsa-verde-chicken-white-bean-chili">
     <button aria-pressed="false" class="favorite-toggle" type="button">♡ Save favorite</button>
@@ -58,6 +68,11 @@
 </main>
 <script>
   document.querySelectorAll('[data-back]').forEach(link => link.href = '../index.html' + location.search);
+  document.querySelectorAll('[data-method-link]').forEach(link => {
+    const url = new URL(link.href);
+    url.search = location.search;
+    link.href = url.href;
+  });
 </script>
 </body>
 </html>
