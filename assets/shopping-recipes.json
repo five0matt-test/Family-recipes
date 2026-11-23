@@ -495,6 +495,27 @@
     ]
   },
   {
+    "id": "miso-sablefish",
+    "name": "Miso Sablefish with Jasmine Rice and Sesame Greens",
+    "href": "../recipes/miso-sablefish.html",
+    "group": "Meals and sides",
+    "mode": "servings",
+    "baseAmount": 3,
+    "ingredients": [
+      "3 sablefish fillets (5–6 oz each), thawed",
+      "2 Tbsp white miso",
+      "1 1/2 Tbsp mirin",
+      "1 Tbsp sake (or water)",
+      "1 Tbsp sugar",
+      "1 cup dry jasmine rice",
+      "1/2 large head bok choy",
+      "2–3 packed cups chopped chijimisai",
+      "1 tsp neutral oil",
+      "1 tsp toasted sesame oil",
+      "1–2 tsp soy sauce, to taste"
+    ]
+  },
+  {
     "id": "pesto-crusted-sablefish",
     "name": "Pesto-Crusted Sablefish with Lemon and White Bean Orzo",
     "href": "../recipes/pesto-crusted-sablefish.html",
